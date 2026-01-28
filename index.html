@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портал проектов Батышева О.А.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-brand">
+                <img src="assets/logo.png" alt="Логотип проекта" class="logo">
+                <h1>Портал проектов Батышева О.А.</h1>
+            </div>
+            
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="audio_site/index.html">Аудио сайт</a></li>
+                    <li><a href="batyshev-portfolio/index.html">Билеты</a></li> <!-- ИЗМЕНЕНО -->
+                    <li><a href="generaltest/index.html">Общие тесты</a></li>
+                    <li><a href="extest/index.html">Доп. тесты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="home">
+            <h2>Добро пожаловать на объединенный портал</h2>
+            <p>Здесь собраны все мои веб-проекты для подготовки к экзаменам по столярному делу в С(К)ОШИ г.Ленска, МР"Ленский район" РС(Я). Здесь собрано всё, что необходимо: Тексты экзаменационных билетов, тесты для самопроверки, а также аудио-файлы для прослушивания содержания билетов. Используйте меню выше для навигации.</p>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Аудио сайт</h3>
+                    <p>Проект, посвященный аудио материалам.</p>
+                    <a href="audio_site/index.html" class="btn">Перейти к проекту</a>
+                </div>
+                <div class="project-card">
+                    <h3>Билеты</h3> <!-- ИЗМЕНЕНО -->
+                    <p>Проект, содержащий материалы по билетам.</p> <!-- ИЗМЕНЕНО -->
+                    <a href="batyshev-portfolio/index.html" class="btn">Перейти к проекту</a>
+                </div>
+                <div class="project-card">
+                    <h3>Общие тесты</h3>
+                    <p>Третий сайт из списка.</p>
+                    <a href="generaltest/index.html" class="btn">Перейти к проекту</a>
+                </div>
+                <div class="project-card">
+                    <h3>Дополнительные тесты</h3>
+                    <p>Четвертый сайт из списка.</p>
+                    <a href="extest/index.html" class="btn">Перейти к проекту</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Батышев О.А. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

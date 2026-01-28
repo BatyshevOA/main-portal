@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тесты по столярному делу - 9 класс</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🔨</span>
+                <h1>Столярное дело</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Главная</a>
+                <a href="#tests" class="nav-link">Тесты</a>
+                <a href="#about" class="nav-link">О проекте</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Главная страница -->
+        <section id="home" class="page active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Экзаменационные тесты по столярному делу</h1>
+                    <p class="hero-subtitle">Для учащихся 9 классов коррекционных школ</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">тестов</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50</span>
+                            <span class="stat-label">вопросов</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">вопросов по ТБ</span>
+                        </div>
+                    </div>
+                    <button id="start-testing" class="cta-button">Начать тестирование</button>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>5 тестов</h3>
+                        <p>Полный охват тем столярного дела для 9 класса</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⏱️</div>
+                        <h3>Таймер</h3>
+                        <p>Контроль времени выполнения каждого теста</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Результаты</h3>
+                        <p>Подробный разбор ошибок и правильных ответов</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Техника безопасности</h3>
+                        <p>15 специальных вопросов по безопасности труда</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Страница выбора тестов -->
+        <section id="tests" class="page">
+            <div class="container">
+                <h2 class="section-title">Выберите тест</h2>
+                <div class="tests-grid" id="tests-grid">
+                    <!-- Тесты будут загружены через JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Страница тестирования -->
+        <section id="testing" class="page">
+            <div class="container">
+                <div class="test-header">
+                    <div class="test-info">
+                        <h2 id="test-title">Название теста</h2>
+                        <div class="test-meta">
+                            <div class="progress-info">
+                                <span>Вопрос <span id="current-question">1</span> из <span id="total-questions">10</span></span>
+                                <div class="progress-bar">
+                                    <div class="progress" id="progress"></div>
+                                </div>
+                            </div>
+                            <div class="timer" id="timer">00:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-container" id="question-container">
+                    <!-- Вопросы будут загружены через JavaScript -->
+                </div>
+
+                <div class="navigation-buttons">
+                    <button id="prev-btn" class="nav-button" disabled>
+                        <span>←</span> Назад
+                    </button>
+                    <button id="next-btn" class="nav-button">
+                        Далее <span>→</span>
+                    </button>
+                    <button id="submit-btn" class="submit-button">Завершить тест</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Страница результатов -->
+        <section id="results" class="page">
+            <div class="container">
+                <div class="results-card">
+                    <div class="results-header">
+                        <h2>Результаты теста</h2>
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <span class="score" id="final-score">0/10</span>
+                                <span class="score-percent" id="score-percent">0%</span>
+                            </div>
+                        </div>
+                        <div class="score-message" id="score-message"></div>
+                    </div>
+
+                    <div class="results-details">
+                        <div class="results-stats">
+                            <div class="stat-card">
+                                <span class="stat-value" id="correct-answers">0</span>
+                                <span class="stat-label">Правильно</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value" id="wrong-answers">0</span>
+                                <span class="stat-label">Неправильно</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-value" id="time-taken">00:00</span>
+                                <span class="stat-label">Время</span>
+                            </div>
+                        </div>
+
+                        <div class="answers-review">
+                            <h3>Подробные результаты:</h3>
+                            <div class="answers-list" id="answers-list">
+                                <!-- Ответы будут загружены через JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-actions">
+                        <button id="restart-btn" class="action-button primary">Пройти заново</button>
+                        <button id="back-to-tests" class="action-button secondary">К списку тестов</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- О проекте -->
+        <section id="about" class="page">
+            <div class="container">
+                <h2 class="section-title">О проекте</h2>
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3>Образовательная цель</h3>
+                        <p>Данный сайт создан для помощи в подготовке к экзаменам по столярному делу учащихся 9 классов коррекционных школ. Все тесты составлены с учетом требований образовательной программы.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3>Темы тестов</h3>
+                        <ul class="topics-list">
+                            <li>✅ Инструменты и материалы</li>
+                            <li>✅ Технологии обработки древесины</li>
+                            <li>✅ Столярные соединения</li>
+                            <li>✅ Отделочные работы</li>
+                            <li>✅ Чтение чертежей</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-card">
+                        <h3>Техника безопасности</h3>
+                        <p>Каждый тест включает 3 специальных вопроса по технике безопасности, что составляет 15 вопросов по ТБ во всех тестах вместе.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Столярное дело</h3>
+                    <p>Образовательные тесты для 9 класса</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: batyshev.o@yandex.ru</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Батышев О.А. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/tests-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
