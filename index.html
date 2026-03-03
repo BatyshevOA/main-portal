@@ -4,365 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портал проектов Батышева О.А.</title>
-    <style>
-        /* ========== ОСНОВНЫЕ СТИЛИ И ПАЛИТРА ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #F6F9FC;  /* Основной фон: почти белый с голубым отливом */
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            color: #1A3B4D;  /* Тёмный текст для контраста */
-        }
-
-        /* Контейнер для центрирования содержимого */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            flex: 1;
-        }
-
-        /* ========== ШАПКА И ЗАГОЛОВКИ ========== */
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            color: #1A3B4D;  /* Тёмный цвет для главного заголовка */
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            position: relative;
-            display: inline-block;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: #FDB44B;  /* Акцент 1: песочный */
-            border-radius: 2px;
-            box-shadow: 0 2px 8px rgba(253, 180, 75, 0.3);
-        }
-
-        .subtitle {
-            color: #3A6B6D;  /* Акцент 2: морской для подзаголовка */
-            font-size: 1.3em;
-            margin-top: 25px;
-            font-weight: 400;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        /* ========== СЕТКА КАРТОЧЕК ========== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 50px 0 40px;
-        }
-
-        /* Карточка проекта */
-        .project-card {
-            background: #FFFFFF;  /* Белые карточки */
-            border-radius: 24px;
-            padding: 30px 25px;
-            box-shadow: 0 15px 35px rgba(0, 100, 120, 0.08);  /* Воздушные тени */
-            transition: all 0.3s ease;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(2px);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 45px rgba(0, 100, 120, 0.12);  /* Чуть плотнее при наведении */
-            border-color: rgba(94, 155, 157, 0.2);
-        }
-
-        /* Иконка-эмодзи для карточки */
-        .card-icon {
-            font-size: 3.8em;
-            margin-bottom: 15px;
-            line-height: 1;
-            filter: drop-shadow(0 6px 10px rgba(253, 180, 75, 0.2));
-        }
-
-        /* Заголовок карточки */
-        .card-title {
-            color: #1A3B4D;
-            font-size: 1.8em;
-            font-weight: 600;
-            margin-bottom: 12px;
-            letter-spacing: -0.3px;
-        }
-
-        /* Описание карточки */
-        .card-description {
-            color: #4A6A7A;
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
-
-        /* Кнопка в карточке */
-        .card-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #FDB44B;  /* Акцент 1: песочный */
-            color: #1A3B4D;
-            text-decoration: none;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1.1em;
-            transition: all 0.3s;
-            box-shadow: 0 8px 18px rgba(253, 180, 75, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: auto;
-            align-self: center;
-            min-width: 180px;
-        }
-
-        .card-button:hover {
-            background: #5E9B9D;  /* Акцент 2: морской при наведении */
-            color: white;
-            transform: scale(1.05);
-            box-shadow: 0 12px 25px rgba(94, 155, 157, 0.35);
-            border-color: transparent;
-        }
-
-        .card-button:active {
-            transform: scale(0.98);
-        }
-
-        /* ========== ДОПОЛНИТЕЛЬНЫЕ СЕКЦИИ ========== */
-        .info-section {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(5px);
-            border-radius: 40px;
-            padding: 40px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0, 100, 120, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .info-section h2 {
-            color: #1A3B4D;
-            font-size: 2em;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .info-section h2 span {
-            background: #FDB44B;
-            padding: 5px 15px;
-            border-radius: 40px;
-            font-size: 0.6em;
-            color: #1A3B4D;
-            font-weight: 500;
-        }
-
-        .info-section p {
-            color: #2A4A5A;
-            font-size: 1.2em;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .highlight {
-            color: #5E9B9D;
-            font-weight: 600;
-            background: rgba(94, 155, 157, 0.1);
-            padding: 2px 8px;
-            border-radius: 20px;
-        }
-
-        /* Список обновлений */
-        .updates-list {
-            list-style: none;
-            margin: 25px 0;
-        }
-
-        .updates-list li {
-            padding: 12px 0;
-            border-bottom: 1px dashed rgba(94, 155, 157, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #2A4A5A;
-            font-size: 1.1em;
-        }
-
-        .updates-list li:last-child {
-            border-bottom: none;
-        }
-
-        .updates-list li::before {
-            content: '✨';
-            font-size: 1.3em;
-            color: #FDB44B;
-        }
-
-        /* ========== ПОДВАЛ ========== */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(3px);
-            border-top: 1px solid rgba(94, 155, 157, 0.2);
-            color: #3A6B6D;
-            margin-top: 30px;
-        }
-
-        footer p {
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 0.95em;
-        }
-
-        /* ========== АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ ========== */
-        @media (max-width: 700px) {
-            .container { padding: 20px 15px; }
-            h1 { font-size: 2em; }
-            h1::after { width: 60px; }
-            .subtitle { font-size: 1.1em; }
-            .projects-grid { gap: 20px; }
-            .project-card { padding: 25px 20px; }
-            .card-title { font-size: 1.6em; }
-            .card-button { min-width: 150px; padding: 10px 20px; }
-            .info-section { padding: 25px; }
-            .info-section h2 { font-size: 1.6em; }
-        }
-
-        @media (max-width: 480px) {
-            .card-button { min-width: 100%; }
-            .updates-list li { flex-wrap: wrap; gap: 5px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Портал проектов Батышева О.А.</h1>
-            <div class="subtitle">
-                Добро пожаловать на объединённый портал для подготовки к экзаменам 
-                по столярному делу в С(К)ОШИ г. Ленска
+    <header>
+        <div class="container">
+            <div class="header-brand">
+                <img src="assets/logo.png" alt="Логотип проекта" class="logo">
+                <h1>Портал проектов Батышева О.А.</h1>
             </div>
-        </header>
-
-        <!-- Сетка проектов (карточки) -->
-        <div class="projects-grid">
-            <!-- Карточка: Аудио сайт -->
-            <div class="project-card">
-                <div class="card-icon">🎧</div>
-                <div class="card-title">Аудио сайт</div>
-                <div class="card-description">
-                    Прослушивайте содержание экзаменационных билетов. Удобно для повторения материала на слух.
-                </div>
-                <a href="audio-site/index.html" class="card-button">Перейти к проекту</a>
-            </div>
-
-            <!-- Карточка: Билеты -->
-            <div class="project-card">
-                <div class="card-icon">📚</div>
-                <div class="card-title">Билеты</div>
-                <div class="card-description">
-                    Полные тексты экзаменационных билетов с подробными ответами по всем темам столярного дела.
-                </div>
-                <a href="bilety-site/index.html" class="card-button">Перейти к проекту</a>
-            </div>
-
-            <!-- Карточка: Общие тесты -->
-            <div class="project-card">
-                <div class="card-icon">📝</div>
-                <div class="card-title">Общие тесты</div>
-                <div class="card-description">
-                    Тесты для самопроверки по основным разделам столярного дела. Проверьте свои знания!
-                </div>
-                <a href="testy-site/index.html" class="card-button">Перейти к проекту</a>
-            </div>
-
-            <!-- Карточка: Дополнительные тесты -->
-            <div class="project-card">
-                <div class="card-icon">🔍</div>
-                <div class="card-title">Дополнительные тесты</div>
-                <div class="card-description">
-                    Углублённые тесты по сложным темам и разделам для отличной подготовки.
-                </div>
-                <a href="dop-testy-site/index.html" class="card-button">Перейти к проекту</a>
-            </div>
-
-            <!-- Карточка: Вопросы наводящие (НОВЫЙ РАЗДЕЛ) -->
-            <div class="project-card">
-                <div class="card-icon">💭</div>
-                <div class="card-title">Вопросы наводящие</div>
-                <div class="card-description">
-                    Список вопросов для самопроверки к каждому билету. Помогают подробно раскрыть тему и подготовиться к ответу.
-                </div>
-                <a href="voprosy-site/index.html" class="card-button">Перейти к вопросам</a>
-            </div>
-        </div>
-
-        <!-- Информационная секция (обновления) -->
-        <div class="info-section">
-            <h2>
-                ✨ Что нового?
-                <span>2026</span>
-            </h2>
-            <p>
-                Кроме текстов экзаменационных билетов, тестов для самопроверки, 
-                а также аудио-файлов для прослушивания содержания билетов теперь появился новый раздел: 
-                <span class="highlight">«Вопросы наводящие»</span>.
-            </p>
-            <p>
-                Отвечая на эти вопросы, вы сможете более подробно раскрыть тему билетов 
-                и лучше подготовиться к экзамену.
-            </p>
             
-            <ul class="updates-list">
-                <li><strong>Аудио-билеты</strong> — теперь доступны для скачивания</li>
-                <li><strong>Галерея работ</strong> — добавлены новые фотографии учеников</li>
-                <li><strong>Вопросы к билетам</strong> — полный список из 15 билетов</li>
-                <li><strong>Тесты</strong> — обновлены вопросы в дополнительных тестах</li>
-            </ul>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="audio_site/index.html">Аудио сайт</a></li>
+                    <li><a href="batyshev-portfolio/index.html">Билеты</a></li>
+                    <li><a href="generaltest/index.html">Общие тесты</a></li>
+                    <li><a href="extest/index.html">Доп. тесты</a></li>
+                    <li><a href="extest/voprosy-biletov.html">Вопросы наводящие</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <!-- Дополнительная секция: как пользоваться -->
-        <div class="info-section" style="background: rgba(253, 180, 75, 0.05);">
-            <h2>📘 Как пользоваться порталом</h2>
-            <p>
-                <strong>1.</strong> Начните с изучения <span class="highlight">билетов</span> — прочитайте теорию.<br>
-                <strong>2.</strong> Прослушайте <span class="highlight">аудио-версии</span> для закрепления материала.<br>
-                <strong>3.</strong> Проверьте себя с помощью <span class="highlight">тестов</span>.<br>
-                <strong>4.</strong> Используйте <span class="highlight">наводящие вопросы</span> для детальной проработки каждого билета.<br>
-                <strong>5.</strong> Вдохновляйтесь работами других учеников в <span class="highlight">галерее</span>.
-            </p>
-        </div>
-    </div>
+    <main class="container">
+        <section id="home">
+            <h2>Добро пожаловать на объединенный портал</h2>
+            <p>Здесь собраны все мои веб-проекты для подготовки к экзаменам по столярному делу в С(К)ОШИ г.Ленска, МР"Ленский район" РС(Я). Кроме текстов экзаменационных билетов, тестов для самопроверки, а также аудио-файлов для прослушивания содержания билетов теперь появился новый раздел : "Вопросы наводящие" отвечая на них вы сможете более подробно расскрыть тему билетов. Используйте меню выше для навигации.</p>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Аудио сайт</h3>
+                    <p>Проект, посвященный аудио материалам.</p>
+                    <a href="audio_site/index.html" class="btn">Перейти к проекту</a>
+                </div>
+                <div class="project-card">
+                    <h3>Билеты</h3>
+                    <p>Проект, содержащий материалы по билетам.</p>
+                    <a href="batyshev-portfolio/index.html" class="btn">Перейти к проекту</a>
+                </div>
+                <div class="project-card">
+                    <h3>Общие тесты</h3>
+                    <p>Третий сайт из списка.</p>
+                    <a href="generaltest/index.html" class="btn">Перейти к проекту</a>
+                </div>
+                <div class="project-card">
+                    <h3>Дополнительные тесты</h3>
+                    <p>Четвертый сайт из списка.</p>
+                    <a href="extest/index.html" class="btn">Перейти к проекту</a>
+                </div>
+                <!-- Новая карточка для наводящих вопросов -->
+                <div class="project-card">
+                    <h3>Вопросы наводящие</h3>
+                    <p>Список вопросов для самопроверки к каждому билету.</p>
+                    <a href="extest/voprosy-biletov.html" class="btn">Перейти к вопросам</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>С(К)ОШИ г. Ленска, МР «Ленский район» РС(Я) • Проект Батышева О.А. • Все материалы для подготовки к экзаменам по столярному делу</p>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Батышев О.А. Все права защищены.</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
+
