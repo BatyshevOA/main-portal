@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тесты по билетам</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #FEF6E9;
+            color: #4A3B2A;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* основной контейнер */
+        .exam-container {
+            max-width: 1400px;
+            width: 100%;
+            background: #FEF6E9;
+            border-radius: 40px;
+            border: 3px solid #C1A585;
+            box-shadow: 0 20px 30px rgba(139, 107, 77, 0.3);
+            overflow: hidden;
+        }
+
+        /* шапка с таймером */
+        .header {
+            background: #8B6B4D;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #D98C2E;
+        }
+
+        .header h1 {
+            color: #FEF6E9;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .timer {
+            background: #FEF6E9;
+            color: #4A3B2A;
+            font-size: 2rem;
+            font-weight: 700;
+            padding: 8px 25px;
+            border-radius: 60px;
+            border: 2px solid #D98C2E;
+            box-shadow: 0 5px 0 #C1A585;
+        }
+
+        /* основной макет: левая панель + центральная область + правая панель */
+        .main-row {
+            display: flex;
+            min-height: 600px;
+        }
+
+        /* левая панель со списком билетов */
+        .ticket-panel {
+            width: 220px;
+            background: #FEF6E9;
+            border-right: 3px solid #C1A585;
+            padding: 25px 15px;
+        }
+
+        .ticket-panel h3 {
+            color: #8B6B4D;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #D98C2E;
+            padding-bottom: 8px;
+        }
+
+        .ticket-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ticket-btn {
+            background: #FEF6E9;
+            border: 2px solid #C1A585;
+            border-radius: 40px;
+            padding: 12px 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4A3B2A;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: left;
+            width: 100%;
+        }
+
+        .ticket-btn:hover {
+            background: #C1A585;
+            color: #FEF6E9;
+            border-color: #8B6B4D;
+        }
+
+        .ticket-btn.active {
+            background: #D98C2E;
+            border-color: #8B6B4D;
+            color: #FEF6E9;
+            box-shadow: 0 4px 0 #8B6B4D;
+        }
+
+        /* центральная область с вопросами */
+        .content-area {
+            flex: 1;
+            background: #FFFCF5;
+            padding: 25px 30px;
+            border-right: 3px solid #C1A585;
+            max-width: 700px;
+        }
+
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed #C1A585;
+            padding-bottom: 15px;
+        }
+
+        .test-number {
+            font-size: 2rem;
+            color: #D98C2E;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            background: #FEF6E9;
+            border: 2px solid #C1A585;
+            color: #4A3B2A;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #D98C2E;
+            border-color: #8B6B4D;
+            color: #FEF6E9;
+        }
+
+        .btn-primary:hover {
+            background: #8B6B4D;
+            border-color: #D98C2E;
+        }
+
+        .btn:hover {
+            background: #C1A585;
+            color: #FEF6E9;
+        }
+
+        /* блок вопросов */
+        .questions-container {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .question-item {
+            background: #FEF6E9;
+            border: 2px solid #C1A585;
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .q-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-left: 12px;
+            border-left: 5px solid #D98C2E;
+        }
+
+        .options {
+            list-style: none;
+            padding-left: 15px;
+        }
+
+        .options li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 30px;
+            background: #FFFFFF;
+            border: 1px solid #E8D9C4;
+            transition: 0.1s;
+        }
+
+        .options li:hover {
+            background: #C1A58520;
+            border-color: #D98C2E;
+        }
+
+        .options input[type="radio"] {
+            accent-color: #D98C2E;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* правая панель результатов */
+        .result-panel {
+            width: 250px;
+            background: #8B6B4D;
+            padding: 25px 20px;
+            color: #FEF6E9;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .result-card {
+            background: #FEF6E9;
+            border-radius: 30px;
+            padding: 25px 15px;
+            text-align: center;
+            border: 3px solid #D98C2E;
+        }
+
+        .result-card h3 {
+            color: #4A3B2A;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .score {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #D98C2E;
+            line-height: 1;
+            margin: 15px 0;
+            text-shadow: 2px 2px 0 #C1A585;
+        }
+
+        .result-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .result-btn {
+            background: transparent;
+            border: 2px solid #FEF6E9;
+            color: #FEF6E9;
+            padding: 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .result-btn:hover {
+            background: #D98C2E;
+            border-color: #D98C2E;
+            color: #4A3B2A;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* адаптация */
+        @media (max-width: 1000px) {
+            .main-row {
+                flex-wrap: wrap;
+            }
+            .ticket-panel, .result-panel {
+                width: 100%;
+                border-right: none;
+                border-bottom: 3px solid #C1A585;
+            }
+            .content-area {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="exam-container">
+        <!-- шапка с таймером (статичный для простоты) -->
+        <div class="header">
+            <h1>🔨 Тесты по билетам</h1>
+            <div class="timer" id="timerDisplay">30:00</div>
+        </div>
+
+        <div class="main-row">
+            <!-- левая колонка: все билеты -->
+            <div class="ticket-panel">
+                <h3>Билеты</h3>
+                <div class="ticket-list" id="ticketList"></div>
+            </div>
+
+            <!-- центральная часть: вопросы текущего билета -->
+            <div class="content-area" id="contentArea">
+                <div class="test-header">
+                    <span class="test-number" id="currentTestLabel">Выберите билет</span>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="submitTestBtn" disabled>Сдать тест</button>
+                        <button class="btn" id="backToTicketsBtn">Назад к тестам</button>
+                    </div>
+                </div>
+                <!-- контейнер для вопросов (заполняется динамически) -->
+                <div class="questions-container" id="questionsContainer"></div>
+                <!-- подсказка, если не выбран билет -->
+                <div id="placeholderMsg" style="text-align: center; margin-top: 50px; color: #C1A585; font-size: 1.2rem;">
+                    Выберите билет из списка слева
+                </div>
+            </div>
+
+            <!-- правая панель: результаты -->
+            <div class="result-panel">
+                <div class="result-card">
+                    <h3>Результаты теста</h3>
+                    <div class="score" id="scoreDisplay">0/0</div>
+                    <div class="result-actions">
+                        <button class="result-btn" id="retryTestBtn">Пройти тест снова</button>
+                        <button class="result-btn" id="backToTicketsResultBtn">Назад к тестам</button>
+                    </div>
+                </div>
+                <div style="color: #FEF6E9; font-size: 0.9rem; text-align: center;">
+                    * после сдачи теста здесь появится результат
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ---------- ДАННЫЕ ТЕСТОВ (все 15 билетов) ----------
+            const ticketsData = [
+                { // билет 1
+                    title: 'Билет №1',
+                    questions: [
+                        { text: 'Как называется самая большая область применения древесины?', options: ['А) Производство мебели', 'Б) Бумажная промышленность', 'В) Строительство', 'Г) Топливо'], correct: 2 },
+                        { text: 'Из какого продукта переработки древесины делают бумагу?', options: ['А) Из опилок', 'Б) Из целлюлозы', 'В) Из коры', 'Г) Из смолы'], correct: 1 },
+                        { text: 'Что производят из отходов деревообработки для использования в качестве топлива?', options: ['А) Пеллеты и брикеты', 'Б) Древесный уголь', 'В) Газ', 'Г) Кокс'], correct: 0 },
+                        { text: 'Почему древесину называют возобновляемым ресурсом?', options: ['А) Потому что она не гниет', 'Б) Потому что ее можно использовать повторно', 'В) Потому что на месте вырубленных лесов можно вырастить новые', 'Г) Потому что она есть в каждом доме'], correct: 2 }
+                    ]
+                },
+                { // билет 2
+                    title: 'Билет №2',
+                    questions: [
+                        { text: 'Какая часть дерева всасывает воду и минеральные вещества из почвы?', options: ['А) Крона', 'Б) Ствол', 'В) Корни', 'Г) Кора'], correct: 2 },
+                        { text: 'Какая часть дерева является основной для столяра?', options: ['А) Крона', 'Б) Ствол', 'В) Корни', 'Г) Ветки'], correct: 1 },
+                        { text: 'В какой части дерева происходит фотосинтез?', options: ['А) В корнях', 'Б) В лубе', 'В) В кроне (листьях или хвое)', 'Г) В сердцевине'], correct: 2 }
+                    ]
+                },
+                { // билет 3
+                    title: 'Билет №3',
+                    questions: [
+                        { text: 'Как называется разрез ствола через сердцевину вдоль волокон?', options: ['А) Поперечный', 'Б) Радиальный', 'В) Тангенциальный', 'Г) Продольно-косой'], correct: 1 },
+                        { text: 'На каком разрезе годовые кольца выглядят как окружности?', options: ['А) На радиальном', 'Б) На тангенциальном', 'В) На поперечном', 'Г) На продольном'], correct: 2 },
+                        { text: 'Какой распил самый прочный?', options: ['А) Радиальный', 'Б) Тангенциальный', 'В) Полурадиальный', 'Г) Поперечный'], correct: 0 },
+                        { text: 'Где находится самая старая и прочная древесина?', options: ['А) Заболонь', 'Б) Камбий', 'В) Ядро', 'Г) Луб'], correct: 2 }
+                    ]
+                },
+                { // билет 4
+                    title: 'Билет №4',
+                    questions: [
+                        { text: 'Что такое годичные кольца?', options: ['А) Количество ветвей', 'Б) Прирост за год', 'В) Слои коры', 'Г) Каналы для воды'], correct: 1 },
+                        { text: 'Какая часть годичного кольца образуется весной?', options: ['А) Поздняя (темная)', 'Б) Ранняя (светлая)', 'В) Сердцевина', 'Г) Камбий'], correct: 1 },
+                        { text: 'Для каких пород характерны смоляные ходы?', options: ['А) Лиственные', 'Б) Тропические', 'В) Хвойные', 'Г) Фруктовые'], correct: 2 },
+                        { text: 'Функция смоляных ходов?', options: ['А) Проведение воды', 'Б) Защита при повреждениях', 'В) Накопление питательных веществ', 'Г) Рост в толщину'], correct: 1 }
+                    ]
+                },
+                { // билет 5
+                    title: 'Билет №5',
+                    questions: [
+                        { text: 'Как называется узор на поверхности древесины?', options: ['А) Цвет', 'Б) Блеск', 'В) Текстура', 'Г) Запах'], correct: 2 },
+                        { text: 'Самое важное свойство для столяра?', options: ['А) Теплопроводность', 'Б) Влажность', 'В) Цвет', 'Г) Звукопроводность'], correct: 1 },
+                        { text: 'Способность сухой древесины не проводить ток?', options: ['А) Теплопроводность', 'Б) Гигроскопичность', 'В) Электропроводность (диэлектрик)', 'Г) Плотность'], correct: 2 },
+                        { text: 'Что произойдет с размерами при увеличении влажности?', options: ['А) Усушка', 'Б) Разбухание', 'В) Растрескивание', 'Г) Ничего'], correct: 1 }
+                    ]
+                },
+                { // билет 6
+                    title: 'Билет №6',
+                    questions: [
+                        { text: 'Что называется прочностью?', options: ['А) Восстанавливать форму', 'Б) Сопротивляться разрушению', 'В) Впитывать влагу', 'Г) Раскалываться'], correct: 1 },
+                        { text: 'При каком виде нагрузки прочность вдоль волокон самая высокая?', options: ['А) Сжатие', 'Б) Растяжение', 'В) Изгиб', 'Г) Скалывание'], correct: 1 },
+                        { text: 'Как влажность влияет на прочность?', options: ['А) Увеличивает', 'Б) Не изменяет', 'В) Снижает', 'Г) Делает бесконечной'], correct: 2 },
+                        { text: 'Самый опасный порок для прочности?', options: ['А) Косослой', 'Б) Сучки', 'В) Трещины', 'Г) Засмолок'], correct: 1 }
+                    ]
+                },
+                { // билет 7
+                    title: 'Билет №7',
+                    questions: [
+                        { text: 'Какие породы лучше гнутся?', options: ['А) Хвойные', 'Б) Лиственные', 'В) Экзотические', 'Г) Все одинаково'], correct: 1 },
+                        { text: 'От чего зависит удержание гвоздя?', options: ['А) Длина гвоздя', 'Б) Порода, плотность, влажность', 'В) Время рубки', 'Г) Только направление волокон'], correct: 1 },
+                        { text: 'Какая поверхность изнашивается больше?', options: ['А) Торцевая меньше', 'Б) Боковая', 'В) Торцевая', 'Г) Не зависит'], correct: 1 }
+                    ]
+                },
+                { // билет 8
+                    title: 'Билет №8',
+                    questions: [
+                        { text: 'Какой станок для тел вращения?', options: ['А) Фрезерный', 'Б) Токарный', 'В) Сверлильный', 'Г) Циркулярка'], correct: 1 },
+                        { text: 'Какой станок для фигурного распила лентой?', options: ['А) Ленточная пила', 'Б) Циркулярка', 'В) Фуговальный', 'Г) Токарный'], correct: 0 },
+                        { text: 'Что использовать при пилении мелких деталей на циркулярке?', options: ['А) Очки', 'Б) Толкатель', 'В) Головной убор', 'Г) Громкую связь'], correct: 1 },
+                        { text: 'Для чего фуговальный станок?', options: ['А) Сверлить', 'Б) Вырезать узоры', 'В) Выравнивать поверхность', 'Г) Продольный распил'], correct: 2 }
+                    ]
+                },
+                { // билет 9
+                    title: 'Билет №9',
+                    questions: [
+                        { text: 'Какой узел сверлильного станка зажимает сверло?', options: ['А) Шпиндель', 'Б) Патрон', 'В) Подача', 'Г) Стол'], correct: 1 },
+                        { text: 'Что запрещено при сверлении?', options: ['А) Работать в очках', 'Б) Придерживать заготовку руками', 'В) Использовать тиски', 'Г) Отводить сверло'], correct: 1 },
+                        { text: 'Почему ключ надо сразу вынимать?', options: ['А) Чтобы не потерять', 'Б) Чтобы патрон не заржавел', 'В) Может вылететь при включении', 'Г) Мешает'], correct: 2 },
+                        { text: 'Как убирать стружку?', options: ['А) Сдуть ртом', 'Б) Руками', 'В) Щеткой после остановки', 'Г) Оставить'], correct: 2 }
+                    ]
+                },
+                { // билет 10
+                    title: 'Билет №10',
+                    questions: [
+                        { text: 'Какое сверло лучше для глубоких отверстий?', options: ['А) Перовое', 'Б) Спиральное (змеевик)', 'В) Форстнера', 'Г) Коронка'], correct: 1 },
+                        { text: 'Для чего сверло Форстнера?', options: ['А) Большие отверстия', 'Б) Глухие отверстия с плоским дном', 'В) Сверление под углом', 'Г) Металл'], correct: 1 },
+                        { text: 'Чем наметить центр отверстия?', options: ['А) Кондуктор', 'Б) Струбцина', 'В) Кернер/шило', 'Г) Упор'], correct: 2 },
+                        { text: 'Зачем подкладка при сквозном сверлении?', options: ['А) Не царапать верстак', 'Б) Выровнять заготовку', 'В) Предотвратить сколы', 'Г) Уменьшить вибрацию'], correct: 2 }
+                    ]
+                },
+                { // билет 11
+                    title: 'Билет №11',
+                    questions: [
+                        { text: 'Опорная часть для стамески на токарном?', options: ['А) Передняя бабка', 'Б) Задняя бабка', 'В) Подручник', 'Г) Станина'], correct: 2 },
+                        { text: 'Что поддерживает длинную заготовку справа?', options: ['А) Патрон', 'Б) Трезубец', 'В) Центр задней бабки', 'Г) Подручник'], correct: 2 },
+                        { text: 'Зазор подручника до заготовки?', options: ['А) 10-15 см', 'Б) 3-5 мм', 'В) Вплотную', 'Г) Неважно'], correct: 1 },
+                        { text: 'Когда делать замеры?', options: ['А) На малых оборотах', 'Б) После остановки', 'В) Во время вращения', 'Г) После снятия'], correct: 1 }
+                    ]
+                },
+                { // билет 12
+                    title: 'Билет №12',
+                    questions: [
+                        { text: 'Цель склеивания досок по ширине?', options: ['А) Увеличить длину', 'Б) Получить широкие щиты', 'В) Изменить цвет', 'Г) Разъемное соединение'], correct: 1 },
+                        { text: 'Самый универсальный клей для помещений?', options: ['А) Эпоксидный', 'Б) Полиуретановый', 'В) Казеиновый', 'Г) ПВА'], correct: 3 },
+                        { text: 'Требование безопасности при склеивании?', options: ['А) Яркий свет', 'Б) Проветривание и перчатки', 'В) Нагрев клея', 'Г) Отрицательные температуры'], correct: 1 },
+                        { text: 'Почему промасленные тряпки пожароопасны?', options: ['А) Плохой запах', 'Б) Самовоспламенение', 'В) Привлекают насекомых', 'Г) Портят пол'], correct: 1 }
+                    ]
+                },
+                { // билет 13
+                    title: 'Билет №13',
+                    questions: [
+                        { text: 'Самое прочное разъемное соединение?', options: ['А) Гвозди', 'Б) Клей', 'В) Болты', 'Г) Саморезы'], correct: 2 },
+                        { text: 'Что обязательно ставить под гайку?', options: ['А) Контргайку', 'Б) Шайбу', 'В) Пружину', 'Г) Клей'], correct: 1 },
+                        { text: 'Зачем сверлить отверстие под саморез в твердой древесине?', options: ['А) Легче закручивать и не расколоть', 'Б) Дольше служит', 'В) Красивее', 'Г) Необязательно'], correct: 0 },
+                        { text: 'Как правильно держать молоток?', options: ['А) За середину', 'Б) За головку', 'В) За конец рукоятки', 'Г) Неважно'], correct: 2 }
+                    ]
+                },
+                { // билет 14
+                    title: 'Билет №14',
+                    questions: [
+                        { text: 'Главная особенность непрозрачной отделки?', options: ['А) Подчеркивает текстуру', 'Б) Скрывает текстуру', 'В) Делает прозрачной', 'Г) Только защита'], correct: 1 },
+                        { text: 'Где чаще применяют непрозрачную отделку?', options: ['А) Дорогая мебель', 'Б) Уличные двери, фасады', 'В) Музыкальные инструменты', 'Г) Разделочные доски'], correct: 1 },
+                        { text: 'Какой респиратор нужен при работе с растворителями?', options: ['А) Противопылевой', 'Б) Марлевый', 'В) С угольным фильтром', 'Г) Любой'], correct: 2 },
+                        { text: 'Почему тряпки после краски в металлическую емкость?', options: ['А) Чистота', 'Б) Не высохнут', 'В) Самовозгорание', 'Г) От грызунов'], correct: 2 }
+                    ]
+                },
+                { // билет 15
+                    title: 'Билет №15',
+                    questions: [
+                        { text: 'Основная задача прозрачной отделки?', options: ['А) Скрыть дефекты', 'Б) Защитить и подчеркнуть текстуру', 'В) Сделать шероховатой', 'Г) Изменить цвет'], correct: 1 },
+                        { text: 'Самый прочный материал для прозрачной отделки?', options: ['А) Масло', 'Б) Воск', 'В) Лак', 'Г) Морилка'], correct: 2 },
+                        { text: 'Что сделать перед работой с нитролаками?', options: ['А) Включить обогреватель', 'Б) Выключить свет', 'В) Проветрить, убрать огонь', 'Г) Закрыть окна'], correct: 2 },
+                        { text: 'Опасность масляных тряпок в куче?', options: ['А) Портят стол', 'Б) Моль', 'В) Самовозгорание', 'Г) Вредные пары только при нагреве'], correct: 2 }
+                    ]
+                }
+            ];
+
+            // ---------- ЭЛЕМЕНТЫ DOM ----------
+            const ticketListEl = document.getElementById('ticketList');
+            const currentTestLabel = document.getElementById('currentTestLabel');
+            const questionsContainer = document.getElementById('questionsContainer');
+            const placeholderMsg = document.getElementById('placeholderMsg');
+            const submitBtn = document.getElementById('submitTestBtn');
+            const backToTicketsBtn = document.getElementById('backToTicketsBtn');
+            const retryTestBtn = document.getElementById('retryTestBtn');
+            const backToTicketsResultBtn = document.getElementById('backToTicketsResultBtn');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+
+            let currentTicketId = null;          // индекс выбранного билета (0-14)
+            let userAnswers = [];                 // массив выбранных ответов (индексы) для текущего билета
+            let testSubmitted = false;             // был ли сдан тест (влияет на подсветку?)
+
+            // ---------- ФУНКЦИИ ----------
+            // отрисовка списка билетов
+            function renderTicketList() {
+                ticketListEl.innerHTML = '';
+                ticketsData.forEach((ticket, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'ticket-btn';
+                    if (idx === currentTicketId) btn.classList.add('active');
+                    btn.textContent = ticket.title;
+                    btn.dataset.id = idx;
+                    btn.addEventListener('click', () => selectTicket(idx));
+                    ticketListEl.appendChild(btn);
+                });
+            }
+
+            // выбор билета
+            function selectTicket(id) {
+                currentTicketId = id;
+                testSubmitted = false;
+                // сброс ответов
+                userAnswers = new Array(ticketsData[id].questions.length).fill(null);
+                // обновить активный класс в списке
+                document.querySelectorAll('.ticket-btn').forEach((btn, i) => {
+                    btn.classList.toggle('active', i === id);
+                });
+                // показать тест
+                showTest(id);
+                // обновить результат на 0/количество
+                updateScoreDisplay(0, ticketsData[id].questions.length);
+                // активировать кнопку сдать
+                submitBtn.disabled = false;
+            }
+
+            // отображение теста в центре
+            function showTest(ticketId) {
+                const ticket = ticketsData[ticketId];
+                currentTestLabel.textContent = ticket.title;
+                placeholderMsg.classList.add('hidden');
+
+                let html = '';
+                ticket.questions.forEach((q, qIdx) => {
+                    html += `<div class="question-item" data-qindex="${qIdx}">`;
+                    html += `<div class="q-title">${qIdx+1}. ${q.text}</div>`;
+                    html += `<ul class="options">`;
+                    q.options.forEach((opt, optIdx) => {
+                        const checked = (userAnswers[qIdx] === optIdx) ? 'checked' : '';
+                        html += `<li><input type="radio" name="q${qIdx}" value="${optIdx}" ${checked}><span>${opt}</span></li>`;
+                    });
+                    html += `</ul></div>`;
+                });
+                questionsContainer.innerHTML = html;
+
+                // добавить слушатели на radio
+                document.querySelectorAll('.options input[type="radio"]').forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        if (testSubmitted) return; // после сдачи не меняем (но можно разрешить, тогда результат будет неактуален – запретим)
+                        const name = e.target.name; // например "q0"
+                        const qIndex = parseInt(name.substring(1));
+                        const value = parseInt(e.target.value);
+                        userAnswers[qIndex] = value;
+                    });
+                });
+            }
+
+            // подсчет правильных ответов
+            function calculateScore() {
+                if (currentTicketId === null) return 0;
+                const questions = ticketsData[currentTicketId].questions;
+                let correctCount = 0;
+                questions.forEach((q, idx) => {
+                    if (userAnswers[idx] === q.correct) correctCount++;
+                });
+                return correctCount;
+            }
+
+            // обновить отображение результата в правой панели
+            function updateScoreDisplay(correct, total) {
+                scoreDisplay.textContent = `${correct}/${total}`;
+            }
+
+            // обработчик сдачи теста
+            function submitTest() {
+                if (currentTicketId === null) return;
+                if (testSubmitted) return; // уже сдан
+                testSubmitted = true;
+                const total = ticketsData[currentTicketId].questions.length;
+                const correct = calculateScore();
+                updateScoreDisplay(correct, total);
+                submitBtn.disabled = true; // можно отключить кнопку сдачи
+                // можно заблокировать radio, но не обязательно
+            }
+
+            // повторное прохождение (сброс)
+            function retryTest() {
+                if (currentTicketId === null) return;
+                testSubmitted = false;
+                userAnswers.fill(null);
+                // перерисовать тест
+                showTest(currentTicketId);
+                const total = ticketsData[currentTicketId].questions.length;
+                updateScoreDisplay(0, total);
+                submitBtn.disabled = false;
+            }
+
+            // сброс к выбору билета (скрыть вопросы)
+            function backToTickets() {
+                currentTicketId = null;
+                testSubmitted = false;
+                userAnswers = [];
+                document.querySelectorAll('.ticket-btn').forEach(btn => btn.classList.remove('active'));
+                currentTestLabel.textContent = 'Выберите билет';
+                questionsContainer.innerHTML = '';
+                placeholderMsg.classList.remove('hidden');
+                submitBtn.disabled = true;
+                scoreDisplay.textContent = '0/0';
+            }
+
+            // инициализация
+            function init() {
+                renderTicketList();
+                backToTickets(); // начальное состояние
+                submitBtn.addEventListener('click', submitTest);
+                backToTicketsBtn.addEventListener('click', backToTickets);
+                retryTestBtn.addEventListener('click', () => {
+                    if (currentTicketId !== null) retryTest();
+                });
+                backToTicketsResultBtn.addEventListener('click', backToTickets);
+
+                // таймер (для красоты статичен, можно запустить)
+                let timeLeft = 30 * 60; // 30 минут
+                const timerEl = document.getElementById('timerDisplay');
+                function updateTimer() {
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60;
+                    timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        setTimeout(updateTimer, 1000);
+                    }
+                }
+                updateTimer();
+            }
+
+            init();
+        })();
+    </script>
+</body>
+</html>
