@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши достижения - Портал Батышева О.А.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Дополнительные стили для галереи достижений (адаптация под общий дизайн) */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .achievement-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid #C1A585;
+        }
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #D98C2E;
+        }
+        .achievement-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .achievement-card .caption {
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 0.9rem;
+            background-color: #FEF6E9;
+            color: #4A3B2A;
+            border-top: 1px solid #C1A585;
+        }
+        /* Лайтбокс (увеличенное изображение) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 2px solid #D98C2E;
+            border-radius: 8px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #D98C2E;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #C1A585;
+        }
+        @media (max-width: 768px) {
+            .achievements-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            .achievement-card img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-brand">
+                <img src="assets/logo.png" alt="Логотип проекта" class="logo">
+                <h1>Портал проектов Батышева О.А.</h1>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html#home">Главная</a></li>
+                    <li><a href="audio_site/index.html">Аудио сайт</a></li>
+                    <li><a href="batyshev-portfolio/index.html">Билеты</a></li>
+                    <li><a href="generaltest/index.html">Общие тесты</a></li>
+                    <li><a href="extest/index.html">Доп. тесты</a></li>
+                    <li><a href="extest/voprosy-biletov.html">Вопросы наводящие</a></li>
+                    <li><a href="extest/testy-po-biletam.html">Тесты по билетам</a></li>
+                    <li><a href="/wood-gallery/">Галерея работ</a></li>
+                    <li><a href="achievements.html" class="active">Наши достижения</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Наши достижения</h2>
+            <p>Дипломы, сертификаты, грамоты и благодарственные письма учеников и педагога.</p>
+            <div class="achievements-grid" id="achievements-grid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Батышев О.А. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Лайтбокс -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Список изображений достижений (добавьте сюда имена своих файлов)
+            const achievements = [
+                "1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg","21.jpg","22.jpg","23.jpg","24.jpg","25.jpg","26.jpg","27.jpg","28.jpg","29.jpg","30.jpg","31.jpg","32.jpg",
+                
+                // Добавляйте новые строки через запятую
+            ];
+
+            const grid = document.getElementById('achievements-grid');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.querySelector('.close');
+
+            if (!achievements.length) {
+                grid.innerHTML = '<p style="text-align:center;">Достижения будут добавлены позже.</p>';
+                return;
+            }
+
+            achievements.forEach(function(file) {
+                const imgPath = 'assets/achievements/' + file;
+                const card = document.createElement('div');
+                card.className = 'achievement-card';
+
+                const img = document.createElement('img');
+                img.src = imgPath;
+                img.alt = 'Достижение';
+                img.loading = 'lazy';
+                card.appendChild(img);
+
+                // Подпись (из имени файла, можно убрать или изменить)
+                const caption = document.createElement('div');
+                caption.className = 'caption';
+                let name = file.replace(/\.(jpg|jpeg|png|gif)$/i, '').replace(/_/g, ' ');
+                caption.textContent = name;
+                card.appendChild(caption);
+
+                card.addEventListener('click', function() {
+                    lightboxImg.src = imgPath;
+                    lightbox.style.display = 'flex';
+                });
+
+                grid.appendChild(card);
+            });
+
+            function closeLightbox() {
+                lightbox.style.display = 'none';
+            }
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (lightbox.style.display === 'flex' && e.key === 'Escape') {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
