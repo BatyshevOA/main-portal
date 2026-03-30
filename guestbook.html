@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостевая книга - Портал Батышева О.А.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Дополнительные стили для страницы гостевой книги */
+        .guestbook-container {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #C1A585;
+        }
+        .guestbook-container h2 {
+            color: #4A3B2A;
+            margin-bottom: 1rem;
+        }
+        .guestbook-container p {
+            margin-bottom: 1.5rem;
+            color: #5a4a3a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-brand">
+                <img src="assets/logo.png" alt="Логотип проекта" class="logo">
+                <h1>Портал проектов Батышева О.А.</h1>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html#home">Главная</a></li>
+                    <li><a href="audio_site/index.html">Аудио сайт</a></li>
+                    <li><a href="batyshev-portfolio/index.html">Билеты</a></li>
+                    <li><a href="generaltest/index.html">Общие тесты</a></li>
+                    <li><a href="extest/index.html">Доп. тесты</a></li>
+                    <li><a href="extest/voprosy-biletov.html">Вопросы наводящие</a></li>
+                    <li><a href="extest/testy-po-biletam.html">Тесты по билетам</a></li>
+                    <li><a href="/wood-gallery/">Галерея работ</a></li>
+                    <li><a href="achievements.html">Наши достижения</a></li>
+                    <li><a href="guestbook.html" class="active">Гостевая книга</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Гостевая книга / Доска отзывов</h2>
+            <div class="guestbook-container">
+                <p>Здесь вы можете оставить свой отзыв о портале, задать вопрос или поделиться впечатлениями. Все сообщения проходят предварительную модерацию (или нет — по вашему выбору в настройках Cackle).</p>
+                <div id="mc-container"></div>
+<script type="text/javascript">
+cackle_widget = window.cackle_widget || [];
+cackle_widget.push({widget: 'Comment', id: 81858});
+(function() {
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();
+</script>
+<a id="mc-link" href="https://cackle.me">Комментарии для сайта <b style="color:#4FA3DA">Cackl</b><b style="color:#F65077">e</b></a>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Батышев О.А. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
