@@ -9,12 +9,47 @@ body {
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
+    position: relative;
 }
 
+/* ========== ФОН СТРАНИЦЫ (полупрозрачный слой) ========== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.25;                /* лёгкая прозрачность для читаемости текста */
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Основной фон для страницы билетов (используем класс bilety-page) */
+body.bilety-page::before {
+    background-image: url('/main-portal/assets/backgrounds/bilety-bg.jpg');
+}
+
+/* Облегчённая версия для мобильных устройств */
+@media (max-width: 768px) {
+    body.bilety-page::before {
+        background-image: url('/main-portal/assets/backgrounds/bilety-bg-mobile.jpg');
+    }
+}
+
+/* ========== ОСТАЛЬНЫЕ СТИЛИ ========== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.85); /* полупрозрачная подложка для контента */
+    border-radius: 16px;
+    backdrop-filter: blur(2px);
 }
 
 header {
@@ -37,7 +72,7 @@ h1 {
 
 .page {
     display: none;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
     padding: 30px;
     margin-top: 20px;
@@ -184,6 +219,7 @@ h1 {
     background-color: #654321;
 }
 
+/* Адаптивность */
 @media (max-width: 768px) {
     .ticket-list {
         grid-template-columns: 1fr;
@@ -200,5 +236,13 @@ h1 {
     
     .illustration-links {
         flex-direction: column;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .page {
+        padding: 20px;
     }
 }
