@@ -1,9 +1,9 @@
-// Автоматическая подстановка текущего года в футер
 document.addEventListener('DOMContentLoaded', function() {
-    const yearSpan = document.getElementById('currentYear');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
     }
-    
-    console.log('Скрипт объединенного портала загружен!');
 });
