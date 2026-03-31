@@ -25,7 +25,7 @@ body {
 
 /* 3. ШАПКА САЙТА */
 header {
-    background: linear-gradient(135deg, #446351 0%, #71bc78 100%);
+    background: linear-gradient(135deg, #446351 0%, #507191 100%);
     color: white;
     padding: 1.5rem 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
