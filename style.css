@@ -206,3 +206,31 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+/* ========== ФОНОВЫЕ ИЗОБРАЖЕНИЯ ДЛЯ СТРАНИЦ ========== */
+body {
+    position: relative;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.2;           /* степень прозрачности, можно изменить */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Главная страница */
+body.home-page::before {
+    background-image: url('assets/backgrounds/main-bg.jpg');
+}
+
+/* Аудио сайт */
+body.audio-page::before {
+    background-image: url('assets/backgrounds/audio-bg.jpg');
+}
