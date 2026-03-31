@@ -246,3 +246,45 @@ body.voprosy-page::before {
 body.gallery-page::before {
     background-image: url('assets/backgrounds/gallery-bg.jpg');
 }
+/* ========== ДОПОЛНИТЕЛЬНАЯ АДАПТИВНОСТЬ ========== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    .header-brand h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Уже есть — но добавим ещё */
+    .header-brand h1 {
+        font-size: 1.2rem;
+    }
+    .logo {
+        max-width: 50px;
+    }
+    .project-card {
+        padding: 1rem;
+    }
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-brand h1 {
+        font-size: 1rem;
+    }
+    .logo {
+        max-width: 40px;
+    }
+    .main-menu li a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+    }
+    footer {
+        font-size: 0.8rem;
+    }
+}
