@@ -23,7 +23,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--background-color);
+    /* Удалён background-color: var(--background-color); — теперь фон из style.css */
 }
 
 .container {
@@ -101,6 +101,17 @@ body {
 .main-content {
     margin-top: 80px;
     min-height: calc(100vh - 160px);
+    background: rgba(245, 245, 245, 0.85); /* полупрозрачная подложка */
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    backdrop-filter: blur(2px);
+}
+
+/* Адаптивность для подложки */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
 }
 
 .page {
