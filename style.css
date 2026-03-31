@@ -86,7 +86,40 @@ header {
     background-color: #3498db;
     transform: translateY(-2px);
 }
+/* ========== БУРГЕР-МЕНЮ ========== */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #4A3B2A;
+    transition: color 0.2s;
+}
+.menu-toggle:hover {
+    color: #D98C2E;
+}
 
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    nav {
+        display: none;
+        width: 100%;
+    }
+    nav.active {
+        display: block;
+    }
+    .main-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    .main-menu li {
+        text-align: center;
+    }
+}
 /* 5. ОСНОВНОЕ СОДЕРЖИМОЕ */
 main {
     flex-grow: 1;
