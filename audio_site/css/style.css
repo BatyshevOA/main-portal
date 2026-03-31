@@ -11,11 +11,47 @@ body {
     color: #333;
     background-color: #f8f5f2;
     padding: 20px;
+    position: relative;
 }
 
+/* ========== ФОН СТРАНИЦЫ (полупрозрачный слой) ========== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.2;                 /* прозрачность, чтобы текст был читаем */
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Основной фон для страницы аудио */
+body.audio-page::before {
+    background-image: url('/main-portal/assets/backgrounds/audio-bg.jpg');
+}
+
+/* Облегчённая версия для мобильных устройств */
+@media (max-width: 768px) {
+    body.audio-page::before {
+        background-image: url('/main-portal/assets/backgrounds/audio-bg-mobile.jpg');
+    }
+}
+
+/* ========== ОСТАЛЬНЫЕ СТИЛИ (без изменений) ========== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 248, 240, 0.85); /* полупрозрачная подложка для улучшения читаемости */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
 /* Шапка */
@@ -205,5 +241,9 @@ footer p {
     
     .volume-control {
         width: 100%;
+    }
+    
+    .container {
+        padding: 15px;
     }
 }
