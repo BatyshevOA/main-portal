@@ -246,3 +246,35 @@ h1 {
         padding: 20px;
     }
 }
+/* Плавающая кнопка "На главную" в левом верхнем углу */
+.floating-home-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #D98C2E;
+    color: #FEF6E9;
+    padding: 8px 16px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+    z-index: 1000;
+}
+.floating-home-btn:hover {
+    background-color: #C1A585;
+    transform: scale(1.02);
+}
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .floating-home-btn {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
