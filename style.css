@@ -169,3 +169,6 @@ body.hide-main-menu nav {
         font-size: 0.9rem;
     }
 }
+body.home-page::before {
+    background-image: url('assets/backgrounds/main-bg.jpg');
+}
