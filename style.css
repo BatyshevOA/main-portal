@@ -172,3 +172,8 @@ body.hide-main-menu nav {
 body.home-page::before {
     background-image: url('assets/backgrounds/main-bg.jpg');
 }
+@media (max-width: 768px) {
+    body.home-page::before {
+        background-image: url('assets/backgrounds/main-bg-mobile.jpg');
+    }
+}
