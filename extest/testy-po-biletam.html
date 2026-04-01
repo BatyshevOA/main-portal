@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тесты по билетам</title>
+    <!-- Подключаем общий стиль портала (фон и навигация) -->
+    <link rel="stylesheet" href="../style.css">
     <style>
         * {
             margin: 0;
@@ -13,7 +15,8 @@
         }
 
         body {
-            background-color: #FEF6E9;
+            /* убираем фоновый цвет, чтобы работал фон из style.css */
+            background-color: transparent;
             color: #4A3B2A;
             min-height: 100vh;
             display: flex;
@@ -22,15 +25,16 @@
             padding: 20px;
         }
 
-        /* основной контейнер */
+        /* основной контейнер – полупрозрачный, чтобы просвечивал общий фон */
         .exam-container {
             max-width: 1400px;
             width: 100%;
-            background: #FEF6E9;
+            background: rgba(254, 246, 233, 0.92); /* полупрозрачный топлёное молоко */
             border-radius: 40px;
             border: 3px solid #C1A585;
             box-shadow: 0 20px 30px rgba(139, 107, 77, 0.3);
             overflow: hidden;
+            backdrop-filter: blur(2px);
         }
 
         /* шапка с таймером */
@@ -70,7 +74,7 @@
         /* левая панель со списком билетов */
         .ticket-panel {
             width: 220px;
-            background: #FEF6E9;
+            background: rgba(254, 246, 233, 0.6);
             border-right: 3px solid #C1A585;
             padding: 25px 15px;
         }
@@ -119,7 +123,7 @@
         /* центральная область с вопросами */
         .content-area {
             flex: 1;
-            background: #FFFCF5;
+            background: rgba(255, 252, 245, 0.85);
             padding: 25px 30px;
             border-right: 3px solid #C1A585;
             max-width: 700px;
@@ -229,7 +233,7 @@
         /* правая панель результатов */
         .result-panel {
             width: 250px;
-            background: #8B6B4D;
+            background: rgba(139, 107, 77, 0.9);
             padding: 25px 20px;
             color: #FEF6E9;
             display: flex;
@@ -306,22 +310,19 @@
         }
     </style>
 </head>
-<body>
+<body class="testy-po-biletam-page">
     <div class="exam-container">
-        <!-- шапка с таймером (статичный для простоты) -->
         <div class="header">
             <h1>🔨 Тесты по билетам</h1>
             <div class="timer" id="timerDisplay">30:00</div>
         </div>
 
         <div class="main-row">
-            <!-- левая колонка: все билеты -->
             <div class="ticket-panel">
                 <h3>Билеты</h3>
                 <div class="ticket-list" id="ticketList"></div>
             </div>
 
-            <!-- центральная часть: вопросы текущего билета -->
             <div class="content-area" id="contentArea">
                 <div class="test-header">
                     <span class="test-number" id="currentTestLabel">Выберите билет</span>
@@ -330,15 +331,12 @@
                         <button class="btn" id="backToTicketsBtn">Назад к тестам</button>
                     </div>
                 </div>
-                <!-- контейнер для вопросов (заполняется динамически) -->
                 <div class="questions-container" id="questionsContainer"></div>
-                <!-- подсказка, если не выбран билет -->
                 <div id="placeholderMsg" style="text-align: center; margin-top: 50px; color: #C1A585; font-size: 1.2rem;">
                     Выберите билет из списка слева
                 </div>
             </div>
 
-            <!-- правая панель: результаты -->
             <div class="result-panel">
                 <div class="result-card">
                     <h3>Результаты теста</h3>
@@ -505,12 +503,10 @@
             const backToTicketsResultBtn = document.getElementById('backToTicketsResultBtn');
             const scoreDisplay = document.getElementById('scoreDisplay');
 
-            let currentTicketId = null;          // индекс выбранного билета (0-14)
-            let userAnswers = [];                 // массив выбранных ответов (индексы) для текущего билета
-            let testSubmitted = false;             // был ли сдан тест (влияет на подсветку?)
+            let currentTicketId = null;
+            let userAnswers = [];
+            let testSubmitted = false;
 
-            // ---------- ФУНКЦИИ ----------
-            // отрисовка списка билетов
             function renderTicketList() {
                 ticketListEl.innerHTML = '';
                 ticketsData.forEach((ticket, idx) => {
@@ -524,25 +520,18 @@
                 });
             }
 
-            // выбор билета
             function selectTicket(id) {
                 currentTicketId = id;
                 testSubmitted = false;
-                // сброс ответов
                 userAnswers = new Array(ticketsData[id].questions.length).fill(null);
-                // обновить активный класс в списке
                 document.querySelectorAll('.ticket-btn').forEach((btn, i) => {
                     btn.classList.toggle('active', i === id);
                 });
-                // показать тест
                 showTest(id);
-                // обновить результат на 0/количество
                 updateScoreDisplay(0, ticketsData[id].questions.length);
-                // активировать кнопку сдать
                 submitBtn.disabled = false;
             }
 
-            // отображение теста в центре
             function showTest(ticketId) {
                 const ticket = ticketsData[ticketId];
                 currentTestLabel.textContent = ticket.title;
@@ -561,11 +550,10 @@
                 });
                 questionsContainer.innerHTML = html;
 
-                // добавить слушатели на radio
                 document.querySelectorAll('.options input[type="radio"]').forEach(radio => {
                     radio.addEventListener('change', (e) => {
-                        if (testSubmitted) return; // после сдачи не меняем (но можно разрешить, тогда результат будет неактуален – запретим)
-                        const name = e.target.name; // например "q0"
+                        if (testSubmitted) return;
+                        const name = e.target.name;
                         const qIndex = parseInt(name.substring(1));
                         const value = parseInt(e.target.value);
                         userAnswers[qIndex] = value;
@@ -573,7 +561,6 @@
                 });
             }
 
-            // подсчет правильных ответов
             function calculateScore() {
                 if (currentTicketId === null) return 0;
                 const questions = ticketsData[currentTicketId].questions;
@@ -584,36 +571,30 @@
                 return correctCount;
             }
 
-            // обновить отображение результата в правой панели
             function updateScoreDisplay(correct, total) {
                 scoreDisplay.textContent = `${correct}/${total}`;
             }
 
-            // обработчик сдачи теста
             function submitTest() {
                 if (currentTicketId === null) return;
-                if (testSubmitted) return; // уже сдан
+                if (testSubmitted) return;
                 testSubmitted = true;
                 const total = ticketsData[currentTicketId].questions.length;
                 const correct = calculateScore();
                 updateScoreDisplay(correct, total);
-                submitBtn.disabled = true; // можно отключить кнопку сдачи
-                // можно заблокировать radio, но не обязательно
+                submitBtn.disabled = true;
             }
 
-            // повторное прохождение (сброс)
             function retryTest() {
                 if (currentTicketId === null) return;
                 testSubmitted = false;
                 userAnswers.fill(null);
-                // перерисовать тест
                 showTest(currentTicketId);
                 const total = ticketsData[currentTicketId].questions.length;
                 updateScoreDisplay(0, total);
                 submitBtn.disabled = false;
             }
 
-            // сброс к выбору билета (скрыть вопросы)
             function backToTickets() {
                 currentTicketId = null;
                 testSubmitted = false;
@@ -626,10 +607,9 @@
                 scoreDisplay.textContent = '0/0';
             }
 
-            // инициализация
             function init() {
                 renderTicketList();
-                backToTickets(); // начальное состояние
+                backToTickets();
                 submitBtn.addEventListener('click', submitTest);
                 backToTicketsBtn.addEventListener('click', backToTickets);
                 retryTestBtn.addEventListener('click', () => {
@@ -637,8 +617,7 @@
                 });
                 backToTicketsResultBtn.addEventListener('click', backToTickets);
 
-                // таймер (для красоты статичен, можно запустить)
-                let timeLeft = 30 * 60; // 30 минут
+                let timeLeft = 30 * 60;
                 const timerEl = document.getElementById('timerDisplay');
                 function updateTimer() {
                     const minutes = Math.floor(timeLeft / 60);
@@ -655,5 +634,6 @@
             init();
         })();
     </script>
+    <script src="../script.js" defer></script>
 </body>
 </html>
