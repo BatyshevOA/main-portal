@@ -133,3 +133,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* Скрыть главное меню на странице достижений */
+body.hide-main-menu nav {
+    display: none;
+}
