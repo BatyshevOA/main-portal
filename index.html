@@ -1,107 +1,65 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портал проектов Батышева О.А.</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-</head>
-<body class="home-page">
-    <header>
-        <div class="container">
-            <div class="header-brand">
-                <button class="menu-toggle" aria-label="Меню">☰</button>
-                <img src="assets/logo.png" alt="Логотип проекта" class="logo">
-                <h1>Портал проектов Батышева О.А.</h1>
-            </div>
-            
-            <nav>
-                <ul class="main-menu">
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="audio_site/index.html">Аудио сайт</a></li>
-                    <li><a href="batyshev-portfolio/index.html">Билеты</a></li>
-                    <li><a href="generaltest/index.html">Общие тесты</a></li>
-                    <li><a href="extest/index.html">Доп. тесты</a></li>
-                    <li><a href="extest/voprosy-biletov.html">Вопросы наводящие</a></li>
-                    <li><a href="extest/testy-po-biletam.html">Тесты по билетам</a></li>
-                    <li><a href="achievements.html">Наши достижения</a></li>
-                    <li><a href="guestbook.html">Гостевая книга</a></li>
-                    <li><a href="wood-gallery/">Галерея работ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+/* ========== ШАПКА И МЕНЮ ========== */
+header {
+    background-color: #FEF6E9;
+    border-bottom: 3px solid #C1A585;
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.logo {
+    max-width: 60px;          /* ограничение размера логотипа */
+    height: auto;
+    border-radius: 50%;       /* круглая форма, можно убрать */
+    object-fit: contain;
+}
+.header-brand h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    white-space: nowrap;
+}
+.main-menu {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+.main-menu li a {
+    text-decoration: none;
+    color: #4A3B2A;
+    font-weight: 500;
+    padding: 0.5rem;
+    transition: color 0.2s;
+}
+.main-menu li a:hover,
+.main-menu li a.active {
+    color: #D98C2E;
+}
 
-    <main class="container">
-        <section id="home">
-            <h2>Объединённый портал проектов Батышева О.А.</h2>
-            <p>Данный ресурс предназначен для подготовки к экзаменам по столярному делу в С(К)ОШИ г. Ленска. Здесь представлены:</p>
-            <ul>
-                <li>экзаменационные билеты с текстовым и аудиосодержанием;</li>
-                <li>тесты для самопроверки (общие и дополнительные);</li>
-                <li>наводящие вопросы для углублённого изучения тем;</li>
-                <li>галерея столярных работ учащихся.</li>
-            </ul>
-            <p>Материалы могут быть использованы как для самостоятельной работы, так и в ходе занятий. Все разделы доступны через верхнее меню.</p>
-        </section>
-
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Аудио сайт</h3>
-                <p>Проект, посвященный аудио материалам.</p>
-                <a href="audio_site/index.html" class="btn">Перейти к проекту</a>
-            </div>
-            <div class="project-card">
-                <h3>Билеты</h3>
-                <p>Проект, содержащий материалы по билетам.</p>
-                <a href="batyshev-portfolio/index.html" class="btn">Перейти к проекту</a>
-            </div>
-            <div class="project-card">
-                <h3>Общие тесты</h3>
-                <p>Третий сайт из списка.</p>
-                <a href="generaltest/index.html" class="btn">Перейти к проекту</a>
-            </div>
-            <div class="project-card">
-                <h3>Дополнительные тесты</h3>
-                <p>Четвертый сайт из списка.</p>
-                <a href="extest/index.html" class="btn">Перейти к проекту</a>
-            </div>
-            <div class="project-card">
-                <h3>Вопросы наводящие</h3>
-                <p>Список вопросов для самопроверки к каждому билету.</p>
-                <a href="extest/voprosy-biletov.html" class="btn">Перейти к вопросам</a>
-            </div>
-            <div class="project-card">
-                <h3>Тесты по билетам</h3>
-                <p>Проверка знаний по всем 15 билетам с таймером и подсчетом результатов.</p>
-                <a href="extest/testy-po-biletam.html" class="btn">Перейти к тестам</a>
-            </div>
-            <div class="project-card">
-                <h3>Наши достижения</h3>
-                <p>Дипломы, сертификаты, грамоты учеников и педагога.</p>
-                <a href="achievements.html" class="btn">Перейти к достижениям</a>
-            </div>
-            <div class="project-card">
-                <h3>Гостевая книга</h3>
-                <p>Оставьте свой отзыв или пожелание. Мы будем рады вашим комментариям!</p>
-                <a href="guestbook.html" class="btn">Перейти к гостевой книге</a>
-            </div>
-            <div class="project-card">
-                <h3>Галерея работ</h3>
-                <p>Фотографии столярных изделий учеников школы.</p>
-                <a href="wood-gallery/" class="btn">Перейти в галерею</a>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; <span id="currentYear"></span> Батышев О.А. Все права защищены.</p>
-            <p style="margin-top: 10px;">Посещений: <img src="https://visitor-badge.laobi.icu/badge?page_id=batyshevoa-portal" alt="счётчик"></p>
-        </div>
-    </footer>
-
-    <script src="script.js" defer></script>
-</body>
-</html>
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-brand h1 {
+        white-space: normal;
+        font-size: 1.2rem;
+    }
+    .main-menu {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
