@@ -177,3 +177,33 @@ body.home-page::before {
         background-image: url('assets/backgrounds/main-bg-mobile.jpg');
     }
 }
+/* ========== ФОНОВЫЕ ИЗОБРАЖЕНИЯ ========== */
+body {
+    position: relative;
+}
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.2;               /* степень прозрачности, регулируйте по вкусу */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Главная страница */
+body.home-page::before {
+    background-image: url('assets/backgrounds/main-bg.jpg');
+}
+
+/* Мобильная версия (ширина экрана до 768px) */
+@media (max-width: 768px) {
+    body.home-page::before {
+        background-image: url('assets/backgrounds/main-bg-mobile.jpg');
+    }
+}
