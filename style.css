@@ -229,3 +229,9 @@ body.achievements-page::before {
 .hide-main-menu nav {
     display: none;
 }
+#home h2 {
+    color: #000000; /* или любой другой цвет */
+}
+#home p, #home ul {
+    color: #000000;
+}
