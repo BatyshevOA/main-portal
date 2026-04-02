@@ -14,13 +14,13 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #FEF6E9;
+            /* Удалён background-color: #FEF6E9; – теперь фон из style.css */
             color: #4A3B2A;
             line-height: 1.6;
         }
 
         header {
-            background-color: #FEF6E9;
+            /* Удалён background-color: #FEF6E9; */
             color: #4A3B2A;
             padding: 2rem 1rem;
             text-align: center;
@@ -146,7 +146,7 @@
             padding: 0.5rem;
         }
 
-        /* Адаптация для планшетов (уже было) */
+        /* Адаптация для планшетов */
         @media (max-width: 768px) {
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -159,7 +159,7 @@
             }
         }
 
-        /* Новая адаптация для мобильных телефонов */
+        /* Адаптация для мобильных телефонов */
         @media (max-width: 480px) {
             header {
                 padding: 1rem;
@@ -335,6 +335,6 @@
         });
     </script>
     <script src="/main-portal/script.js" defer></script>
-<a href="/main-portal/index.html" class="floating-home-btn">🏠 На главную</a>
+    <a href="/main-portal/index.html" class="floating-home-btn">🏠 На главную</a>
 </body>
 </html>
