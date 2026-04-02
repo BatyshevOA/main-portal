@@ -191,7 +191,7 @@ body::before {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    opacity: 0.2;               /* степень прозрачности, регулируйте по вкусу */
+    opacity: 0.2;               /* прозрачность, чтобы текст был читаем */
     z-index: -1;
     pointer-events: none;
 }
@@ -201,7 +201,7 @@ body.home-page::before {
     background-image: url('assets/backgrounds/main-bg.jpg');
 }
 
-/* Мобильная версия (ширина экрана до 768px) */
+/* Мобильная версия */
 @media (max-width: 768px) {
     body.home-page::before {
         background-image: url('assets/backgrounds/main-bg-mobile.jpg');
