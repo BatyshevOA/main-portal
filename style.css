@@ -214,3 +214,18 @@ body.home-page::before {
 #home p, #home li {
     color: #000000; /* горький шоколад для основного текста */
 }
+/* ========== ФОН ДЛЯ СТРАНИЦЫ ДОСТИЖЕНИЙ ========== */
+body.achievements-page::before {
+    background-image: url('assets/backgrounds/achievements-bg.jpg');
+}
+
+@media (max-width: 768px) {
+    body.achievements-page::before {
+        background-image: url('assets/backgrounds/achievements-bg-mobile.jpg');
+    }
+}
+
+/* ========== СКРЫТИЕ МЕНЮ НА НЕКОТОРЫХ СТРАНИЦАХ ========== */
+.hide-main-menu nav {
+    display: none;
+}
