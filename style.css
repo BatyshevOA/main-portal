@@ -235,3 +235,12 @@ body.achievements-page::before {
 #home p, #home ul {
     color: #000000;
 }
+body.gallery-page::before {
+    background-image: url('assets/backgrounds/gallery-bg.jpg');
+}
+
+@media (max-width: 768px) {
+    body.gallery-page::before {
+        background-image: url('assets/backgrounds/gallery-bg-mobile.jpg');
+    }
+}
