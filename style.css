@@ -253,3 +253,11 @@ body.gallery-page::before {
         background-image: url('assets/backgrounds/gallery-bg-mobile.jpg');
     }
 }
+body.bilety-page::before {
+    background-image: url('assets/backgrounds/Bilety-bg.jpg');
+}
+@media (max-width: 768px) {
+    body.bilety-page::before {
+        background-image: url('assets/backgrounds/Bilety-bg-mobile.jpg');
+    }
+}
