@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экзаменационные материалы по столярному делу - 9 класс</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        body {
+            background-image: url('file:///C:/Users/11/Documents/25_26/DEEPSEEK/2%20ДОРАБОТКА/САЙТ%20с%20билетами/087b395b-6d16-4654-b161-bf4117deb541.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2C3E50, #3498DB);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-bottom: 5px solid #3498DB;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .author {
+            font-size: 16px;
+            font-style: italic;
+            margin-top: 10px;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .page {
+            display: none;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        .ticket-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .ticket-item {
+            background-color: #ECF0F1;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-image: linear-gradient(to bottom, #ffffff, #ECF0F1);
+        }
+        
+        .ticket-item:hover {
+            background-color: #dde4e6;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: #3498DB;
+        }
+        
+        .ticket-number {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+        
+        .ticket-title {
+            font-size: 16px;
+            color: #333333;
+        }
+        
+        .ticket-content {
+            margin-top: 20px;
+        }
+        
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498DB;
+        }
+        
+        .back-button {
+            background-color: #3498DB;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .back-button:hover {
+            background-color: #2980b9;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+        }
+        
+        .question {
+            margin-bottom: 30px;
+        }
+        
+        .question-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2C3E50;
+            font-size: 18px;
+            border-left: 4px solid #3498DB;
+            padding-left: 10px;
+        }
+        
+        .question-content {
+            padding-left: 20px;
+        }
+        
+        .question-content p {
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .question-content ul, .question-content ol {
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+        
+        .question-content li {
+            margin-bottom: 8px;
+            color: #333333;
+        }
+        
+        .highlight {
+            background-color: #e8f4fc;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #2C3E50;
+        }
+        
+        .conclusion {
+            background-color: #ECF0F1;
+            padding: 15px;
+            border-left: 4px solid #3498DB;
+            margin-top: 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            color: #2C3E50;
+        }
+        
+        .illustrations {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ECF0F1;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background-image: linear-gradient(to bottom, #ffffff, #ECF0F1);
+        }
+        
+        .illustrations h3 {
+            color: #2C3E50;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+        
+        .illustration-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .illustration-link {
+            display: inline-block;
+            background-color: #3498DB;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .illustration-link:hover {
+            background-color: #2980b9;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+        }
+        
+        .visit-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(52, 152, 219, 0.9);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .test-link, .additional-questions {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #ECF0F1;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .test-link h3, .additional-questions h3 {
+            color: #2C3E50;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+        
+        .test-button {
+            display: inline-block;
+            background-color: #3498DB;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .test-button:hover {
+            background-color: #2980b9;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .additional-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .additional-link {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+        
+        .additional-link:hover {
+            background-color: #e8f4fc;
+            border-color: #3498DB;
+            transform: translateY(-3px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .test-options {
+            margin-top: 10px;
+        }
+        
+        .test-option {
+            margin-bottom: 8px;
+        }
+        
+        .test-result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ECF0F1;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .ticket-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .ticket-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .back-button {
+                margin-top: 10px;
+            }
+            
+            .illustration-links {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .additional-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>МКОУ С(К)ОШИ г.Ленска, МР "Ленский район" РС(Я)</h1>
+            <div class="subtitle">ЭКЗАМЕНАЦИОННЫЕ МАТЕРИАЛЫ ДЛЯ ГОСУДАРСТВЕННОЙ ИТОГОВОЙ АТТЕСТАЦИИ ВЫПУСКНИКОВ 9-х КЛАССОВ</div>
+            <div class="author">Автор: Батышев О.А.</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Первая страница - список билетов -->
+        <div id="page1" class="page active">
+            <h2>Экзаменационные билеты</h2>
+            
+            <!-- Список билетов -->
+            <div class="ticket-list" id="ticketList">
+                <!-- Билеты будут добавлены через JavaScript -->
+            </div>
+            
+            <!-- Ссылки на дополнительные вопросы -->
+            <div class="additional-questions">
+                <h3>Дополнительные вопросы по столярному делу</h3>
+                <div class="additional-links">
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(1)">1. Какие профессии связаны со столярным делом</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(2)">2. Техника безопасности с ручным столярным инструментом</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(3)">3. Устройство рубанка</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(4)">4. Молоток, назначение, части молотка</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(5)">5. Ножовка, назначение</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(6)">6. Строение древесины</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(7)">7. Породы древесины</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(8)">8. Верстак, части, назначение</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(9)">9. Клей, его виды</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(10)">10. Киянка, назначение, части</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(11)">11. Строение табурета</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(12)">12. Что такое прозрачная отделка столярных изделий</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(13)">13. Что такое непрозрачная отделка столярных изделий</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(14)">14. Стамеска, назначение, части</a>
+                    <a href="#" class="additional-link" onclick="showAdditionalQuestion(15)">15. Что такое пиломатериал, его виды</a>
+                </div>
+            </div>
+            
+            <!-- Ссылка на экзаменационный тест -->
+            <div class="test-link">
+                <h3>Экзаменационный тест по столярному делу (9 класс)</h3>
+                <a href="#" class="test-button" onclick="showPage(3)">Пройти тест</a>
+                <p style="margin-top: 10px;">Инструкция для ученика: Выберите один правильный ответ для каждого вопроса.</p>
+            </div>
+        </div>
+        
+        <!-- Вторая страница - содержание билета -->
+        <div id="page2" class="page">
+            <div class="ticket-header">
+                <h2 id="ticketPageTitle">Содержание билета</h2>
+                <button class="back-button" onclick="showPage(1)">Назад к списку</button>
+            </div>
+            <div class="ticket-content" id="ticketContent">
+                <!-- Содержание билета будет добавлено через JavaScript -->
+            </div>
+            <div class="illustrations" id="illustrationsSection">
+                <!-- Ссылки на иллюстрации будут добавлены через JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Третья страница - экзаменационный тест -->
+        <div id="page3" class="page">
+            <div class="ticket-header">
+                <h2>Экзаменационный тест по столярному делу</h2>
+                <button class="back-button" onclick="showPage(1)">Назад к списку</button>
+            </div>
+            <div id="testContent">
+                <!-- Содержание теста будет добавлено через JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Четвертая страница - дополнительные вопросы -->
+        <div id="page4" class="page">
+            <div class="ticket-header">
+                <h2 id="additionalPageTitle">Дополнительные вопросы</h2>
+                <button class="back-button" onclick="showPage(1)">Назад к списку</button>
+            </div>
+            <div id="additionalContent">
+                <!-- Содержание дополнительных вопросов будет добавлено через JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Счетчик посещений -->
+    <div class="visit-counter" id="visitCounter">
+        Посещений: <span id="visitCount">0</span>
+    </div>
+
+    <script>
+        // Счетчик посещений
+        function updateVisitCounter() {
+            let visits = localStorage.getItem('pageVisits');
+            if (!visits) {
+                visits = 1;
+            } else {
+                visits = parseInt(visits) + 1;
+            }
+            localStorage.setItem('pageVisits', visits);
+            document.getElementById('visitCount').textContent = visits;
+        }
+        
+        // Данные билетов
+        const tickets = [
+            {
+                number: 1,
+                title: "Значение древесины в народном хозяйстве",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Значение древесины в народном хозяйстве</div>
+                        <div class="question-content">
+                            <p>Древесина – это один из самых важных и полезных материалов, который человек издавна использует для своих нужд. Её значение в народном хозяйстве (то есть во всей экономике страны) очень велико. Без древесины наша жизнь была бы гораздо сложнее.</p>
+                            
+                            <p><strong>Основные области применения древесины:</strong></p>
+                            <ul>
+                                <li><span class="highlight">Строительство</span> - самая большая область применения древесины. Из дерева строят дома, дачи, бани. Внутри зданий дерево используют для изготовления окон, дверей, лестниц, полов и межкомнатных перегородок. Деревянные балки и стропила служат основой для крыш.</li>
+                                <li><span class="highlight">Производство мебели</span> - древесина – главный материал для создания мебели. Из нее делают столы, стулья, шкафы, кровати, кухонные гарнитуры. Деревянная мебель красива, прочна и экологически безопасна.</li>
+                                <li><span class="highlight">Бумажная промышленность</span> - без древесины у нас не было бы бумаги. Из специально обработанной древесной массы (целлюлозы) производят бумагу для книг, тетрадей, газет, денег, обоев. Также из дерева делают картон для упаковки.</li>
+                                <li><span class="highlight">Топливо</span> - древесина является источником энергии. Дрова используются для отопления домов в деревнях, для каминов и бань. Из отходов деревообработки (опилок, щепы) делают топливные брикеты.</li>
+                                <li><span class="highlight">Производство предметов быта и инструментов</span> - древесина окружает нас в повседневной жизни. Из нее делают посуду (разделочные доски, ложки), игрушки (кубики, матрешки), спортивный инвентарь (лыжи, клюшки), рукоятки для инструментов (молотков, топоров, лопат). Художники создают из дерева скульптуры и сувениры.</li>
+                                <li><span class="highlight">Транспорт</span> - раньше из дерева строили корабли и повозки. Сейчас в автомобиле- и вагоностроении дерево используют для внутренней отделки салонов.</li>
+                            </ul>
+                            
+                            <p><strong>Важность лесного хозяйства.</strong></p>
+                            <p>Чтобы древесины всегда хватало, люди должны заботиться о лесе: рубить деревья по плану и обязательно сажать новые. Это называется восполняемым ресурсом.</p>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Таким образом, древесина играет огромную роль в жизни человека и в народном хозяйстве. Она используется в строительстве, для производства мебели и бумаги, в качестве топлива и для изготовления множества полезных вещей. Древесина – это ценный, экологически чистый и возобновляемый материал.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Использование древесины в строительстве", url: "images/билет-1/использование-древесины-строительство.jpg" },
+                    { name: "Деревянная мебель", url: "images/билет-1/деревянная-мебель.jpg" },
+                    { name: "Производство бумаги из древесины", url: "images/билет-1/производство-бумаги.jpg" }
+                ]
+            },
+            {
+                number: 2,
+                title: "Составные части дерева",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Составные части дерева</div>
+                        <div class="question-content">
+                            <p>Дерево — это живой организм, и, как у любого организма, у него есть основные части. Каждая часть выполняет свою важную работу. Зная эти части, столяр понимает, откуда в дереве берутся те или иные свойства древесины.</p>
+                            
+                            <p><strong>Основные части дерева:</strong></p>
+                            <ul>
+                                <li><span class="highlight">Корни</span> - это подземная часть дерева. Корни, как насос, впитывают из земли воду и питательные вещества. Они также крепко держат дерево в почве, не давая ветру его повалить.</li>
+                                <li><span class="highlight">Ствол</span> - это центральная, самая толстая часть дерева, которая тянется от корней к вершине. Ствол — это опора для кроны и «трубопровод». По стволу снизу вверх от корней движется вода с питательными веществам, а от листьев вниз — выработанные питательные вещества. Именно из ствола после спила и обработки получают древесину (пиломатериалы) — основной материал для столярных работ (доски, брусья).</li>
+                                <li><span class="highlight">Крона</span> - это верхняя часть дерева, состоящая из веток и листьев (или хвои у ели и сосны). В листьях на свету происходит фотосинтез — процесс создания пищи для дерева. Листья также выделяют в воздух кислород, которым мы дышим.</li>
+                            </ul>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Дерево состоит из корней, ствола, кроны. Для столяра самая важная часть — это ствол, так как именно из него получают древесину для изготовления изделий. Знание частей дерева помогает понять свойства древесины и правильно выбрать материал для работы.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Строение дерева", url: "images/билет-2/строение-дерева.jpg" },
+                    { name: "Корневая система", url: "images/билет-2/корневая-система.jpg" },
+                    { name: "Строение ствола дерева", url: "images/билет-2/строение-ствола.jpg" }
+                ]
+            },
+            {
+                number: 3,
+                title: "Строение древесины. Главные разрезы ствола",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Строение древесины. Главные разрезы ствола</div>
+                        <div class="question-content">
+                            <p><strong>Что такое древесина?</strong></p>
+                            <p>Древесина – это плотный материал, из которого состоит ствол, корни и ветви дерева. Это основной материал, с которым работает столяр.</p>
+                            
+                            <p><strong>Основные части дерева.</strong></p>
+                            <p>У растущего дерева есть три главные части:</p>
+                            <ul>
+                                <li>Корни – держат дерево в земле и всасывают воду с питательными веществами.</li>
+                                <li>Ствол – это главная, самая толстая часть дерева. Из него получают пиломатериалы (доски, брусья).</li>
+                                <li>Крона – это ветки и листья (или хвоя).</li>
+                            </ul>
+                            
+                            <p><strong>Строение ствола.</strong></p>
+                            <p>Если спилить дерево поперек, мы увидим на торце (срезе) несколько колец. Это срез ствола. На нем можно рассмотреть:</p>
+                            <ul>
+                                <li>Кора – защищает дерево. Столяры ее обычно снимают.</li>
+                                <li>Луб – слой под корой.</li>
+                                <li>Камбий – тонкий слой, где дерево растет в толщину.</li>
+                                <li>Заболонь – молодая, не очень прочная часть древесины.</li>
+                                <li>Ядро – старая, самая прочная и ценная центральная часть ствола.</li>
+                                <li>Годовые кольца – это темные и светлые кольца. По ним можно узнать, сколько лет дереву. Одно темное и одно светлое кольцо вместе – это один год жизни дерева.</li>
+                            </ul>
+                            
+                            <p><strong>Три главных разрезы ствола.</strong></p>
+                            <p>Чтобы получить из круглого бревна доски, его распиливают по-разному. Основные разрезы бывают трех видов:</p>
+                            
+                            <p><strong>1. Поперечный (Торцевой)</strong></p>
+                            <ul>
+                                <li><strong>Как получают?</strong> Разрезают ствол поперек волокон.</li>
+                                <li><strong>Как выглядит рисунок древесины?</strong> Видны годовые кольца в виде концентрических кругов.</li>
+                                <li><strong>Где применяют?</strong> Для изготовления торцевых досок (для разделочных досок, полок), для декора.</li>
+                            </ul>
+                            
+                            <p><strong>2. Радиальный</strong></p>
+                            <ul>
+                                <li><strong>Как получают?</strong> Разрезают ствол вдоль волокон через сердцевину (по радиусу).</li>
+                                <li><strong>Как выглядит рисунок древесины?</strong> Видны годовые кольца в виде параллельных полос.</li>
+                                <li><strong>Где применяют?</strong> Для получения самых прочных и качественных досок (для мебели, паркета).</li>
+                            </ul>
+                            
+                            <p><strong>3. Тангенциальный</strong></p>
+                            <ul>
+                                <li><strong>Как получают?</strong> Разрезают ствол вдоль волокон, но не доходя до сердцевины (по касательной).</li>
+                                <li><strong>Как выглядит рисунок древесины?</strong> Виден красивый рисунок в виде арок, волн (текстура древесины).</li>
+                                <li><strong>Где применяют?</strong> Для обшивки стен, дверей, где важен красивый внешний вид.</li>
+                            </ul>
+                            
+                            <p><strong>Почему это важно знать столяру?</strong></p>
+                            <p>Знание разрезов очень важно для работы:</p>
+                            <ul>
+                                <li><span class="highlight">Прочность:</span> Радиальный распил дает более прочную доску, которая меньше коробится (меняет форму).</li>
+                                <li><span class="highlight">Внешний вид:</span> Тангенциальный распил показывает красивый рисунок дерева для декоративных работ.</li>
+                                <li><span class="highlight">Экономия:</span> Правильный распил помогает получить больше качественных досок из одного бревна без лишних отходов.</li>
+                            </ul>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Строение древесины и умение определять разрезы ствола – это основа знаний столяра. Это помогает правильно выбирать материал для каждой поделки, чтобы она была прочной, красивой и долговечной.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Строение древесины", url: "images/билет-3/строение-древесины.jpg" },
+                    { name: "Годовые кольца", url: "images/билет-3/годовые-кольца.jpg" },
+                    { name: "Виды разрезов древесины", url: "images/билет-3/виды-разрезов.jpg" }
+                ]
+            },
+            {
+                number: 4,
+                title: "Годичные слои и смоляные ходы древесины",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Годичные слои и смоляные ходы древесины</div>
+                        <div class="question-content">
+                            <h3>Годичные слои (Годичные кольца)</h3>
+                            <p><strong>Что это такое?</strong></p>
+                            <p>Годичные слои — это видимые на поперечном (торцевом) срезе ствола концентрические кольца. Каждое кольцо представляет собой прирост древесины за один вегетационный период (обычно за один год).</p>
+                            
+                            <p><strong>Как они образуются?</strong></p>
+                            <p>Образование годичных слоев связано с сезонными изменениями активности камбия (образовательной ткани, расположенной между корой и древесиной).</p>
+                            <ol>
+                                <li><strong>Весна и начало лета:</strong> Дерево активно растет, ему нужны широкие проводящие пути для воды и питательных веществах. Образуется ранняя древесина (светлая часть кольца). Ее клетки имеют тонные стенки и широкий просвет. Эта древесина менее плотная и прочная, но хорошо проводит воду.</li>
+                                <li><strong>Лето и осень:</strong> Рост замедляется. Образуется поздняя древесина (темная часть кольца). Ее клетки имеют толстые стенки и узкий просвет. Эта древесина более плотная, твердая и прочная, она выполняет в основном механическую функцию (поддержка ствола).</li>
+                            </ol>
+                            <p>Чередование светлой ранней и темной поздней древесины и создает видимую границу — годичное кольцо.</p>
+                            
+                            <p><strong>Основные функции:</strong></p>
+                            <ul>
+                                <li>Проведение воды и питательных веществ (ранняя древесина).</li>
+                                <li>Механическая опора (поздняя древесина).</li>
+                                <li>Запас питательных веществ.</li>
+                            </ul>
+                            
+                            <p><strong>Что можно определить по годичным слоям?</strong></p>
+                            <ul>
+                                <li><strong>Возраст дерева:</strong> Подсчитав кольца (за вычетом возможных погрешностей).</li>
+                                <li><strong>Условия роста:</strong> Широкие кольца говорят о благоприятных годах (много солнца, влаги), узкие — о неблагоприятных (засуха, болезни, затенение).</li>
+                                <li><strong>Стороны света:</strong> В северном полушарии более широкие кольца обычно образуются с южной стороны.</li>
+                            </ul>
+                            
+                            <h3>Смоляные ходы (смоляные каналы)</h3>
+                            <p><strong>Что это такое?</strong></p>
+                            <p>Смоляные ходы — это тонные, наполненные смолой межклеточные пространства в древесине. Они характерны не для всех пород, а в основном для хвойных (сосна, ель, лиственница, кедр). У лиственных пород (например, у березы или дуба) смоляных ходов нет.</p>
+                            
+                            <p><strong>Как они устроены?</strong></p>
+                            <p>Это система каналов, выстланная изнутри специальными живыми клетками (эпителием), которые и выделяют смолу. Смоляные ходы бывают:</p>
+                            <ul>
+                                <li>Вертикальные (проходят вдоль ствола).</li>
+                                <li>Горизонтальные (проходят в сердцевинных лучах, поперек ствола).</li>
+                            </ul>
+                            <p>Обе системы соединяются между собой, образуя единую смолоносную сеть.</p>
+                            
+                            <p><strong>Основные функции:</strong></p>
+                            <ul>
+                                <li><strong>Защита от повреждений:</strong> При ранении дерева (например, насекомыми-короедами) смола под давлением вытекает и "заклеивает" рану, не давая проникнуть инфекциям и вредителям.</li>
+                                <li><strong>Защита от грибов и бактерий:</strong> Смола обладает антисептическими свойствами.</li>
+                            </ul>
+                            
+                            <p><strong>Где их можно увидеть?</strong></p>
+                            <ul>
+                                <li>На поперечном срезе хвойного дерева смоляные ходы видны как мелкие белые точки (чаще в поздней древесине).</li>
+                                <li>На продольном срезе они выглядят как темные штрихи-черточки.</li>
+                                <li>Яркий пример — смола, которая выступает на поверхности сосновой доски или бревна.</li>
+                            </ul>
+                            
+                            <div class="conclusion">
+                                <strong>Итог:</strong><br>
+                                • Годичные слои — это "летопись" жизни дерева, его ежегодный прирост.<br>
+                                • Смоляные ходы — это его "аптечка и система защиты", характерная для хвойных пород.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Годичные кольца дерева", url: "images/билет-4/годовые-кольца-деталь.jpg" },
+                    { name: "Смоляные ходы в древесине", url: "images/билет-4/смоляные-ходы.jpg" },
+                    { name: "Строение ствола хвойного дерева", url: "images/билет-4/строение-ствола-хвойного.jpg" }
+                ]
+            },
+            {
+                number: 5,
+                title: "Физические свойства древесины",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Физические свойства древесины</div>
+                        <div class="question-content">
+                            <p>Физические свойства древесины — это характеристики, которые описывают ее состояние и поведение под воздействием физических факторов (таких как тепло, влага, звук, электричество) без изменения ее химического состава.</p>
+                            
+                            <ol>
+                                <li><strong>Цвет</strong> — это окраска древесины, зависящая от породы, возраста дерева и условий его роста. Например, сосна обычно желтоватая, дуб — коричневый, а берёза — светлая. Цвет влияет на внешний вид изделия.</li>
+                                
+                                <li><strong>Блеск</strong> — это способность поверхности отражать свет. Она зависит от плотности и структуры древесины. Дуб и клён блестят ярко, а осина — матово. Блеск придаёт изделию декоративность.</li>
+                                
+                                <li><strong>Запах</strong> — это аромат, который выделяет древесина благодаря смолам, эфирным маслам и дубильным веществам. Сосна пахнет смолой, а кедр — сильно и приятно. Запах помогает определить породу древесины и важен для изделий, которые будут контактировать с продуктами, например, шкатулок для чая.</li>
+                                
+                                <li><strong>Текстура</strong> — это узор на поверхности древесины, создаваемый годичными слоями, сердцевинными лучами и волокнами. У ясеня текстура полосатая, а у ореха — сложная и красивая. Текстура — главный декоративный признак древесины.</li>
+                                
+                                <li><strong>Влажность</strong> — это количество влаги в древесине. Это самое важное свойство для работы с деревом. Влажность измеряется в процентах. От неё зависит, будет ли изделие коробиться, трескаться или сохранять форму.</li>
+                                
+                                <li><strong>Плотность</strong> — это отношение массы древесины к её объёму. Она бывает низкой, средней и высокой. Например, бальза — очень лёгкая, а дуб — тяжёлый. Плотность влияет на прочность, твёрдость и обрабатываемость древесины.</li>
+                                
+                                <li><strong>Твёрдость</strong> — это способность древесины сопротивляться вдавливанию более твёрдых тел, таких как гвозди или резцы. Сосна мягкая, берёза твёрдая, а самшит — очень твёрдый. Твёрдость определяет износ инструментов и область применения древесины. Из твёрдых пород делают полы, а из мягких — резьбу.</li>
+                                
+                                <li><strong>Теплопроводность</strong> — это способность древесины проводить тепло. Древесина плохо проводит тепло, поэтому её используют для изготовления рукояток инструментов, отделки бань и домов.</li>
+                                
+                                <li><strong>Звукопроводность</strong> — это способность древесины проводить звук. Вдоль волокон звук распространяется особенно хорошо. Это свойство учитывают при строительстве, а также при изготовлении музыкальных инструментов.</li>
+                                
+                                <li><strong>Электропроводность</strong> — это способность древесина проводить электрический ток. Сухая древесина — отличный диэлектрик, но при увеличении влажности её электропроводность резко возрастает. Это важно для безопасности.</li>
+                                
+                                <li><strong>Гигроскопичность</strong> — это способность древесины поглощать влагу из воздуха и отдавать её обратно. Из-за этого древесина «дышит», но может разбухать и коробиться при изменении влажности.</li>
+                                
+                                <li><strong>Разбухание и усушка</strong> — это изменение размеров древесины при изменении её влажности. Разбухание происходит при увеличении влажности, а усушка — при уменьшении. Это важно учитывать при работе с древесиной, чтобы избежать коробления и трещин.</li>
+                            </ol>
+                            
+                            <p><strong>Почему это важно для столяра?</strong></p>
+                            <p>Знание этих свойств помогает столяру:</p>
+                            <ul>
+                                <li>Правильно выбрать породу дерева для конкретного изделия.</li>
+                                <li>Предвидеть, как древесина будет вести себя в готовом изделии.</li>
+                                <li>Выбрать подходящую технологию обработки и инструменты.</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Цвет и текстура различных пород древесины", url: "images/билет-5/цвет-текстура-древесины.jpg" },
+                    { name: "Измерение влажности древесины", url: "images/билет-5/измерение-влажности.jpg" },
+                    { name: "Плотность различных пород дерева", url: "images/билет-5/плотность-древесины.jpg" }
+                ]
+            },
+            {
+                number: 6,
+                title: "Механические свойства древесины",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Механические свойства древесины</div>
+                        <div class="question-content">
+                            <p>Механические свойства древесины — это способность древесины сопротивляться воздействию внешних сил (нагрузок). Эти свойства являются определяющими при выборе древесины для конкретных целей (строительство, мебель, инструменты и т.д.).</p>
+                            
+                            <p><strong>Основные виды механических свойств:</strong></p>
+                            <ol>
+                                <li><strong>Прочность</strong> - способность древесины сопротивляться разрушению под действием нагрузок.</li>
+                                <li><strong>Твердость</strong> - способность древесины сопротивляться внедрению в нее более твердого тела.</li>
+                                <li><strong>Ударная вязкость</strong> - способность древесины поглощать работу при ударе без разрушения.</li>
+                                <li><strong>Деформативные свойства</strong> - способность древесины деформироваться под нагрузкой без разрушения.</li>
+                                <li><strong>Способность удерживать крепления</strong> - насколько хорошо древесина удерживает гвозди, шурупы, скобы.</li>
+                            </ol>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Знание механических свойств древесины позволяет инженерам и проектировщикам грамотно выбирать материалы для конструкций, учитывая все сильные и слабые стороны этого уникального природного материала.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Прочность древесины при различных нагрузках", url: "images/билет-6/прочность-древесины.jpg" },
+                    { name: "Тестирование твердости древесины", url: "images/билет-6/тестирование-твердости.jpg" }
+                ]
+            },
+            {
+                number: 7,
+                title: "Технологические свойства древесины",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Технологические свойства древесины</div>
+                        <div class="question-content">
+                            <p>Технологические свойства – это такие свойства, которые связаны с производственными процессами обработки древесины.</p>
+                            
+                            <p><strong>Способность удерживать металлические крепления.</strong> Забитый в древесину гвоздь держится крепко, потому что её волокна оказывают на стержень давление. Сопротивление зависит от положения гвоздя относительно волокон, породы и плотности древесины. Чем выше плотность, тем больше она препятствует вбиванию и выдергиванию гвоздя.</p>
+                            
+                            <p><strong>Способность к гнутью.</strong> Наибольшей способностью к гнутью обладают лиственные породы (дуб, ясень, берёза). У хвойных пород эта способность невелика. Чем выше влажность древесины, тем выше способность к гнутью.</p>
+                            
+                            <p><strong>Износостойкость.</strong> Эта способность выражается в том, что поверхностные слои древесины противостоят разрушению в процессе трения. Износ древесины с боковой поверхности больше, чем с торцевой. Чем выше твёрдость и плотность, тем меньше износ. Влажная древесина больше подвержена износу, чем сухая.</p>
+                            
+                            <p><strong>Сопротивление раскалыванию.</strong> Эта способность древесины под действием клина разделяться на части вдоль волокон. Практическое значение это свойство используется при клёпке бочек, изготовлении ободьев, спиц, кровельной драни. Сопротивление по радиальной плоскости у лиственных пород меньше, чем по тангентальной. У хвойных пород, наоборот, раскалывание по тангентальной плоскости меньше, чем по радиальной, так как разрушается ранняя древесина, а не поздняя.</li>
+                            </ul>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Знание технологических свойств древесины позволяет столяру правильно выбирать методы обработки, инструменты и крепежные элементы для каждого конкретного случая, что обеспечивает качество и долговечность изделий.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Способность древесины удерживать крепления", url: "images/билет-7/крепления-древесины.jpg" },
+                    { name: "Технология гнутья древесины", url: "images/билет-7/гнутье-древесины.jpg" },
+                    { name: "Износостойкость различных пород", url: "images/билет-7/износостойкость.jpg" }
+                ]
+            },
+            {
+                number: 8,
+                title: "Виды деревообрабатывающих станков",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Виды деревообрабатывающих станков</div>
+                        <div class="question-content">
+                            <p><strong>Что такое деревообрабатывающий станок?</strong></p>
+                            <p>Деревообрабатывающий станок — это электрическая машина, которая с помощью специальных режущих инструментов (пил, фрез, ножей, сверл) обрабатывает древесину. Станки нужны для того, чтобы быстро и точно выполнять работу, которую трудно или долго делать вручную.</p>
+                            
+                            <p><strong>Основные виды деревообрабатывающих станков</strong></p>
+                            <p>В школьной мастерской мы используем несколько основных видов станков. Каждый из них выполняет свою задачу.</p>
+                            
+                            <p><strong>1. Токарный станок</strong></p>
+                            <ul>
+                                <li><strong>Для чего нужен?</strong> Для вытачивания круглых деталей.</li>
+                                <li><strong>Что делает?</strong> Вращает заготовку, а мы с помощью стамески придаем ей форму (например, ножки для стула, шкатулки, матрешки).</li>
+                                <li><strong>Главное правило безопасности:</strong> Крепко закрепи заготовку! Не подходи близко к вращающейся детали.</li>
+                            </ul>
+                            
+                            <p><strong>2. Сверлильный станок</strong></p>
+                            <ul>
+                                <li><strong>Для чего нужен?</strong> Для сверления отверстий.</li>
+                                <li><strong>Что делает?</strong> Крепко держит сверло и точно делает прямые отверстия нужной глубины.</li>
+                                <li><strong>Главное правило безопасности:</strong> Не держи деталь руками! Ее нужно зажать в тисках. Убрать волосы под головной убор.</li>
+                            </ul>
+                            
+                            <p><strong>3. Фрезерный станок</strong></p>
+                            <ul>
+                                <li><strong>Для чего нужен?</strong> Для вырезания пазов, фасок, сложных узоров.</li>
+                                <li><strong>Что делает?</strong> Вращающаяся фреза (как маленькая резцовая головка) срезает лишнюю древесину по краю или плоскости детали.</li>
+                                <li><strong>Главное правило безопасности:</strong> Подавай заготовку плавно и равномерно! Руки должны быть далеко от фрезы.</li>
+                            </ul>
+                            
+                            <p><strong>4. Циркулярная пила (Круглопильный станок)</strong></p>
+                            <ul>
+                                <li><strong>Для чего нужен?</strong> Для продольной и поперечной распиловки досок.</li>
+                                <li><strong>Что делает?</strong> Острый металлический диск с зубьями быстро и ровно распиливает древесину.</li>
+                                <li><strong>Главное правило безопасности:</strong> Используй толкатель! Никогда не пили маленькие детали вручную. Держи пальцы далеко от пильного диска.</li>
+                            </ul>
+                            
+                            <p><strong>5. Фуговальный станок</strong></p>
+                            <ul>
+                                <li><strong>Для чего нужен?</strong> Для выравнивания поверхности досок и создания ровной кромки.</li>
+                                <li><strong>Что делает?</strong> Вращающийся ножевой вал снимает тонкий слой дерева, делая одну сторону доски идеально плоской и прямой.</li>
+                                <li><strong>Главное правило безопасности:</strong> Никогда не опускай руки близко к ножевому валу! Используй специальные прижимные колодки.</li>
+                            </ul>
+                            
+                            <p><strong>6. Ленточная пила</strong></p>
+                            <ul>
+                                <li><strong>Для чего нужен?</strong> Для криволинейного (фигурного) распила.</li>
+                                <li><strong>Что делает?</strong> Гибкая металлическая лента с зубьями, замкнутая в кольцо, позволяет выпиливать из дерева закругленные детали.</li>
+                                <li><strong>Главное правило безопасности:</strong> Следи за плавностью подачи! Не делай резких поворотов заготовки, чтобы не сломалось полотно.</li>
+                            </ul>
+                            
+                            <p><strong>Общие правила безопасности при работе на всех станках:</strong></p>
+                            <ol>
+                                <li>Работай только с разрешения учителя.</li>
+                                <li>Надевай защитные очки — они защитят глаза от стружки и пыли.</li>
+                                <li>Убери свободную одежду, застегни рукава, убери волосы под головной убор, чтобы ничего не намоталось на вращающиеся части.</li>
+                                <li>Проверь, исправен ли станок и хорошо ли закреплен режущий инструмент.</li>
+                                <li>Не отвлекайся и не разговаривай с товарищами во время работы.</li>
+                                <li>После работы выключи станок, убери рабочее место и убери стружку щеткой (не руками!).</li>
+                            </ol>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Деревообрабатывающие станки — это главные помощники столяра. Они делают работу быстрее и качественнее. Но помни, что каждый станок опасен, если работать на нем без знаний и нарушать правила. Безопасность — это самое важное в нашей работе.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Токарный станок по дереву", url: "images/билет-8/токарный-станок.jpg" },
+                    { name: "Сверлильный станок", url: "images/билет-8/сверлильный-станок.jpg" },
+                    { name: "Фрезерный станок", url: "images/билет-8/фрезерный-станок.jpg" },
+                    { name: "Циркулярная пила", url: "images/билет-8/циркулярная-пила.jpg" }
+                ]
+            },
+            {
+                number: 9,
+                title: "Назначение и устройство настольно-сверлильного станка, Т/Б при работе на нём",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Назначение и устройство настольно-сверлильного станка, Т/Б при работе на нём</div>
+                        <div class="question-content">
+                            <p><strong>Назначение настольно-сверлильного станка</strong></p>
+                            <p>Настольно-сверлильный станок предназначен для выполнения точных и повторяемых операций сверления в различных материалах (древесине, металле, пластике). В отличие от ручной дрели, он обеспечивает:</p>
+                            <ul>
+                                <li>Высокую точность: Сверло не уводит в сторону, отверстия получаются строго перпендикулярными.</li>
+                                <li>Стабильность и повторяемость: Возможность серийного изготовления одинаковых деталей.</li>
+                                <li>Качество отверстия: Чистота обработанной поверхности благодаря стабильному вращению и подаче.</li>
+                                <li>Безопасность: Заготовка надежно закреплена, а сверление осуществляется двумя руками.</li>
+                            </ul>
+                            <p>Основные операции: сверление, рассверливание, зенкерование, развертывание, нарезание резьбы метчиком.</p>
+                            
+                            <p><strong>Устройство настольно-сверлильного станка</strong></p>
+                            <p>Конструкция станка состоит из нескольких ключевых узлов, смонтированных на общей станине:</p>
+                            <ol>
+                                <li><strong>Станина</strong> - массивное чугунное или стальное основание, обеспечивающее устойчивость всего станка и гасящее вибрации.</li>
+                                <li><strong>Стол</strong> - плита с Т-образными пазами для крепления заготовки с помощью струбцин или тисков.</li>
+                                <li><strong>Колонна (стойка)</strong> - вертикальная колонна, соединяющая станину с головкой станка.</li>
+                                <li><strong>Сверлильная головка (шпиндельная бабка)</strong> - основной узел, содержащий электродвигатель, шпиндель, патрон и механизм подачи.</li>
+                                <li><strong>Органы управления</strong> - кнопки "Пуск" и "Стоп", рычаг блокировки шпинделя, рукоятка механизма подачи.</li>
+                            </ol>
+                            
+                            <p><strong>Техника безопасности (Т/Б) при работе на настольно-сверлильном станке</strong></p>
+                            <p><strong>Tребования перед началом работы:</strong></p>
+                            <ol>
+                                <li>Правильная одежда: Наденьте обтягивающую одежду, застегните или подверните рукава. Уберите длинные волосы под головной убор.</li>
+                                <li>Защита глаз: Обязательно наденьте защитные очки.</li>
+                                <li>Проверка станка: Убедитесь в исправности заземления, надежности крепления ремня привода, работе кнопок.</li>
+                                <li>Подготовка заготовки и инструмента: Подберите правильное сверло, проверьте заготовку, наметьте центр будущего отверстия.</li>
+                            </ol>
+                            
+                            <p><strong>Требования во время работы:</strong></p>
+                            <ol>
+                                <li>Надежное крепление заготовки: Заготовка должна быть прочно закреплена в тисках или струбцинами.</li>
+                                <li>Правильная подача: Подавайте сверло на заготовку плавно, без рывков.</li>
+                                <li>Внимание при окончании сверления: Будьте осторожны в момент выхода сверла из заготовки.</li>
+                                <li>Не оставляйте станок без присмотра во включенном состоянии.</li>
+                            </ol>
+                            
+                            <p><strong>Требования по окончании работы:</strong></p>
+                            <ol>
+                                <li>Отключите станок от сети.</li>
+                                <li>Удалите стружку с помощью щетки.</li>
+                                <li>Приведите рабочее место в порядок.</li>
+                                <li>Сдайте станок дежурному или учителю.</li>
+                            </ol>
+                            
+                            <div class="conclusion">
+                                <strong>Запомните:</strong> Ключ, оставленный в патроне, — это опасный снаряд. Всегда извлекайте его сразу после зажима сверла!
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Устройство настольно-сверлильного станка", url: "images/билет-9/устройство-сверлильного-станка.jpg" },
+                    { name: "Правильное крепление заготовки", url: "images/билет-9/крепление-заготовки.jpg" },
+                    { name: "Средства защиты при работе", url: "images/билет-9/средства-защиты.jpg" }
+                ]
+            },
+            {
+                number: 10,
+                title: "Назначение сверления древесины, инструменты и приспособления, Т/Б при сверлении древесины",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Назначение сверления древесины, инструменты и приспособления, Т/Б при сверлении древесины</div>
+                        <div class="question-content">
+                            <p><strong>1. Назначение сверления древесины</strong></p>
+                            <p>Сверление — это процесс образования в заготовке сквозных или глухих цилиндрических отверстий с помощью режущего инструмента (сверла). Основные цели сверления в древесине:</p>
+                            <ul>
+                                <li><strong>Подготовка к соединению:</strong> Создание отверстий для шурупов, саморезов, болтов, шкантов (деревянных дюбелей), нагелей и других видов крепежа. Это предотвращает раскалывание древесина при закручивании и делает соединение более прочным.</li>
+                                <li><strong>Выборка материала:</strong> Сверление используется как начальная операция для последующего выпиливания криволинейных отверстий (например, лобзиком) или для создания больших отверстий (перовыми сверлами или коронками).</li>
+                                <li><strong>Декоративные цели:</strong> Создание отверстий для инкрустации, вставки декоративных элементов или для вентиляции.</li>
+                                <li><strong>Сброс внутреннего напряжения:</strong> Иногда неглубокие отверстия сверлят для предотвращения деформации массивной древесины.</li>
+                                <li><strong>Прокладка коммуникаций:</strong> Создание каналов для проводов, кабелей или труб в деревянных конструкциях.</li>
+                            </ul>
+                            
+                            <p><strong>2. Инструменты и приспособления для сверления древесины</strong></p>
+                            <p><strong>Режущий инструмент (Сверла)</strong></p>
+                            <p>Тип сверла выбирается в зависимости от требуемого размера, точности и чистоты отверстия.</p>
+                            <ol>
+                                <li><strong>Спиральное (винтовое) сверло:</strong> Наиболее универсальное. Имеет острый наконечник (центрирующее острие) и винтовую канавку для эффективного отвода стружки. Подходит для точных и чистых отверстий разного диаметра.</li>
+                                <li><strong>Перовое (перьевое) сверло:</strong> Имеет плоскую лопатку с заостренным центрирующим острием и двумя режущими кромками. Используется для сверления отверстий среднего и большого диаметра (обычно до 50-60 мм). Не очень хорошо отводит стружку, поэтому требует периодического извлечения из отверстия. Главное преимущество — низкая стоимость.</li>
+                                <li><strong>Винтовое сверло (змеевик):</strong> Имеет ярко выраженную винтовую форму, похоже на шнек. Обеспечивает очень чистые стенки отверстия и отличный отвод стружки. Идеально для глубоких отверстий.</li>
+                                <li><strong>Сверло Форстнера:</strong> Специализированное сверло для сверления глухих отверстий с плоским дном и чистой кромкой. Имеет острый обод, который подрезает волокна, и центральное острие для центровки. Незаменимо для петель-чашек в мебели.</li>
+                                <li><strong>Кольцевое сверло (коронка):</strong> Представляет собой металлический цилиндр с зубьями на торце. Позволяет сверлить отверстия большого диаметра (до 100 мм и более). В центре часто имеет центрирующее сверло.</li>
+                            </ol>
+                            
+                            <p><strong>Оборудование (Приводы)</strong></p>
+                            <ol>
+                                <li><strong>Ручная дрель (коловорот):</strong> Механический инструмент для сверления без электричества. Обеспечивает высокий контроль, но требует физических усилий.</li>
+                                <li><strong>Электродрель:</strong> Самый распространенный инструмент. Для дерева подходит как обычная дрель, так и дрель-шуруповерт.</li>
+                                <li><strong>Шуруповерт:</strong> Удобен для сверления небольших отверстий, особенно при монтажных работах.</li>
+                                <li><strong>Стационарный сверлильный станок:</strong> Обеспечивает максимальную точность, перпендикулярность и повторяемость отверстий. Незаменим в столярной мастерской.</li>
+                            </ol>
+                            
+                            <p><strong>Вспомогательные приспособления</strong></p>
+                            <ul>
+                                <li><strong>Шаблоны для сверления:</strong> Пластины с направляющими втулками, которые помогают сверлить отверстия в строго заданных местах с идеальной точностью.</li>
+                                <li><strong>Кондуктор:</strong> Устройство для направления сверла под определенным углом (чаще всего 90° или 15° для карманных отверстий).</li>
+                                <li><strong>Стусло для сверления:</strong> Приспособление для сверления отверстий в торцах под прямым углом.</li>
+                                <li><strong>Струбцины:</strong> Для надежного закрепления заготовки.</li>
+                                <li><strong>Кернер (шило):</strong> Для нанесения метки (углубления) в центре будущего отверстия, чтобы сверло не соскальзывало.</li>
+                                <li><strong>Упор (ограничитель глубины):</strong> Специальный стержень на дрели или сверлильном станке, который позволяет сверлить отверстия на заданную глубину.</li>
+                            </ul>
+                            
+                            <p><strong>3. Техника безопасности (Т/Б) при сверлении древесины</strong></p>
+                            <p>Соблюдение правил техники безопасности предотвращает травмы и порчу заготовки.</p>
+                            
+                            <p><strong>1. Подготовка к работе:</strong></p>
+                            <ul>
+                                <li>Наденьте защитные очки для защиты глаз от стружки и древесной пыли.</li>
+                                <li>Уберите свободную одежду, застегните рукава, уберите длинные волосы под головной убор.</li>
+                                <li>Проверьте исправность инструмента, шнура электропитания и вилки.</li>
+                                <li>Надежно закрепите заготовку на верстаке с помощью струбцин. Запрещается придерживать заготовку рукой!</li>
+                                <li>Подберите правильное и острое сверло для вашей задачи и надежно зажмите его в патроне.</li>
+                                <li>Наметьте центр будущего отверстия кернером или шилом.</li>
+                            </ul>
+                            
+                            <p><strong>2. Во время работы:</strong></p>
+                            <ul>
+                                <li>Включайте электроинструмент только после того, как вы взяли его в рабочее положение и поднесли к заготовке.</li>
+                                <li>Подавайте сверло на заготовку плавно, без рывков и излишнего давления.</li>
+                                <li>При сверлении глубоких отверстий периодически извлекайте сверло для охлаждения и удаления стружки из канавок.</li>
+                                <li>Следите, чтобы шнур электропитания не попал под сверло или в движущиеся части инструмента.</li>
+                                <li>Будьте особенно осторожны при сверлении в конце прохода (при выходе сверла с обратной стороны заготовки). Подложите с обратной стороны обрезок доски ("подкладная доска"), чтобы предотвратить сколы и травмы.</li>
+                                <li>Не отвлекайтесь во время работы.</li>
+                            </ul>
+                            
+                            <p><strong>3. После окончания работы:</strong></p>
+                            <ul>
+                                <li>Дождитесь полной остановки вращения патрона, прежде чем класть инструмент на стол.</li>
+                                <li>Очистите инструмент и рабочее место от стружки и пыли (используйте щетку, не сдувайте ртом).</li>
+                                <li>Уложите шнур и уберите инструмент на место.</li>
+                            </ul>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Правильное сверление древесины требует не только знания инструментов и техник, но и строгого соблюдения правил безопасности. Это обеспечивает качество работы и защищает от травм.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Виды сверл для древесины", url: "images/билет-10/виды-сверл.jpg" },
+                    { name: "Инструменты для сверления", url: "images/билет-10/инструменты-сверления.jpg" },
+                    { name: "Правила безопасности при сверлении", url: "images/билет-10/безопасность-сверления.jpg" },
+                    { name: "Приспособления для сверления", url: "images/билет-10/приспособления-сверления.jpg" }
+                ]
+            },
+            {
+                number: 11,
+                title: "Назначение токарного станка по дереву, его устройство, Т/Б при работе на токарном станке",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Назначение токарного станка по дереву, его устройство, Т/Б при работе на токарном станке</div>
+                        <div class="question-content">
+                            <p><strong>Назначение токарного станка по дереву</strong></p>
+                            <p>Токарный станок по дереву предназначен для обработки тел вращения из древесины путем срезания слоя материала (стружки) с вращающейся заготовки неподвижным режущим инструмент (стамеской).</p>
+                            
+                            <p><strong>Основные виды работ, выполняемых на станке:</strong></p>
+                            <ul>
+                                <li>Точение наружных цилиндрических и фасонных поверхностей: создание ваз, балясин, ножек для мебели, ручек для инструментов и других деталей, имеющих форму тел вращения.</li>
+                                <li>Расточка внутренних полостей и отверстий: точение чаш, полых сосудов, шкатулок.</li>
+                                <li>Подрезка торцов и обработка уступов.</li>
+                                <li>Шлифовка и полировка полученных изделий (часто с использованием абразивных материалов прямо на вращающейся заготовке).</li>
+                                <li>Нанесение резьбы на поверхность детали.</li>
+                            </ul>
+                            <p>Главное преимущество токарной обработки — возможность быстро и точно создавать симметричные, сложные и эстетичные детали, которые практически невозможно изготовить вручную или другими видами пиления.</p>
+                            
+                            <p><strong>Устройство токарного станка по дереву</strong></p>
+                            <p>Несмотря на разнообразие моделей (от настольных мини-станков до крупных промышленных), основные узлы устроены одинаково.</p>
+                            <ol>
+                                <li><strong>Станина</strong> - это массивное металлическое основание, которое объединяет все узлы станка. Имеет направляющие, по которым перемещаются подручник и задняя бабка. Станина обеспечивает жесткость и устойчивость всей конструкции.</li>
+                                <li><strong>Передняя бабка (шпиндельная бабка)</strong> - расположена слева. Содержит электродвигатель, шпиндель, устройство для крепления заготовки и коробку скоростей для изменения частоты вращения шпинделя.</li>
+                                <li><strong>Задняя бабка</strong> - расположена справа, может перемещаться вдоль станины и фиксироваться в нужном положении. Служит для поддержки правого конца длинной заготовки с помощью центра.</li>
+                                <li><strong>Подручник</strong> - это опора для режущего инструмента (стамесок). Имеет регулируемую по высоте и углу наклона рабочую площадку. Подручник обязательно должен быть установлен как можно ближе к заготовке (зазор 3-5 мм) для безопасного упора инструмента.</li>
+                                <li><strong>Электрический привод и система управления</strong> - включает электродвигатель, кнопки включения/выключения и регулятор скорости вращения шпинделя.</li>
+                            </ol>
+                            
+                            <p><strong>Техника безопасности (Т/Б) при работе на токарном станке по дереву</strong></p>
+                            <p>Работа на токарном станке связана с высокими скоростями вращения и использованием острого инструмента, поэтому требует неукоснительного соблюдения правил безопасности.</p>
+                            
+                            <p><strong>Общие требования перед началом работы:</strong></p>
+                            <ol>
+                                <li>Наденьте защитную одежду: Застегните обшлага рукавов, уберите или надежно заколите длинные волосы под головной убор.</li>
+                                <li>Обязательно используйте средства индивидуальной защиты: защитные очки или прозрачный щиток для защиты глаз от стружки и пыли; респиратор или противопылевая маска при интенсивной работе.</li>
+                                <li>Проверьте станок: Убедитесь в его исправности, надежности крепления всех узлов, отсутствии видимых повреждений кабеля.</li>
+                                <li>Подготовьте рабочее место: Убедитесь, что оно хорошо освещено, не загромождено, пол сухой и не скользкий. Инструмент должен лежать в зоне доступа, но не на станине.</li>
+                            </ol>
+                            
+                            <p><strong>Требования безопасности во время работы:</strong></p>
+                            <ol>
+                                <li>Надежное крепление заготовки. Заготовка должна быть без трещин и сучков. Максимально сократите вылет заготовки из патрона.</li>
+                                <li>Правильная установка подручника. Подручник должен быть установлен на расстоянии 2-5 мм от обрабатываемой детали и надежно закреплен.</li>
+                                <li>Контроль скорости вращения. Начинайте точение на малых и средних оборотах. Высокие обороты используйте для чистовой обработки и шлифовки.</li>
+                                <li>Правильные приемы точения: Держите стамеску двумя руками, подавайте инструмент плавно, не допускайте провисания инструмента без опоры на подручник.</li>
+                                <li>Не оставляйте станок работающим без присмотра.</li>
+                                <li>Периодически остановите станок для контроля размеров детали, проверки крепления заготовки и подстройки подручника.</li>
+                            </ol>
+                            
+                            <p><strong>Требования безопасности по окончании работы:</strong></p>
+                            <ol>
+                                <li>Отключите станок от сети.</li>
+                                <li>Дождитесь полной остановки вращения перед тем, как снимать деталь или убирать инструмент.</li>
+                                <li>Удалите стружку с помощью щетки-сметки. Не сдувайте стружку ртом и не сметайте ее рукой!</li>
+                                <li>Приведите рабочее место в порядок, разложите инструмент по местам.</li>
+                            </ol>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Токарный станок по дереву — незаменимый инструмент для создания симметричных деталей, но требует строгого соблюдения техники безопасности. Правильное использование станка позволяет создавать красивые и точные изделия из дерева.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Устройство токарного станка", url: "images/билет-11/устройство-токарного-станка.jpg" },
+                    { name: "Виды токарных работ", url: "images/билет-11/виды-токарных-работ.jpg" },
+                    { name: "Инструменты для токарных работ", url: "images/билет-11/инструменты-токарные.jpg" },
+                    { name: "Безопасность на токарном станке", url: "images/билет-11/безопасность-токарные.jpg" }
+                ]
+            },
+            {
+                number: 12,
+                title: "Назначения склеивания, клеевые материалы, Т/Б при склеивании древесины",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Назначения склеивания, клеевые материалы, Т/Б при склеивании древесины</div>
+                        <div class="question-content">
+                            <p><strong>1. Назначение склеивания</strong></p>
+                            <p>Склеивание — это один из основных способов соединения древесины и древесных материалов, который позволяет создать прочные, долговечные и часто невидимые соединения.</p>
+                            
+                            <p><strong>Основные цели и преимущества склеивания:</strong></p>
+                            <ul>
+                                <li><strong>Увеличение размеров заготовки:</strong> Соединение досок по ширине (получение щитов) или по длине (сращивание).</li>
+                                <li><strong>Повышение прочности и стабильности:</strong> Клеевой шов предотвращает коробление и делает конструкцию более жесткой.</li>
+                                <li><strong>Создание сложных форм и гнутоклееных конструкций:</strong> Производство гнутых деталей мебели, арок, лыж и т.д.</li>
+                                <li><strong>Изготовление неразъемных соединений:</strong> В отличие от шурупов или гвоздей, клеевой шов не расшатывается со временем и не нарушает целостность структуры древесины.</li>
+                                <li><strong>Улучшение внешнего вида:</strong> Клеевой шов можно сделать практически незаметным, что особенно важно для мебели и декоративных изделий.</li>
+                                <li><strong>Ремонт и реставрация:</strong> Восстановление сломанных деталей, заделка трещин, склеивание старых конструкций.</li>
+                            </ul>
+                            
+                            <p><strong>2. Клеевые материалы</strong></p>
+                            <p>Выбор клея зависит от породы древесины, условий эксплуатации готового изделия и требований к прочности.</p>
+                            
+                            <p><strong>Основные виды клеев для древесины:</strong></p>
+                            <ol>
+                                <li><strong>ПВА (Поливинилацетатный, "столярный")</strong> - белого цвета, водоэмульсионный, нетоксичный. После высыхания становится прозрачным. Применяется для склеивания древесины, ДСП, МДФ внутри помещений. Стандартный ПВА неводостоек, но существуют модификации с повышенной водостойкостью.</li>
+                                <li><strong>Полиуретановый клей</strong> - однокомпонентный, при отверждении вспенивается, заполняя зазоры. Очень прочный и жесткий. Применяется для склеивания твердых пород, наружных работ, изделий, эксплуатируемых в условиях влажности.</li>
+                                <li><strong>Эпоксидный клей</strong> - двухкомпонентный (смола + отвердитель). Не дает усадки, очень прочный, химически стойкий, отлично заполняет пустоты. Применяется для склеивания сложных пород, ремонта трещин, создания литьевых соединений, склеивания разнородных материалов.</li>
+                                <li><strong>Казеиновый клей</strong> - натуральный клей на основе молочного белка. Порошок разводится водой. Применяется для склеивания массивной древесины, в реставрации. Дает очень прочный шов.</li>
+                                <li><strong>Термостойкий клей (на основе формальдегидных смол)</strong> - обычно двухкомпонентный. Образует нерастворимый и очень прочный шов. Применяется для изготовления мебели для кухни и ванной, лодок, изделий, подвергающихся нагреву и влаге.</li>
+                                <li><strong>Контактный клей</strong> - на основе неопрена или полихлоропрена. После нанесение и подсыхания поверхности соединяются мгновенно при прижатии. Применяется для наклеивания пластика, шпона, тканей на деревянные основания.</li>
+                            </ol>
+                            
+                            <p><strong>3. Техника безопасности (Т/Б) при склеивании древесины</strong></p>
+                            <p>Хотя склеивание кажется простым процессом, оно также связано с определенными рисками.</p>
+                            
+                            <p><strong>Общие требования:</strong></p>
+                            <ul>
+                                <li>Работайте в хорошо проветриваемом помещении. Многие клеи выделяют летучие токсичные вещества.</li>
+                                <li>Используйте средства индивидуальной защиты: перчатки, защитные очки, респиратор при работе с клеями, выделяющими сильные пары.</li>
+                                <li>Не принимайте пищу и не курите в помещении, где проводится склеивание.</li>
+                            </ul>
+                            
+                            <p><strong>Требования при работе с конкретными клеями:</strong></p>
+                            <ul>
+                                <li><strong>ПВА:</strong> Относительно безопасен. Основная опасность — попадание в глаза. Легко смывается водой до высыхания.</li>
+                                <li><strong>Полиуретановый клей:</strong> Выделяет пары изоцианатов. Проветривание обязательно! Застывший клей удаляется механически.</li>
+                                <li><strong>Эпоксидный клей:</strong> Компоненты могут быть сильными аллергенами. Избегайте прямого контакта. Тщательно мойте руки после работы.</li>
+                                <li><strong>Контактный клей:</strong> Содержит легковоспламеняющиеся растворители. Запрещено работать near открытым огнем!</li>
+                            </ul>
+                            
+                            <p><strong>Требования к организации рабочего места:</strong></p>
+                            <ul>
+                                <li>Храните клеи в соответствии с инструкцией на упаковке, в недоступном для детей месте.</li>
+                                <li>Не допускайте попадания клея на электронагревательные приборы.</li>
+                                <li>Имейте под рукой средства для удаления клея и первую помощь.</li>
+                                <li>Своевременно утилизируйте пустую тару из-под клея и использованные инструменты для смешивания.</li>
+                            </ul>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Правильный выбор клея и соблюдение техники безопасности при склеивании обеспечивают не только прочное и долговечное соединение древесины, но и безопасность работы. Каждый тип клея имеет свои особенности применения и требования к условиям работы.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Виды клеев для древесины", url: "images/билет-12/виды-клеев.jpg" },
+                    { name: "Технология склеивания древесины", url: "images/билет-12/технология-склеивания.jpg" },
+                    { name: "Средства защиты при работе с клеями", url: "images/билет-12/защита-склеивание.jpg" },
+                    { name: "Инструменты для нанесения клея", url: "images/билет-12/инструменты-склеивание.jpg" }
+                ]
+            },
+            {
+                number: 13,
+                title: "Назначение соединения металлическими скрепами, Т/Б при соединении металлическими скрепами",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Назначение соединения металлическими скрепами, Т/Б при соединении металлическими скрепами</div>
+                        <div class="question-content">
+                            <p><strong>Общее назначение</strong></p>
+                            <p>Металлические скрепы (шурупы, болты, гвозди, уголки, накладки) предназначены для создания разъемных и неразъемных соединений деревянных деталей между собой или с другими материалами. Они обеспечивают прочность, жесткость и стабильность собранной конструкции, часто дополняя или заменяя классические столярные соединения.</p>
+                            
+                            <p><strong>Назначение по типам крепежа</strong></p>
+                            
+                            <p><strong>1. Соединение Шурупами (и саморезами)</strong></p>
+                            <ul>
+                                <li><strong>Основное назначение:</strong> Создание прочного, разъемного (условно-разъемного) соединения.</li>
+                                <li><strong>Применение:</strong> Сборка мебели, соединение деталей внахлест и в торец, крепление фурнитуры, фиксация металлических уголков и накладок.</li>
+                                <li><strong>Преимущества:</strong> Высокая прочность на вырыв и сдвиг, возможность разборки без серьезных повреждений, простота монтажа.</li>
+                            </ul>
+                            
+                            <p><strong>2. Соединение Болтами (с гайками и шайбами)</strong></p>
+                            <ul>
+                                <li><strong>Основное назначение:</strong> Создание очень прочного, полностью разъемного соединения, работающего на срез и воспринимающего значительные нагрузки.</li>
+                                <li><strong>Применение:</strong> Сборка ответственных каркасов, сборка массивной мебели, регулируемые соединения.</li>
+                                <li><strong>Преимущества:</strong> Максимальная прочность, надежность, возможность многократной разборки и сборки, равномерное распределение нагрузки через шайбу.</li>
+                            </ul>
+                            
+                            <p><strong>3. Соединение с помощью Угольников (металлических уголков)</strong></p>
+                            <ul>
+                                <li><strong>Основное назначение:</strong> Усиление и фиксация угловых соединений (под 90°), обеспечение жесткости узла.</li>
+                                <li><strong>Применение:</strong> Сборка каркасов корпусов мебели, крепление полок, соединение деталей в торец.</li>
+                                <li><strong>Преимущества:</strong> Простота и скорость монтажа, не требуются сложные столярные работы, высокая стабильность угла.</li>
+                            </ul>
+                            
+                            <p><strong>4. Соединение с помощью Накладок (перфорированных пластин)</strong></p>
+                            <ul>
+                                <li><strong>Основное назначение:</strong> Соединение деталей в одной плоскости (внахлест или встык) и усиление стыков.</li>
+                                <li><strong>Применение:</strong> Укрепление стыков и сращивание деревянных элементов, сборка обрешетки, ремонт треснувших деталей.</li>
+                                <li><strong>Преимущества:</strong> Позволяют соединять детали без врубки, распределяют нагрузку по большой площади, просты в использовании.</li>
+                            </ul>
+                            
+                            <p><strong>5. Соединение Гвоздями</strong></p>
+                            <ul>
+                                <li><strong>Основное назначение:</strong> Создание быстрого, неразъемного соединения, работающего преимущественно на срез.</li>
+                                <li><strong>Применение:</strong> Черновые и плотничные работы, крепление обшивочных материалов, соединение, где не ожидаются значительные нагрузки на отрыв.</li>
+                                <li><strong>Преимущества:</strong> Очень высокая скорость монтажа, низкая стоимость.</li>
+                                <li><strong>Недостаток:</strong> Соединение неразъемное, при нагрузке "на отрыв" гвоздь легко выходит из древесины.</li>
+                            </ul>
+                            
+                            <p><strong>Техника безопасности при соединении столярных изделий металлическими скрепами</strong></p>
+                            
+                            <p><strong>Общие правила техники безопасности:</strong></p>
+                            <ol>
+                                <li><strong>Защита глаз — обязательна!</strong> Используйте защитные очки. Оторвавшаяся бита, металлическая стружка, сломанное сверло или отскочивший гвоздь могут причинить серьезную травму.</li>
+                                <li><strong>Защита рук.</strong> Надевайте перчатки при переноске материалов, работе с металлическим крепежом и забивании гвоздей/шурупов вручную.</li>
+                                <li><strong>Надежная фиксация заготовки.</strong> Деталь должна быть прочно закреплена на верстаке с помощью струбцин. Запрещается придерживать деталь рукой вблизи места сверления или забивания.</li>
+                                <li><strong>Исправный инструмент.</strong> Перед работой проверьте молотки, шуруповерты/дрели, пневмоинструмент.</li>
+                                <li><strong>Порядок на рабочем месте.</strong> Своевременно убирайте обрезки, упаковку и разбросанный крепеж.</li>
+                            </ol>
+                            
+                            <p><strong>Техника безопасности для каждого вида соединений:</strong></p>
+                            
+                            <p><strong>Соединение Шурупами (Саморезами):</strong></p>
+                            <ul>
+                                <li>Правильный подбор и установка бит.</li>
+                                <li>Контролируемое усилие при использовании шуруповерта.</li>
+                                <li>Предварительное сверление для твердых пород древесины.</li>
+                                <li>Осторожность с длинными шурупами.</li>
+                            </ul>
+                            
+                            <p><strong>Соединение Болтами:</strong></p>
+                            <ul>
+                                <li>Внимание при резке болтов.</li>
+                                <li>Контроль затяжки.</li>
+                                <li>Осторожность с пружинными шайбами.</li>
+                                <li>Использование шайб.</li>
+                            </ul>
+                            
+                            <p><strong>Соединение с помощью Угольников и Накладок:</strong></p>
+                            <ul>
+                                <li>Осторожность с острыми кромками.</li>
+                                <li>Надежная фиксация крепежа.</li>
+                                <li>Следите за длиной самореза.</li>
+                            </ul>
+                            
+                            <p><strong>Соединение Гвоздями:</strong></p>
+                            <ul>
+                                <li>Правильный хват молотка.</li>
+                                <li>Концентрация на цели.</li>
+                                <li>Использование добойника.</li>
+                                <li>Особенная осторожность с мелкими гвоздями.</li>
+                            </ul>
+                            
+                            <p><strong>Требования по окончании работы:</strong></p>
+                            <ol>
+                                <li>Отключите весь электроинструмент от сети.</li>
+                                <li>Разрядите пневмоинструмент.</li>
+                                <li>Разложите инструмент и крепеж по местам.</li>
+                                <li>Сметите стружку и мусор щеткой.</li>
+                            </ol>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Металлические скрепы предоставляют разнообразные возможности для соединения деревянных деталей, каждый тип имеет свои преимущества и области применения. Соблюдение правил техники безопасности обеспечивает не только качественное выполнение работы, но и защиту от травм.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Виды металлических креплений", url: "images/билет-13/виды-креплений.jpg" },
+                    { name: "Технология соединения шурупами", url: "images/билет-13/соединение-шурупами.jpg" },
+                    { name: "Соединение болтами и уголками", url: "images/билет-13/болты-уголки.jpg" },
+                    { name: "Безопасность при работе с крепежом", url: "images/билет-13/безопасность-крепление.jpg" }
+                ]
+            },
+            {
+                number: 14,
+                title: "Назначение непрозрачной отделки, Т/Б при непрозрачной отделке столярных изделий",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Назначение непрозрачной отделки, Т/Б при непрозрачной отделке столярных изделий</div>
+                        <div class="question-content">
+                            <p><strong>Назначение непрозрачной отделки</strong></p>
+                            <p>Непрозрачная отделка — это покрытие древесины слоем краски, эмали или другого состава, который полностью скрывает ее естественную текстуру и цвет. В отличие от прозрачной отделки (лаки, масла), которая подчеркивает красоту дерева, непрозрачная выполняет иные, не менее важные функции.</p>
+                            
+                            <p><strong>Основные цели и назначения:</strong></p>
+                            <ol>
+                                <li><strong>Защита от внешних воздействий.</strong> Это главная задача. Краска создает на поверхности прочную пленку, которая защищает древесина от:
+                                    <ul>
+                                        <li>Влаги и воды: Предотвращает разбухание, коробление и гниение.</li>
+                                        <li>Ультрафиолетового излучения: Предотвращает потемнение и разрушение поверхностного слоя древесины.</li>
+                                        <li>Механических повреждений: Абразивного износа, царапин, ударов.</li>
+                                        <li>Химических веществ: Моющих средств, бытовой химии.</li>
+                                        <li>Вредителей: Насекомых-древоточцев и плесени.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Декоративная функция.</strong>
+                                    <ul>
+                                        <li>Придание любого цвета. Позволяет вписать изделие в любой интерьер или экстерьер.</li>
+                                        <li>Создание специальных эффектов: Глянцевых, матовых, перламутровых, фактурных поверхностей.</li>
+                                        <li>Сокрытие дефектов: Краска маскирует недостатки древесины и структуру недорогих древесных материалов.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Санация и восстановление.</strong> Позволяет обновить старую, потерявшую вид мебель или деревянные элементы.</li>
+                                <li><strong>Гигиеничность.</strong> Гладкое лаковое или эмалевое покрытие легче мыть и поддерживать в чистоте.</li>
+                            </ol>
+                            
+                            <p><strong>Материалы для непрозрачной отделки:</strong></p>
+                            <ul>
+                                <li><strong>Масляные краски</strong> - традиционные краски на основе олифы, создают прочное покрытие.</li>
+                                <li><strong>Акриловые краски</strong> - водно-дисперсионные краски, экологически безопасные, быстро сохнут.</li>
+                                <li><strong>Алкидные эмали</strong> - образуют очень прочное, глянцевое покрытие, устойчивое к воздействиям.</li>
+                                <li><strong>Нитроэмали</strong> - быстросохнущие краски, дающие гладкое покрытие.</li>
+                                <li><strong>Полиуретановые покрытия</strong> - исключительно прочные покрытия, устойчивые к истиранию и химическим воздействиям.</li>
+                            </ul>
+                            
+                            <p><strong>Техника безопасности (Т/Б) при непрозрачной отделке столярных изделий</strong></p>
+                            <p>Работа с лакокрасочными материалами (ЛКМ) связана с риском отравления токсичными парами, возгорания и получения химических ожогов.</p>
+                            
+                            <p><strong>Общие требования перед началом работы:</strong></p>
+                            <ol>
+                                <li><strong>Организация рабочего места:</strong>
+                                    <ul>
+                                        <li>Работайте в хорошо проветриваемом помещении. Идеально — использовать вытяжную вентиляцию.</li>
+                                        <li>Уберите все источники открытого огня и искрения.</li>
+                                        <li>Обеспечьте хорошее освещение.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Подготовка средств индивидуальной защиты (СИЗ):</strong>
+                                    <ul>
+                                        <li>Органы дыхания: Респиратор с угольными фильтрами.</li>
+                                        <li>Глаза: Защитные очки при работе с красками из пульверизатора.</li>
+                                        <li>Кожа: Перчатки (нитриловые или резиновые).</li>
+                                        <li>Одежда: Рабочая одежда с длинными рукавами.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Подготовка материалов и инструмента:</strong>
+                                    <ul>
+                                        <li>Проверьте срок годности ЛКМ.</li>
+                                        <li>Изучите инструкцию на банке.</li>
+                                        <li>Убедитесь в исправности инструмента.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            
+                            <p><strong>Требования безопасности во время работы:</strong></p>
+                            <ol>
+                                <li><strong>При работе с краскопультом:</strong>
+                                    <ul>
+                                        <li>Следите, чтобы шланги не перегибались.</li>
+                                        <li>Направляйте распылитель только на обрабатываемое изделие.</li>
+                                        <li>Регулярно проветривайте помещение.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>При работе с кистями и валиками:</strong>
+                                    <ul>
+                                        <li>Не окунайте инструмент в банку слишком глубоко.</li>
+                                        <li>Следите, чтобы краска не капала на пол.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Обращение с ЛКМ и растворителями:</strong>
+                                    <ul>
+                                        <li>Запрещается пить, есть и курить в зоне проведения работ.</li>
+                                        <li>Не используйте растворители для мытья рук.</li>
+                                        <li>При попадании состава на кожу немедленно смойте его.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            
+                            <p><strong>Требования безопасности по окончании работы:</strong></p>
+                            <ol>
+                                <li><strong>Утилизация:</strong>
+                                    <ul>
+                                        <li>Тряпки, пропитанные ЛКМ, являются пожароопасными.</li>
+                                        <li>Не сливайте остатки красок и растворителей в канализацию.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Гигиена:</strong>
+                                    <ul>
+                                        <li>Тщательно вымойте руки с мылом после работы.</li>
+                                        <li>Промойте инструмент согласно инструкции.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Хранение:</strong>
+                                    <ul>
+                                        <li>Плотно закройте банки с ЛКМ.</li>
+                                        <li>Храните их в прохладном, темном, хорошо проветриваемом месте.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Непрозрачная отделка не только придает изделиям эстетичный вид, но и обеспечивает надежную защиту древесины от различных воздействий. Соблюдение правил техники безопасности при проведении отделочных работ обязательно для сохранения здоровья и предотвращения несчастных случаев.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Виды непрозрачных покрытий", url: "images/билет-14/виды-покрытий.jpg" },
+                    { name: "Технология нанесения краски", url: "images/билет-14/нанесение-краски.jpg" },
+                    { name: "Средства защиты при окрашивании", url: "images/билет-14/защита-окрашивание.jpg" },
+                    { name: "Инструменты для отделки", url: "images/билет-14/инструменты-отделки.jpg" }
+                ]
+            },
+            {
+                number: 15,
+                title: "Назначение прозрачной отделки, Т/Б при прозрачной отделке столярного изделия",
+                content: `
+                    <div class="question">
+                        <div class="question-title">1 вопрос: Назначение прозрачной отделки, Т/Б при прозрачной отделке столярного изделия</div>
+                        <div class="question-content">
+                            <p><strong>Назначение прозрачной отделки</strong></p>
+                            <p>Прозрачная отделка — это нанесение на древесину покрытий, которые не скрывают, а подчеркивают и выявляют ее естественную текстуру, цвет и рисунок. Это финишный этап, который придает изделие законченный вид и защищает его.</p>
+                            
+                            <p><strong>Основные цели и назначения:</strong></p>
+                            <ol>
+                                <li><strong>Выявление и усиление естественной красоты древесины.</strong>
+                                    <ul>
+                                        <li>Подчеркивание текстуры: Состав проникает в поры и делает рисунок годичных слоев более контрастным и глубоким.</li>
+                                        <li>Изменение оттенка: Прозрачные морилки, пропитки и лаки с тонировкой позволяют придать древесине более благородный оттенок.</li>
+                                        <li>Создание эффекта глубины: Несколько слоев лака создают трехмерный эффект.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Защита от внешних воздействий.</strong>
+                                    <ul>
+                                        <li>От влаги и грязи: Защищает от впитывания влаги, разбухания, деформации и загрязнений.</li>
+                                        <li>От ультрафиолета: Некоторые лаки содержат УФ-фильтры, предотвращающие выцветание древесины на солнце.</li>
+                                        <li>От механических повреждений: Прочное лаковое покрытие защищает от царапин, сколов и истирания.</li>
+                                        <li>От химических веществ: Устойчиво к бытовым чистящим средствам.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Улучшение тактильных ощущений.</strong> Правильно обработанная поверхность становится гладкой, приятной на ощупь, без риска получить занозу.</li>
+                                <li><strong>Сохранение и долговечность.</strong> Покрытие "консервирует" древесину, значительно продлевая срок службы изделия.</li>
+                            </ol>
+                            
+                            <p><strong>Основные материалы для прозрачной отделки:</strong></p>
+                            <ul>
+                                <li><strong>Масла (льняное, тиковое, датское)</strong> - подчеркивают текстуру, экологичны, но не обеспечивают максимальной защиты от царапин и влаги.</li>
+                                <li><strong>Воски</strong> - дают мягкий шелковистый блеск, тактильно приятны, но нестойки и требуют регулярного обновления.</li>
+                                <li><strong>Лаки (на водной основе, нитроцеллюлозные, полиуретановые, яхтные)</strong> - создают прочную, долговечную пленку с разной степенью блеска.</li>
+                                <li><strong>Пропитки (антисептические, тонирующие)</strong> - защищают от биопоражений и одновременно придают цвет.</li>
+                                <li><strong>Политуры (шеллак)</strong> - используются для реставрации и отделки исторической мебели.</li>
+                            </ul>
+                            
+                            <p><strong>Техника безопасности (Т/Б) при прозрачной отделке столярного изделия</strong></p>
+                            <p>Несмотря на то, что многие современные материалы (особенно на водной основе) относительно безопасны, работа с прозрачной отделкой все равно связана с рисками.</p>
+                            
+                            <p><strong>Общие требования перед началом работы:</strong></p>
+                            <ol>
+                                <li><strong>Организация рабочего места:</strong>
+                                    <ul>
+                                        <li>Интенсивное проветривание — обязательное условие!</li>
+                                        <li>Исключите источники открытого огня и искр.</li>
+                                        <li>Обеспечьте хорошее освещение.</li>
+                                        <li>Поддерживайте чистоту и порядок.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Подготовка средств индивидуальной защиты (СИЗ):</strong>
+                                    <ul>
+                                        <li>Органы дыхания: Респиратор с улавливателями органических паров.</li>
+                                        <li>Глаза: Защитные очки от брызг.</li>
+                                        <li>Кожа: Перчатки (нитриловые, резиновые).</li>
+                                        <li>Одежда: Рабочий халат или комбинезон.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Подготовка материалов:</strong>
+                                    <ul>
+                                        <li>Изучите инструкцию на упаковке ЛКМ.</li>
+                                        <li>Проверьте сроки годности.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            
+                            <p><strong>Требования безопасности во время работы:</strong></p>
+                            <ol>
+                                <li><strong>Приготовление составов:</strong>
+                                    <ul>
+                                        <li>Открывайте банки аккуратно.</li>
+                                        <li>Перемешивайте составы медленно.</li>
+                                        <li>Не смешивайте разные составы без уверенности в их совместимости.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Нанесение покрытий:</strong>
+                                    <ul>
+                                        <li>При использовании краскопульта убедитесь в исправности оборудования.</li>
+                                        <li>При работе с кистями и тампонами избегайте разбрызгивания.</li>
+                                        <li>Следите, чтобы пролитый лак или растворитель сразу же вытирался.</li>
+                                        <li>Не ешьте, не пейте и не курите в зоне работ.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Сушка:</strong>
+                                    <ul>
+                                        <li>Обеспечьте хорошую вентиляцию в помещении, где сохнут изделия.</li>
+                                        <li>Не оставляйте промасленные тряпки и тампоны сложенными в кучу — они могут самовоспламениться.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            
+                            <p><strong>Требования безопасности по окончании работы:</strong></p>
+                            <ol>
+                                <li><strong>Утилизация:</strong>
+                                    <ul>
+                                        <li>Тряпки, пропитанные маслами, лаками и растворителями, являются пожароопасными.</li>
+                                        <li>Не сливайте остатки ЛКМ и растворителей в раковину или на землю.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Гигиена:</strong>
+                                    <ul>
+                                        <li>Тщательно вымойте руки с мылом теплой водой после работы.</li>
+                                        <li>Вымойте инструмент сразу после использования.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Хранение:</strong>
+                                    <ul>
+                                        <li>Плотно закройте банки с ЛКМ и растворителями.</li>
+                                        <li>Храните их в прохладном, темном, хорошо проветриваемом месте.</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            
+                            <div class="conclusion">
+                                <strong>Вывод:</strong> Прозрачная отделка позволяет сохранить и подчеркнуть естественную красоту древесины, одновременно обеспечивая надежную защиту изделия. Соблюдение правил техники безопасности при проведении отделочных работ обязательно для получения качественного результата и сохранения здоровья.
+                            </div>
+                        </div>
+                    </div>
+                `,
+                illustrations: [
+                    { name: "Виды прозрачных покрытий", url: "images/билет-15/виды-прозрачных-покрытий.jpg" },
+                    { name: "Технология нанесения лака", url: "images/билет-15/нанесение-лака.jpg" },
+                    { name: "Обработка древесины маслом", url: "images/билет-15/обработка-маслом.jpg" },
+                    { name: "Средства защиты при работе с лаками", url: "images/билет-15/защита-лакировка.jpg" }
+                ]
+            }
+        ];
+
+        // Данные для экзаменационного теста
+        const testQuestions = [
+            {
+                question: "1. Какой инструмент используют для продольного пиления древесины?",
+                options: [
+                    "а) Лобзик",
+                    "б) Ножовка с мелким зубом",
+                    "в) Лучковая пила",
+                    "г) Шипорезная пила"
+                ],
+                correct: 2
+            },
+            {
+                question: "2. Для чего предназначен столярный верстак?",
+                options: [
+                    "а) Для хранения инструментов",
+                    "б) Для крепкого удерживания заготовки при работе",
+                    "в) Для сушки древесины",
+                    "г) Для заточки инструментов"
+                ],
+                correct: 1
+            },
+            {
+                question: "3. Основной частью рубанка является:",
+                options: [
+                    "а) Молоток",
+                    "б) Нож (резец)",
+                    "в) Стамеска",
+                    "г) Напильник"
+                ],
+                correct: 1
+            },
+            {
+                question: "4. Какой материал получают путем прессования древесной стружки?",
+                options: [
+                    "а) Фанера",
+                    "б) ДСП (Древесно-стружечная плита)",
+                    "в) Брус",
+                    "г) Вагонка"
+                ],
+                correct: 1
+            },
+            {
+                question: "5. Что необходимо сделать в первую очередь при получении травмы (например, пореза) в мастерской?",
+                options: [
+                    "а) Продолжить работу",
+                    "б) Немедленно сообщить учителю",
+                    "в) Вытереть кровь тряпкой",
+                    "г) Самому пойти в медпункт"
+                ],
+                correct: 1
+            },
+            {
+                question: "6. Какой инструмент НЕ используется для разметки деталей?",
+                options: [
+                    "а) Угольник",
+                    "б) Рейсмус",
+                    "в) Рулетка",
+                    "г) Молоток"
+                ],
+                correct: 3
+            },
+            {
+                question: "7. Для чего служит шлифовальная шкурка?",
+                options: [
+                    "а) Для распиливания заготовок",
+                    "б) Для выравнивания и сглаживания поверхности древесины",
+                    "в) Для сверления отверстий",
+                    "г) Для склеивания деталей"
+                ],
+                correct: 1
+            },
+            {
+                question: "8. Струбцина – это инструмент для:",
+                options: [
+                    "а) Сверления",
+                    "б) Склеивания и временного сжатия деталей",
+                    "в) Разметки углов",
+                    "г) Пиления"
+                ],
+                correct: 1
+            },
+            {
+                question: "9. Каким клеем чаще всего склеивают древесину в столярном деле?",
+                options: [
+                    "а) Канцелярский клей",
+                    "б) ПВА столярный",
+                    "в) Суперклей",
+                    "г) Клей для обуви"
+                ],
+                correct: 1
+            },
+            {
+                question: "10. Что означает знак безопасности в виде перечеркнутой сигареты?",
+                options: [
+                    "а) Не пить воду",
+                    "б) Не шуметь",
+                    "в) Не курить",
+                    "г) Не работать"
+                ],
+                correct: 2
+            },
+            {
+                question: "11. Какой инструмент используют для поперечного пиления доски?",
+                options: [
+                    "а) Ножовка с крупным зубом",
+                    "б) Лобзик",
+                    "в) Рубанок",
+                    "г) Стамеска"
+                ],
+                correct: 0
+            },
+            {
+                question: "12. Для чего нужен рубанок?",
+                options: [
+                    "а) Для долбления пазов",
+                    "б) Для строгания древесины",
+                    "в) для пиления",
+                    "г) Для забивания гвоздей"
+                ],
+                correct: 1
+            },
+            {
+                question: "13. Как называется инструмент для вырезания небольших углублений в древесине?",
+                options: [
+                    "а) Киянка",
+                    "б) Отвертка",
+                    "в) Стамеска",
+                    "г) Клещи"
+                ],
+                correct: 2
+            },
+            {
+                question: "14. Фанера – это материал, который состоит из:",
+                options: [
+                    "а) Цельного куска дерева",
+                    "б) Спрессованной стружки",
+                    "в) Склеенных тонких слоев шпона",
+                    "г) Пластика и опилок"
+                ],
+                correct: 2
+            },
+            {
+                question: "15. Перед началом работы необходимо:",
+                options: [
+                    "а) Спрятать инструмент",
+                    "б) Надеть рабочую одежду и проверить исправность инструмента",
+                    "в) Быстро начать работу, чтобы успеть",
+                    "г) Поиграть с инструментом"
+                ],
+                correct: 1
+            }
+        ];
+
+        // Данные для дополнительных вопросов
+        const additionalQuestions = [
+            {
+                id: 1,
+                title: "Какие профессии связаны со столярным делом",
+                answer: "Профессии связанные со столярным делом: плотник, строитель, монтажник, сборщик мебели."
+            },
+            {
+                id: 2,
+                title: "Техника безопасности с ручным столярным инструментом",
+                answer: "При работе с ручным столярным инструментом должны соблюдать Т/Б : -надеть специальную одежду -проверить исправность инструментов - инструменты разложить на верстаке - применять инструмент только по назначению -работать строго по инструкции, не отвлекаясь - после работы убрать инструменты на место."
+            },
+            {
+                id: 3,
+                title: "Устройство рубанка",
+                answer: "Устройство рубанка: Рубанок состоит из трёх основных частей- колодки, ножа и клина. Нож устанавливают в колодке и звкрепляют клином. В передней части есть рожок, за него держат инструмент левой рукой при строгании .Нижняя часть колодки-подошва, а в ней отверстие –леток, через него улетает стружка."
+            },
+            {
+                id: 4,
+                title: "Молоток, назначение, части молотка",
+                answer: "Молоток, назначение, части молотка: металлический или деревянный брусок, насаженный на рукоятку под прямым углом, служит для забивания гвоздей, ударов по чему-то. Части молотка- рукоятка, боёк, клин."
+            },
+            {
+                id: 5,
+                title: "Ножовка, назначение",
+                answer: "Ножовка, назначение – узкая ручная пила. Служит для распиливания древесины."
+            },
+            {
+                id: 6,
+                title: "Строение древесины",
+                answer: "Строение древесины . Древесина-это плотная, твёрдая часть дерева, находящаяся под корой. За корой идёт камбий, обеспечивающий рост дерева. В дереве откладываются годичные кольца, они хорошо видны у комля ( ближе к корню ). Заболонь образована живыми клетками, она проводит воду от корней к кроне. Из отмирающих клеток образуется ядро. К ядру прилегает сердцевина, от неё расходятся в разные стороны сердцевинные лучи."
+            },
+            {
+                id: 7,
+                title: "Породы древесины",
+                answer: "Породы древесины: древесина различается на лиственные и хвойные породы. Хвойные породы: сосна, ель. кедр. пихта. Они имеют характерный смоляной запах. Используется в строительном и мебельном производстве. Лиственные породы деревьев: осина, липа.ольха. берёза. Она также используется в мебельном, строительном, столярном, карандашном производствах."
+            },
+            {
+                id: 8,
+                title: "Верстак, части, назначение",
+                answer: "Верстак, части, назначение. Верстак- рабочее место столяра- это стол для разметки и обработки древесины. Он состоит из крышки и подверстачья. На подверстачье устанавливается крышка Крышка имеет верстачную доску с лотком, боковой и задний зажимы. На доске обрабатывают детали, в ней сделаны гнёзда для клиньев, с их помощью можно закреплять детали и заготовки. В лотке хранят инструменты во время работы. В переднем и заднем зажимах закрепляют заготовки при строгании."
+            },
+            {
+                id: 9,
+                title: "Клей, его виды",
+                answer: "Клей, его виды. Для склеивания древесины применяют клеи животного происхождения, растительные и смоляные (из синтетических смол). Глютиновый, или столярный-животного происхождения. Он бывает трёх сортов: мездровый, костный и рыбный. Казеиновый делают из обезжиренного творога. Он не боится сырости, холода и жары. Преимущество синтетических клеев заключается в обсолютной грибостойкости, высокой водостойкости и большой прочности соединения."
+            },
+            {
+                id: 10,
+                title: "Киянка, назначение, части",
+                answer: "Киянка, назначение. части. Киянка- деревянный молоток больших размеров, изготовленный из твёрдых пород древесины. Киянкой забивают, соединяют только детали из древесины. С её помощью забивают клинья в верстачную доску, соединяют детали между собой. Киянка состоит из рукоятки и бойка."
+            },
+            {
+                id: 11,
+                title: "Строение табурета",
+                answer: "Строение табурета. Табуретка состоит из двух основных частей- корпуса и крышки. Корпус – это сборная конструкция включающая в себя 4 ножки, 4 царги, 4 проножки. Крышка к корпусу крепится на четырёх сухарях."
+            },
+            {
+                id: 12,
+                title: "Что такое прозрачная отделка столярных изделий",
+                answer: "Что такое прозрачная отделка столярных изделий. Прозрачная отделка осуществляется олифой, лаком, воском для того, чтобы была видна текстура дерева."
+            },
+            {
+                id: 13,
+                title: "Что такое непрозрачная отделка столярных изделий",
+                answer: "Что такое непрозрачная отделка столярных изделий. Это покрытие древесины красками и эмалями. Ими отделывают изделия, которые подвергаются постоянным атмосферным и значительным механическим воздействием (трамвайные и железнодорожные вагоны), мебель( школьная, детская, больничная,в общественных столовых, магазинов, вокзалов)."
+            },
+            {
+                id: 14,
+                title: "Стамеска, назначение, части",
+                answer: "Стамеска,назначение, части. Это ручной деревообрабатывающий инструмент( заточенная стальная пластина с деревянной ручкой) для срезки фасок, обработки криволинейных поверхностей, а также для выдалбливания отверстий в узких и тонких деталях."
+            },
+            {
+                id: 15,
+                title: "Что такое пиломатериал, его виды",
+                answer: "Что такое пиломатериалы. Из брёвен путём раскроя получают пилёные заготовки- пиломатериалы: брусья (толщина и ширина более 100 мм), доски толщина до 100 мм и шириной более двойной толщины), бруски- обрезной пиломатериал толщиной до 100 мм , обапол- боковые части бревна, срезанные при продольном распиливании."
+            }
+        ];
+
+        // Функция для отображения страницы
+        function showPage(pageNumber) {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.remove('active');
+            document.getElementById('page4').classList.remove('active');
+            document.getElementById('page' + pageNumber).classList.add('active');
+            
+            if (pageNumber === 3) {
+                initTest();
+            }
+        }
+
+        // Функция для отображения содержимого билета
+        function showTicket(ticketNumber) {
+            const ticket = tickets.find(t => t.number === ticketNumber);
+            if (ticket) {
+                document.getElementById('ticketPageTitle').textContent = `Билет №${ticket.number}: ${ticket.title}`;
+                document.getElementById('ticketContent').innerHTML = ticket.content;
+                
+                // Добавляем раздел с иллюстрациями
+                const illustrationsSection = document.getElementById('illustrationsSection');
+                if (ticket.illustrations && ticket.illustrations.length > 0) {
+                    let illustrationsHTML = '<h3>Иллюстрации по теме:</h3><div class="illustration-links">';
+                    ticket.illustrations.forEach(illustration => {
+                        illustrationsHTML += `<a href="${illustration.url}" target="_blank" class="illustration-link">${illustration.name}</a>`;
+                    });
+                    illustrationsHTML += '</div>';
+                    illustrationsSection.innerHTML = illustrationsHTML;
+                } else {
+                    illustrationsSection.innerHTML = '';
+                }
+                
+                showPage(2);
+            }
+        }
+
+        // Функция для инициализации теста
+        function initTest() {
+            const testContent = document.getElementById('testContent');
+            let testHTML = '<p><strong>Инструкция для ученика:</strong> Выберите один правильный ответ для каждого вопроса.</p>';
+            
+            testQuestions.forEach((question, index) => {
+                testHTML += `
+                    <div class="test-question">
+                        <div class="question-title">${question.question}</div>
+                        <div class="test-options">
+                            ${question.options.map((option, i) => 
+                                `<div class="test-option">
+                                    <input type="radio" id="q${index}_${i}" name="q${index}" value="${i}">
+                                    <label for="q${index}_${i}">${option}</label>
+                                </div>`
+                            ).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            testHTML += `
+                <div style="margin-top: 30px; text-align: center;">
+                    <button class="back-button" onclick="checkTest()">Проверить ответы</button>
+                    <div id="testResult" style="margin-top: 20px;"></div>
+                </div>
+            `;
+            
+            testContent.innerHTML = testHTML;
+        }
+
+        // Функция для проверки теста
+        function checkTest() {
+            let correctAnswers = 0;
+            const totalQuestions = testQuestions.length;
+            
+            testQuestions.forEach((question, index) => {
+                const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                if (selectedOption && parseInt(selectedOption.value) === question.correct) {
+                    correctAnswers++;
+                }
+            });
+            
+            const resultElement = document.getElementById('testResult');
+            resultElement.innerHTML = `
+                <div class="test-result">
+                    <h3>Результат тестирования</h3>
+                    <p>Вы правильно ответили на <strong>${correctAnswers}</strong> из <strong>${totalQuestions}</strong> вопросов.</p>
+                    <p>Оценка: <strong>${Math.round(correctAnswers / totalQuestions * 10)}</strong> из 10 баллов</p>
+                </div>
+            `;
+        }
+
+        // Функция для отображения дополнительного вопроса
+        function showAdditionalQuestion(id) {
+            const question = additionalQuestions.find(q => q.id === id);
+            if (question) {
+                document.getElementById('additionalPageTitle').textContent = question.title;
+                document.getElementById('additionalContent').innerHTML = `
+                    <div class="question">
+                        <div class="question-title">${question.title}</div>
+                        <div class="question-content">
+                            <p>${question.answer}</p>
+                        </div>
+                    </div>
+                `;
+                showPage(4);
+            }
+        }
+
+        // Инициализация списка билетов
+        function initTicketList() {
+            const ticketList = document.getElementById('ticketList');
+            ticketList.innerHTML = '';
+            
+            tickets.forEach(ticket => {
+                const ticketItem = document.createElement('div');
+                ticketItem.className = 'ticket-item';
+                ticketItem.onclick = () => showTicket(ticket.number);
+                
+                ticketItem.innerHTML = `
+                    <div class="ticket-number">Билет №${ticket.number}</div>
+                    <div class="ticket-title">${ticket.title}</div>
+                `;
+                
+                ticketList.appendChild(ticketItem);
+            });
+        }
+
+        // Инициализация при загрузке страницы
+        window.onload = function() {
+            initTicketList();
+            updateVisitCounter();
+        };
+    </script>
+</body>
+</html>
