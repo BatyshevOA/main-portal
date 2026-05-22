@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экзамены по столярному делу - Портал Батышева О.А.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Стили для сплошной галереи (без подписей) */
+        .exams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .exam-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid #C1A585;
+        }
+        .exam-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #D98C2E;
+        }
+        .exam-card img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            background-color: #f0e6d6;
+            display: block;
+        }
+        /* Лайтбокс */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 2px solid #D98C2E;
+            border-radius: 8px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #D98C2E;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #C1A585;
+        }
+        @media (max-width: 768px) {
+            .exams-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            .exam-card img {
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-brand">
+                <img src="assets/logo.png" alt="Логотип проекта" class="logo">
+                <h1>Портал проектов Батышева О.А.</h1>
+            </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="audio_site/index.html">Аудио сайт</a></li>
+                    <li><a href="batyshev-portfolio/index.html">Билеты</a></li>
+                    <li><a href="generaltest/index.html">Общие тесты</a></li>
+                    <li><a href="extest/index.html">Доп. тесты</a></li>
+                    <li><a href="extest/voprosy-biletov.html">Вопросы наводящие</a></li>
+                    <li><a href="extest/testy-po-biletam.html">Тесты по билетам</a></li>
+                    <li><a href="wood-gallery/">Галерея работ</a></li>
+                    <li><a href="achievements.html">Наши достижения</a></li>
+                    <li><a href="exams.html"><strong>Экзамены</strong></a></li>
+                    <li><a href="guestbook.html">Гостевая книга</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Экзамены по столярному делу</h1>
+        <!-- Сплошная галерея, без подписей -->
+        <div class="exams-grid" id="examsGrid"></div>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Батышев О.А. Все права защищены.</p>
+            <p>Посещений: <img src="https://visitor-badge.laobi.icu/badge?page_id=batyshevoa-portal" alt="счётчик"></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- Список фотографий (только пути к файлам, без текста) ---
+        const examImages = [
+            'exams-images/exam1.jpg',
+            'exams-images/exam2.jpg',
+            'exams-images/exam3.jpg',
+            'exams-images/exam4.jpg',
+            'exams-images/exam5.jpg',
+            'exams-images/exam6.jpg'
+            // Добавьте сюда свои файлы, например 'exams-images/foto7.jpg'
+        ];
+
+        const examsGrid = document.getElementById('examsGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const closeBtn = document.querySelector('.close');
+
+        examImages.forEach(imageSrc => {
+            const card = document.createElement('div');
+            card.className = 'exam-card';
+            card.addEventListener('click', () => {
+                lightboxImage.src = imageSrc;
+                lightbox.style.display = 'flex';
+            });
+
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = 'Фото экзамена';
+            img.loading = 'lazy';
+
+            card.appendChild(img);
+            examsGrid.appendChild(card);
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            lightboxImage.src = '';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                lightboxImage.src = '';
+            }
+        });
+    </script>
+</body>
+</html>
