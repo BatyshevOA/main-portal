@@ -5,17 +5,50 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Плавная прокрутка к якорям */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #FEF6E9;
     color: #4A3B2A;
     line-height: 1.6;
+    position: relative;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+/* ========== ФОНОВЫЕ ИЗОБРАЖЕНИЯ (Оптимизировано, убраны дубликаты) ========== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.5; /* Немного уменьшил прозрачность для лучшей читаемости текста */
+    z-index: -1;
+    pointer-events: none;
+}
+
+body.home-page::before { background-image: url('assets/backgrounds/main-bg.jpg'); }
+body.achievements-page::before { background-image: url('assets/backgrounds/achievements-bg.jpg'); }
+body.gallery-page::before { background-image: url('assets/backgrounds/gallery-bg.jpg'); }
+body.bilety-page::before { background-image: url('assets/backgrounds/Bilety-bg.jpg'); }
+
+@media (max-width: 768px) {
+    body.home-page::before { background-image: url('assets/backgrounds/main-bg-mobile.jpg'); }
+    body.achievements-page::before { background-image: url('assets/backgrounds/achievements-bg-mobile.jpg'); }
+    body.gallery-page::before { background-image: url('assets/backgrounds/gallery-bg-mobile.jpg'); }
+    body.bilety-page::before { background-image: url('assets/backgrounds/Bilety-bg-mobile.jpg'); }
 }
 
 /* ========== ШАПКА И МЕНЮ ========== */
@@ -25,46 +58,143 @@ header {
     padding: 0.75rem 1rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(74, 59, 42, 0.1);
 }
-header .container {
+
+.header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
+
 .header-brand {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .logo {
-    max-width: 60px;
+    max-width: 50px;
     height: auto;
     border-radius: 50%;
     object-fit: contain;
 }
+
 .header-brand h1 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin: 0;
     white-space: nowrap;
+    color: #4A3B2A;
 }
+
+/* Кнопка гамбургер (скрыта на десктопе) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #4A3B2A;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Основное меню (Десктоп) */
 .main-menu {
     display: flex;
     list-style: none;
-    gap: 1rem;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
-.main-menu li a {
+
+.main-menu > li > a, 
+.group-title {
     text-decoration: none;
     color: #4A3B2A;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0.5rem;
-    transition: color 0.2s;
+    transition: color 0.2s, background-color 0.2s;
+    border-radius: 4px;
+    cursor: pointer;
 }
-.main-menu li a:hover,
-.main-menu li a.active {
+
+.main-menu > li > a:hover, 
+.main-menu > li > a.active, 
+.group-title:hover {
+    color: #D98C2E;
+    background-color: rgba(217, 140, 46, 0.1);
+}
+
+/* Выпадающие списки (Группировка) */
+.menu-group {
+    position: relative;
+}
+
+.group-title {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.group-title::after {
+    content: '▼';
+    font-size: 0.6em;
+    transition: transform 0.2s;
+}
+
+.menu-group:hover .group-title::after {
+    transform: rotate(180deg);
+}
+
+.sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FEF6E9;
+    border: 1px solid #C1A585;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(74, 59, 42, 0.15);
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.menu-group:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.sub-menu li a {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #4A3B2A;
+    text-decoration: none;
+}
+
+.sub-menu li a:hover {
+    background-color: #F0E6D2;
     color: #D98C2E;
 }
 
@@ -75,6 +205,7 @@ header .container {
     gap: 1.5rem;
     margin: 2rem 0;
 }
+
 .project-card {
     background: #fff;
     border-radius: 12px;
@@ -82,15 +213,24 @@ header .container {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #C1A585;
     text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Новая анимация */
 }
+
+.project-card:hover {
+    transform: translateY(-4px); /* Легкое поднятие при наведении */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
 .project-card h3 {
     margin-bottom: 0.75rem;
     color: #4A3B2A;
 }
+
 .project-card p {
     margin-bottom: 1.25rem;
     color: #5a4a3a;
 }
+
 .btn {
     display: inline-block;
     background-color: #D98C2E;
@@ -98,10 +238,31 @@ header .container {
     text-decoration: none;
     padding: 0.6rem 1.2rem;
     border-radius: 30px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s;
 }
+
 .btn:hover {
     background-color: #b8731e;
+    transform: scale(1.03);
+}
+
+/* ========== ТЕКСТ НА ГЛАВНОЙ СТРАНИЦЕ ========== */
+#home h2 {
+    color: #000000;
+    margin-bottom: 1rem;
+}
+
+#home p, #home li, #home .announcement {
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+#home .announcement {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(217, 140, 46, 0.1);
+    border-left: 4px solid #D98C2E;
+    border-radius: 4px;
 }
 
 /* ========== ПОДВАЛ ========== */
@@ -115,29 +276,14 @@ footer {
     font-size: 0.9rem;
 }
 
-/* ========== АДАПТИВНОСТЬ ========== */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .header-brand h1 {
-        white-space: normal;
-        font-size: 1.2rem;
-    }
-    .main-menu {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* Скрыть главное меню на странице достижений */
-body.hide-main-menu nav {
+/* ========== УТИЛИТЫ ========== */
+/* Скрыть главное меню на некоторых страницах (если нужно) */
+body.hide-main-menu nav,
+.hide-main-menu nav {
     display: none;
 }
-/* Плавающая кнопка "На главную" в левом верхнем углу */
+
+/* Плавающая кнопка "На главную" */
 .floating-home-btn {
     position: fixed;
     top: 20px;
@@ -156,116 +302,106 @@ body.hide-main-menu nav {
     transition: background-color 0.2s, transform 0.2s;
     z-index: 1000;
 }
+
 .floating-home-btn:hover {
     background-color: #C1A585;
-    transform: scale(1.02);
+    transform: scale(1.05);
 }
-/* Адаптация для мобильных устройств */
-@media (max-width: 768px) {
+
+/* ========== МОБИЛЬНАЯ АДАПТАЦИЯ ========== */
+@media (max-width: 900px) {
+    /* Показываем гамбургер */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Превращаем меню в боковую панель */
+    .main-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: #FEF6E9;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5rem 1.5rem 2rem;
+        gap: 0;
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+        overflow-y: auto;
+        z-index: 999;
+    }
+
+    .main-menu.active {
+        right: 0;
+    }
+
+    .main-menu > li {
+        width: 100%;
+        border-bottom: 1px solid #E8DCC8;
+    }
+
+    .main-menu > li > a, 
+    .group-title {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.1rem;
+    }
+
+    .group-title::after {
+        margin-left: auto; /* Прижимает стрелку вправо */
+    }
+
+    /* Аккордеон для подменю на мобильных */
+    .sub-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background-color: #F5EDDF;
+        border-radius: 0;
+        padding-left: 1rem;
+        display: none; /* Скрыто по умолчанию, открывается через JS */
+    }
+
+    .menu-group.open .sub-menu {
+        display: block;
+    }
+
+    .sub-menu li a {
+        padding: 0.8rem 0;
+        font-size: 1rem;
+    }
+
+    /* Анимация гамбургера в крестик */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Адаптация сетки и кнопки */
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .floating-home-btn {
         top: 10px;
         left: 10px;
         padding: 6px 12px;
         font-size: 0.9rem;
     }
-}
-body.home-page::before {
-    background-image: url('assets/backgrounds/main-bg.jpg');
-}
-@media (max-width: 768px) {
-    body.home-page::before {
-        background-image: url('assets/backgrounds/main-bg-mobile.jpg');
-    }
-}
-/* ========== ФОНОВЫЕ ИЗОБРАЖЕНИЯ ========== */
-body {
-    position: relative;
-}
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    opacity: 0.6;               /* прозрачность, чтобы текст был читаем */
-    z-index: -1;
-    pointer-events: none;
-}
-
-/* Главная страница */
-body.home-page::before {
-    background-image: url('assets/backgrounds/main-bg.jpg');
-}
-
-/* Мобильная версия */
-@media (max-width: 768px) {
-    body.home-page::before {
-        background-image: url('assets/backgrounds/main-bg-mobile.jpg');
-    }
-}
-/* Цвета текста на главной странице */
-#home h2 {
-    color: #000000; /* янтарный для заголовка */
-}
-#home p, #home li {
-    color: #000000; /* горький шоколад для основного текста */
-}
-/* ========== ФОН ДЛЯ СТРАНИЦЫ ДОСТИЖЕНИЙ ========== */
-body.achievements-page::before {
-    background-image: url('assets/backgrounds/achievements-bg.jpg');
-}
-
-@media (max-width: 768px) {
-    body.achievements-page::before {
-        background-image: url('assets/backgrounds/achievements-bg-mobile.jpg');
-    }
-}
-
-/* ========== СКРЫТИЕ МЕНЮ НА НЕКОТОРЫХ СТРАНИЦАХ ========== */
-.hide-main-menu nav {
-    display: none;
-}
-#home h2 {
-    color: #000000; /* или любой другой цвет */
-}
-#home p, #home ul {
-    color: #000000;
-}
-body.gallery-page::before {
-    background-image: url('assets/backgrounds/gallery-bg.jpg');
-}
-
-@media (max-width: 768px) {
-    body.gallery-page::before {
-        background-image: url('assets/backgrounds/gallery-bg-mobile.jpg');
-    }
-}
-body.gallery-page::before {
-    background-image: url('assets/backgrounds/gallery-bg.jpg');
-}
-
-@media (max-width: 768px) {
-    body.gallery-page::before {
-        background-image: url('assets/backgrounds/gallery-bg-mobile.jpg');
-    }
-}
-body.bilety-page::before {
-    background-image: url('assets/backgrounds/Bilety-bg.jpg');
-}
-@media (max-width: 768px) {
-    body.bilety-page::before {
-        background-image: url('assets/backgrounds/Bilety-bg-mobile.jpg');
-    }
-}
-body.bilety-page::before {
-    background-image: url('assets/backgrounds/Bilety-bg.jpg');
-}
-@media (max-width: 768px) {
-    body.bilety-page::before {
-        background-image: url('assets/backgrounds/Bilety-bg-mobile.jpg');
+    
+    .header-brand h1 {
+        white-space: normal;
+        font-size: 1.1rem;
     }
 }
