@@ -6,12 +6,12 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Плавная прокрутка к якорям */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #FEF6E9;
+    background-color: #FEF6E9; /* Явный фон для body */
     color: #4A3B2A;
     line-height: 1.6;
     position: relative;
@@ -23,7 +23,7 @@ body {
     padding: 0 1rem;
 }
 
-/* ========== ФОНОВЫЕ ИЗОБРАЖЕНИЯ (Оптимизировано, убраны дубликаты) ========== */
+/* ========== ФОНОВЫЕ ИЗОБРАЖЕНИЯ (ИСПРАВЛЕНО) ========== */
 body::before {
     content: '';
     position: fixed;
@@ -34,8 +34,8 @@ body::before {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    opacity: 0.5; /* Немного уменьшил прозрачность для лучшей читаемости текста */
-    z-index: -1;
+    opacity: 0.4; /* Уменьшил прозрачность */
+    z-index: -1; /* Фон позади всего контента */
     pointer-events: none;
 }
 
@@ -53,7 +53,7 @@ body.bilety-page::before { background-image: url('assets/backgrounds/Bilety-bg.j
 
 /* ========== ШАПКА И МЕНЮ ========== */
 header {
-    background-color: #FEF6E9;
+    background-color: rgba(254, 246, 233, 0.98); /* Почти непрозрачный фон */
     border-bottom: 3px solid #C1A585;
     padding: 0.75rem 1rem;
     position: sticky;
@@ -88,7 +88,7 @@ header {
     color: #4A3B2A;
 }
 
-/* Кнопка гамбургер (скрыта на десктопе) */
+/* Кнопка гамбургер */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -111,7 +111,7 @@ header {
     transition: all 0.3s ease;
 }
 
-/* Основное меню (Десктоп) */
+/* Основное меню */
 .main-menu {
     display: flex;
     list-style: none;
@@ -139,7 +139,7 @@ header {
     background-color: rgba(217, 140, 46, 0.1);
 }
 
-/* Выпадающие списки (Группировка) */
+/* Выпадающие списки */
 .menu-group {
     position: relative;
 }
@@ -164,7 +164,7 @@ header {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #FEF6E9;
+    background-color: rgba(254, 246, 233, 0.98);
     border: 1px solid #C1A585;
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(74, 59, 42, 0.15);
@@ -198,6 +198,22 @@ header {
     color: #D98C2E;
 }
 
+/* ========== ОСНОВНОЙ КОНТЕНТ (ИСПРАВЛЕНО - добавлены явные фоны) ========== */
+main {
+    background-color: rgba(254, 246, 233, 0.95); /* Полупрозрачный фон для main */
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(74, 59, 42, 0.1);
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.9); /* Белый фон для секций */
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
 /* ========== КАРТОЧКИ ПРОЕКТОВ ========== */
 .project-grid {
     display: grid;
@@ -207,17 +223,17 @@ header {
 }
 
 .project-card {
-    background: #fff;
+    background: #fff; /* Явный белый фон */
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #C1A585;
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Новая анимация */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-4px); /* Легкое поднятие при наведении */
+    transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
@@ -267,7 +283,7 @@ header {
 
 /* ========== ПОДВАЛ ========== */
 footer {
-    background-color: #FEF6E9;
+    background-color: rgba(254, 246, 233, 0.98);
     border-top: 1px solid #C1A585;
     text-align: center;
     padding: 1.5rem;
@@ -277,13 +293,11 @@ footer {
 }
 
 /* ========== УТИЛИТЫ ========== */
-/* Скрыть главное меню на некоторых страницах (если нужно) */
 body.hide-main-menu nav,
 .hide-main-menu nav {
     display: none;
 }
 
-/* Плавающая кнопка "На главную" */
 .floating-home-btn {
     position: fixed;
     top: 20px;
@@ -310,12 +324,10 @@ body.hide-main-menu nav,
 
 /* ========== МОБИЛЬНАЯ АДАПТАЦИЯ ========== */
 @media (max-width: 900px) {
-    /* Показываем гамбургер */
     .menu-toggle {
         display: flex;
     }
 
-    /* Превращаем меню в боковую панель */
     .main-menu {
         position: fixed;
         top: 0;
@@ -351,10 +363,9 @@ body.hide-main-menu nav,
     }
 
     .group-title::after {
-        margin-left: auto; /* Прижимает стрелку вправо */
+        margin-left: auto;
     }
 
-    /* Аккордеон для подменю на мобильных */
     .sub-menu {
         position: static;
         opacity: 1;
@@ -365,7 +376,7 @@ body.hide-main-menu nav,
         background-color: #F5EDDF;
         border-radius: 0;
         padding-left: 1rem;
-        display: none; /* Скрыто по умолчанию, открывается через JS */
+        display: none;
     }
 
     .menu-group.open .sub-menu {
@@ -377,7 +388,6 @@ body.hide-main-menu nav,
         font-size: 1rem;
     }
 
-    /* Анимация гамбургера в крестик */
     .menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 6px);
     }
@@ -388,7 +398,6 @@ body.hide-main-menu nav,
         transform: rotate(-45deg) translate(5px, -6px);
     }
 
-    /* Адаптация сетки и кнопки */
     .project-grid {
         grid-template-columns: 1fr;
     }
@@ -403,5 +412,14 @@ body.hide-main-menu nav,
     .header-brand h1 {
         white-space: normal;
         font-size: 1.1rem;
+    }
+    
+    main {
+        padding: 1rem 0.5rem;
+        margin: 1rem 0.5rem;
+    }
+    
+    section {
+        padding: 1.5rem 1rem;
     }
 }
