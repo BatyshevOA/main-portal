@@ -11,19 +11,22 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #FEF6E9; /* Явный фон для body */
+    background-color: #FEF6E9;
     color: #4A3B2A;
     line-height: 1.6;
     position: relative;
+    min-height: 100vh;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    position: relative;
+    z-index: 10; /* Контент выше фона */
 }
 
-/* ========== ФОНОВЫЕ ИЗОБРАЖЕНИЯ (ИСПРАВЛЕНО) ========== */
+/* ========== ФОН - ИСПРАВЛЕНО ========== */
 body::before {
     content: '';
     position: fixed;
@@ -33,33 +36,31 @@ body::before {
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    opacity: 0.4; /* Уменьшил прозрачность */
-    z-index: -1; /* Фон позади всего контента */
+    opacity: 0.3; /* Меньше прозрачность */
+    z-index: 1; /* Фон ПОЗАДИ всего */
     pointer-events: none;
 }
 
-body.home-page::before { background-image: url('assets/backgrounds/main-bg.jpg'); }
-body.achievements-page::before { background-image: url('assets/backgrounds/achievements-bg.jpg'); }
-body.gallery-page::before { background-image: url('assets/backgrounds/gallery-bg.jpg'); }
-body.bilety-page::before { background-image: url('assets/backgrounds/Bilety-bg.jpg'); }
-
-@media (max-width: 768px) {
-    body.home-page::before { background-image: url('assets/backgrounds/main-bg-mobile.jpg'); }
-    body.achievements-page::before { background-image: url('assets/backgrounds/achievements-bg-mobile.jpg'); }
-    body.gallery-page::before { background-image: url('assets/backgrounds/gallery-bg-mobile.jpg'); }
-    body.bilety-page::before { background-image: url('assets/backgrounds/Bilety-bg-mobile.jpg'); }
+body.home-page::before { 
+    background-image: url('assets/backgrounds/main-bg.jpg'); 
 }
 
-/* ========== ШАПКА И МЕНЮ ========== */
+@media (max-width: 768px) {
+    body.home-page::before { 
+        background-image: url('assets/backgrounds/main-bg-mobile.jpg'); 
+    }
+}
+
+/* ========== ШАПКА - ИСПРАВЛЕНО ========== */
 header {
-    background-color: rgba(254, 246, 233, 0.98); /* Почти непрозрачный фон */
+    background-color: rgba(254, 246, 233, 0.98); /* Почти непрозрачный */
     border-bottom: 3px solid #C1A585;
     padding: 0.75rem 1rem;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Выше всего */
     box-shadow: 0 2px 10px rgba(74, 59, 42, 0.1);
+    position: relative;
 }
 
 .header-container {
@@ -88,7 +89,7 @@ header {
     color: #4A3B2A;
 }
 
-/* Кнопка гамбургер */
+/* Меню */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -111,7 +112,6 @@ header {
     transition: all 0.3s ease;
 }
 
-/* Основное меню */
 .main-menu {
     display: flex;
     list-style: none;
@@ -139,20 +139,15 @@ header {
     background-color: rgba(217, 140, 46, 0.1);
 }
 
-/* Выпадающие списки */
+/* Выпадающее меню */
 .menu-group {
     position: relative;
-}
-
-.group-title {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
 }
 
 .group-title::after {
     content: '▼';
     font-size: 0.6em;
+    margin-left: 0.3rem;
     transition: transform 0.2s;
 }
 
@@ -198,23 +193,28 @@ header {
     color: #D98C2E;
 }
 
-/* ========== ОСНОВНОЙ КОНТЕНТ (ИСПРАВЛЕНО - добавлены явные фоны) ========== */
+/* ========== ГЛАВНЫЙ КОНТЕНТ - КРИТИЧЕСКИ ВАЖНО ========== */
 main {
-    background-color: rgba(254, 246, 233, 0.95); /* Полупрозрачный фон для main */
+    background-color: rgba(254, 246, 233, 0.95); /* Явный фон */
     padding: 2rem 1rem;
     margin: 2rem auto;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(74, 59, 42, 0.1);
+    position: relative;
+    z-index: 10; /* Выше фона */
+    max-width: 1200px;
 }
 
-section {
-    background-color: rgba(255, 255, 255, 0.9); /* Белый фон для секций */
+main section {
+    background-color: rgba(255, 255, 255, 0.9); /* Белый фон секций */
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
 }
 
-/* ========== КАРТОЧКИ ПРОЕКТОВ ========== */
+/* Карточки проектов */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -223,13 +223,15 @@ section {
 }
 
 .project-card {
-    background: #fff; /* Явный белый фон */
+    background: #ffffff; /* Явный белый фон */
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #C1A585;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 10;
 }
 
 .project-card:hover {
@@ -262,7 +264,7 @@ section {
     transform: scale(1.03);
 }
 
-/* ========== ТЕКСТ НА ГЛАВНОЙ СТРАНИЦЕ ========== */
+/* Текст на главной */
 #home h2 {
     color: #000000;
     margin-bottom: 1rem;
@@ -281,7 +283,7 @@ section {
     border-radius: 4px;
 }
 
-/* ========== ПОДВАЛ ========== */
+/* Подвал */
 footer {
     background-color: rgba(254, 246, 233, 0.98);
     border-top: 1px solid #C1A585;
@@ -290,14 +292,11 @@ footer {
     margin-top: 2rem;
     color: #5a4a3a;
     font-size: 0.9rem;
+    position: relative;
+    z-index: 10;
 }
 
-/* ========== УТИЛИТЫ ========== */
-body.hide-main-menu nav,
-.hide-main-menu nav {
-    display: none;
-}
-
+/* Плавающая кнопка */
 .floating-home-btn {
     position: fixed;
     top: 20px;
@@ -322,7 +321,7 @@ body.hide-main-menu nav,
     transform: scale(1.05);
 }
 
-/* ========== МОБИЛЬНАЯ АДАПТАЦИЯ ========== */
+/* Мобильная адаптация */
 @media (max-width: 900px) {
     .menu-toggle {
         display: flex;
