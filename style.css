@@ -29,7 +29,7 @@ body.bilety-page::before {
     padding: 20px;
 }
 
-/* ========== ШАПКА И МЕНЮ-КНОПКИ ========== */
+/* ========== ШАПКА И МЕНЮ ========== */
 header {
     background-color: #ffffff;
     border-bottom: 4px solid #C1A585;
@@ -57,11 +57,11 @@ header {
     color: #2c241b;
 }
 
-/* Превращаем ссылки меню в крупные кнопки */
+/* --- НАСТРОЙКИ МЕНЮ ДЛЯ КОМПЬЮТЕРА --- */
 .main-menu {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* На ПК кнопки переносятся на новую строку, если не влезают */
     gap: 15px;
 }
 
@@ -107,6 +107,16 @@ li {
 
 strong {
     color: #8b5a2b; /* Выделяем важные слова цветом, но не кричащим красным */
+}
+
+/* Специальный стиль для блока-объявления про экзамены */
+.announcement {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(217, 140, 46, 0.15);
+    border-left: 5px solid #D98C2E;
+    border-radius: 4px;
+    color: #2c241b;
 }
 
 /* ========== КАРТОЧКИ ПРОЕКТОВ ========== */
@@ -159,6 +169,66 @@ strong {
     background-color: #D98C2E;
 }
 
+/* ========== БЛОК ОБРАТНОЙ СВЯЗИ ========== */
+.contact-section {
+    background-color: #ffffff;
+    border: 3px solid #C1A585;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #2c241b;
+    border-bottom: none; /* Убираем линию под заголовком здесь, чтобы было чище */
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #4a3b2a;
+}
+
+.contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 18px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: transform 0.2s, opacity 0.2s;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+.contact-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.contact-btn .icon {
+    font-size: 1.5em;
+}
+
+/* Индивидуальные цвета кнопок (высокий контраст) */
+.btn-max { background-color: #0055CC; } /* Насыщенный синий */
+.btn-tg { background-color: #2AABEE; }  /* Голубой Телеграм */
+.btn-email { background-color: #D98C2E; } /* Оранжевый (в цвет сайта) */
+
 /* ========== ПОДВАЛ ========== */
 footer {
     margin-top: 50px;
@@ -180,18 +250,51 @@ footer {
         text-align: center;
     }
     
+    /* --- СВАЙП-МЕНЮ ДЛЯ ТЕЛЕФОНА --- */
     .main-menu {
-        flex-direction: column; /* Кнопки меню выстраиваются в столбик */
-        width: 100%;
+        flex-wrap: nowrap; /* Запрещаем перенос: выстраиваем в одну линию */
+        overflow-x: auto;  /* Включаем горизонтальную прокрутку */
+        -webkit-overflow-scrolling: touch; /* Плавный свайп на iPhone/iPad */
+        scroll-snap-type: x mandatory; /* Магнитное прилипание кнопок */
+        padding-bottom: 10px; /* Место для полоски прокрутки */
+        gap: 12px;
     }
-    
+
+    .main-menu li {
+        flex-shrink: 0; /* Кнопки не сжимаются */
+        scroll-snap-align: start; /* Кнопка прилипает к левому краю при свайпе */
+    }
+
     .main-menu li a {
-        width: 100%;
+        width: auto; /* Не растягиваем на всю ширину, пусть будут компактными */
         text-align: center;
-        padding: 15px;
+        padding: 12px 20px;
+        white-space: nowrap; /* Текст не переносится */
+    }
+
+    /* Стилизация полоски прокрутки (чтобы было видно, что можно листать) */
+    .main-menu::-webkit-scrollbar {
+        height: 6px;
+    }
+    .main-menu::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+    .main-menu::-webkit-scrollbar-thumb {
+        background: #C1A585;
+        border-radius: 3px;
     }
     
     .project-grid {
         grid-template-columns: 1fr; /* Одна карточка в ряд */
+    }
+
+    /* Адаптация блока связи для телефона */
+    .contact-section {
+        padding: 20px;
+    }
+    .contact-btn {
+        padding: 20px; /* Увеличиваем зону нажатия для пальца */
+        font-size: 1.1em;
     }
 }
