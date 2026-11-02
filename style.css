@@ -6,15 +6,13 @@
 }
 
 body {
-    /* Verdana — шрифт с широкими буквами, идеален для чтения */
     font-family: 'Verdana', 'Segoe UI', sans-serif; 
-    background-color: #FEF6E9; /* Спокойный кремовый фон без картинок */
-    color: #2c241b; /* Очень темный коричневый для максимального контраста */
-    font-size: 20px; /* Увеличенный базовый размер шрифта */
-    line-height: 1.8; /* Большой межстрочный интервал */
+    background-color: #FEF6E9;
+    color: #2c241b;
+    font-size: 20px;
+    line-height: 1.8;
 }
 
-/* ОТКЛЮЧАЕМ СТАРЫЕ ФОНОВЫЕ КАРТИНКИ, ЧТОБЫ ОНИ НЕ МЕШАЛИ */
 body::before, 
 body.home-page::before, 
 body.achievements-page::before, 
@@ -24,7 +22,7 @@ body.bilety-page::before {
 }
 
 .container {
-    max-width: 1000px; /* Немного сузили для удобства чтения */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -47,7 +45,7 @@ header {
 }
 
 .logo {
-    max-width: 80px; /* Логотип чуть крупнее */
+    max-width: 80px;
     height: auto;
     border-radius: 50%;
 }
@@ -57,11 +55,10 @@ header {
     color: #2c241b;
 }
 
-/* --- НАСТРОЙКИ МЕНЮ ДЛЯ КОМПЬЮТЕРА --- */
 .main-menu {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /* На ПК кнопки переносятся на новую строку, если не влезают */
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -69,13 +66,13 @@ header {
     display: inline-block;
     text-decoration: none;
     color: #ffffff;
-    background-color: #D98C2E; /* Оранжевый цвет кнопок */
+    background-color: #D98C2E;
     padding: 12px 20px;
     border-radius: 8px;
     font-weight: bold;
     font-size: 1em;
     transition: background-color 0.2s;
-    border: 2px solid #b8731e; /* Рамка для четкости */
+    border: 2px solid #b8731e;
 }
 
 .main-menu li a:hover, 
@@ -106,10 +103,9 @@ li {
 }
 
 strong {
-    color: #8b5a2b; /* Выделяем важные слова цветом, но не кричащим красным */
+    color: #8b5a2b;
 }
 
-/* Специальный стиль для блока-объявления про экзамены */
 .announcement {
     margin-top: 20px;
     padding: 15px;
@@ -148,7 +144,6 @@ strong {
     color: #4a3b2a;
 }
 
-/* Кнопки внутри карточек — крупные и удобные для пальца */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -160,8 +155,8 @@ strong {
     border-radius: 8px;
     font-size: 1.1em;
     font-weight: bold;
-    min-height: 50px; /* Стандартный размер для удобного нажатия на телефоне */
-    width: 100%; /* Кнопка на всю ширину карточки */
+    min-height: 50px;
+    width: 100%;
     transition: background-color 0.2s;
 }
 
@@ -183,7 +178,7 @@ strong {
     font-size: 1.6em;
     margin-bottom: 15px;
     color: #2c241b;
-    border-bottom: none; /* Убираем линию под заголовком здесь, чтобы было чище */
+    border-bottom: none;
 }
 
 .contact-section p {
@@ -224,10 +219,9 @@ strong {
     font-size: 1.5em;
 }
 
-/* Индивидуальные цвета кнопок (высокий контраст) */
-.btn-max { background-color: #0055CC; } /* Насыщенный синий */
-.btn-tg { background-color: #2AABEE; }  /* Голубой Телеграм */
-.btn-email { background-color: #D98C2E; } /* Оранжевый (в цвет сайта) */
+.btn-max { background-color: #0055CC; }
+.btn-tg { background-color: #2AABEE; }
+.btn-email { background-color: #D98C2E; }
 
 /* ========== ПОДВАЛ ========== */
 footer {
@@ -242,7 +236,7 @@ footer {
 /* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ========== */
 @media (max-width: 768px) {
     body {
-        font-size: 18px; /* Чуть меньше на телефоне, но всё равно крупно */
+        font-size: 18px;
     }
     
     .header-brand {
@@ -250,29 +244,27 @@ footer {
         text-align: center;
     }
     
-    /* --- СВАЙП-МЕНЮ ДЛЯ ТЕЛЕФОНА --- */
     .main-menu {
-        flex-wrap: nowrap; /* Запрещаем перенос: выстраиваем в одну линию */
-        overflow-x: auto;  /* Включаем горизонтальную прокрутку */
-        -webkit-overflow-scrolling: touch; /* Плавный свайп на iPhone/iPad */
-        scroll-snap-type: x mandatory; /* Магнитное прилипание кнопок */
-        padding-bottom: 10px; /* Место для полоски прокрутки */
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
         gap: 12px;
     }
 
     .main-menu li {
-        flex-shrink: 0; /* Кнопки не сжимаются */
-        scroll-snap-align: start; /* Кнопка прилипает к левому краю при свайпе */
+        flex-shrink: 0;
+        scroll-snap-align: start;
     }
 
     .main-menu li a {
-        width: auto; /* Не растягиваем на всю ширину, пусть будут компактными */
+        width: auto;
         text-align: center;
         padding: 12px 20px;
-        white-space: nowrap; /* Текст не переносится */
+        white-space: nowrap;
     }
 
-    /* Стилизация полоски прокрутки (чтобы было видно, что можно листать) */
     .main-menu::-webkit-scrollbar {
         height: 6px;
     }
@@ -286,15 +278,14 @@ footer {
     }
     
     .project-grid {
-        grid-template-columns: 1fr; /* Одна карточка в ряд */
+        grid-template-columns: 1fr;
     }
 
-    /* Адаптация блока связи для телефона */
     .contact-section {
         padding: 20px;
     }
     .contact-btn {
-        padding: 20px; /* Увеличиваем зону нажатия для пальца */
+        padding: 20px;
         font-size: 1.1em;
     }
 }
