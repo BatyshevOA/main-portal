@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портал проектов Батышева О.А.</title>
-    <!-- Добавлен ?v=2 для принудительного обновления стилей в браузере -->
     <link rel="stylesheet" href="style.css?v=2">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -45,8 +44,88 @@
             </ul>
             <p>Выбирайте раздел в меню и начинайте подготовку прямо сейчас!</p>
             
-            <!-- Исправлено: был одинокий тег <li> вне списка, теперь это аккуратный блок-объявление -->
             <p class="announcement"><strong>📢 Экзамены:</strong> Скоро в этом разделе будут размещены фотографии с экзаменов по столярному делу.</p>
         </section>
 
-        <div class
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Аудио сайт</h3>
+                <p>Проект, посвященный аудио материалам.</p>
+                <a href="audio_site/index.html" class="btn">Перейти к проекту</a>
+            </div>
+            <div class="project-card">
+                <h3>Билеты</h3>
+                <p>Проект, содержащий материалы по билетам.</p>
+                <a href="batyshev-portfolio/index.html" class="btn">Перейти к проекту</a>
+            </div>
+            <div class="project-card">
+                <h3>Общие тесты</h3>
+                <p>Третий сайт из списка.</p>
+                <a href="generaltest/index.html" class="btn">Перейти к проекту</a>
+            </div>
+            <div class="project-card">
+                <h3>Дополнительные тесты</h3>
+                <p>Четвертый сайт из списка.</p>
+                <a href="extest/index.html" class="btn">Перейти к проекту</a>
+            </div>
+            <div class="project-card">
+                <h3>Вопросы наводящие</h3>
+                <p>Список вопросов для самопроверки к каждому билету.</p>
+                <a href="extest/voprosy-biletov.html" class="btn">Перейти к вопросам</a>
+            </div>
+            <div class="project-card">
+                <h3>Тесты по билетам</h3>
+                <p>Проверка знаний по всем 15 билетам с таймером и подсчетом результатов.</p>
+                <a href="extest/testy-po-biletam.html" class="btn">Перейти к тестам</a>
+            </div>
+            <div class="project-card">
+                <h3>Галерея работ</h3>
+                <p>Фотографии столярных изделий учеников школы.</p>
+                <a href="wood-gallery/" class="btn">Перейти в галерею</a>
+            </div>
+            <div class="project-card">
+                <h3>Наши достижения</h3>
+                <p>Дипломы, сертификаты, грамоты учеников и педагога.</p>
+                <a href="achievements.html" class="btn">Перейти к достижениям</a>
+            </div>
+            <div class="project-card">
+                <h3>Экзамены</h3>
+                <p>Фотографии с экзаменов по столярному делу.</p>
+                <a href="exams.html" class="btn">Перейти к разделу</a>
+            </div>
+        </div>
+
+        <!-- БЛОК ОБРАТНОЙ СВЯЗИ -->
+        <section class="contact-section">
+            <h2>Связаться с учителем</h2>
+            <p>Если у вас есть вопросы, напишите мне удобным способом:</p>
+            
+            <div class="contact-grid">
+                <a href="https://max.ru/u/f9LHodD0cOJ1I9wxHwzeBLR9Zeq34fCgxnmbgrk165DE0pu2Of3LfvHxYeU" class="contact-btn btn-max" target="_blank" rel="noopener">
+                    <span class="icon">💬</span>
+                    <span class="text">Написать в MAX</span>
+                </a>
+                
+                <a href="https://t.me/LENSK" class="contact-btn btn-tg" target="_blank" rel="noopener">
+                    <span class="icon">✈️</span>
+                    <span class="text">Написать в Telegram</span>
+                </a>
+                
+                <a href="mailto:axli2006@yandex.ru" class="contact-btn btn-email">
+                    <span class="icon">✉️</span>
+                    <span class="text">Написать на почту</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Батышев О.А. Все права защищены.</p>
+            <p>Посещений: <img src="https://visitor-badge.laobi.icu/badge?page_id=batyshevoa-portal" alt="счётчик посещений"></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
