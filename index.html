@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портал проектов Батышева О.А.</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Добавлен ?v=2 для принудительного обновления стилей в браузере -->
+    <link rel="stylesheet" href="style.css?v=2">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="home-page">
@@ -24,7 +25,7 @@
                     <li><a href="extest/voprosy-biletov.html">Вопросы наводящие</a></li>
                     <li><a href="extest/testy-po-biletam.html">Тесты по билетам</a></li>
                     <li><a href="achievements.html">Наши достижения</a></li>
-                    <li><a href="exams.html">Экзамены</a></li>               <!-- НОВЫЙ ПУНКТ -->
+                    <li><a href="exams.html">Экзамены</a></li>
                     <li><a href="guestbook.html">Гостевая книга</a></li>
                     <li><a href="wood-gallery/">Галерея работ</a></li>
                 </ul>
@@ -39,69 +40,13 @@
             <ul>
                 <li><strong>«Вопросы наводящие»</strong> – дополнительная проработка каждого билета.</li>
                 <li><strong>«Тесты по билетам»</strong> – интерактивная проверка с таймером.</li>
-                <li><strong>Галерея работ</strong> – вдохновляющие примеры изделий учеников, постоянное пополнение галереи!.</li>
-                 <li><strong>Наши достижения:</strong> дипломы, гарамоты и т.д - так же постоянное пополнение.</li>
+                <li><strong>Галерея работ</strong> – вдохновляющие примеры изделий учеников, постоянное пополнение галереи!</li>
+                <li><strong>Наши достижения:</strong> дипломы, грамоты и т.д. – также постоянное пополнение.</li>
             </ul>
             <p>Выбирайте раздел в меню и начинайте подготовку прямо сейчас!</p>
-            <li><strong>Экзамены:</strong> Скоро в этом разделе будут размещены фотографии с экзаменов по столярному делу</li>
+            
+            <!-- Исправлено: был одинокий тег <li> вне списка, теперь это аккуратный блок-объявление -->
+            <p class="announcement"><strong>📢 Экзамены:</strong> Скоро в этом разделе будут размещены фотографии с экзаменов по столярному делу.</p>
         </section>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Аудио сайт</h3>
-                <p>Проект, посвященный аудио материалам.</p>
-                <a href="audio_site/index.html" class="btn">Перейти к проекту</a>
-            </div>
-            <div class="project-card">
-                <h3>Билеты</h3>
-                <p>Проект, содержащий материалы по билетам.</p>
-                <a href="batyshev-portfolio/index.html" class="btn">Перейти к проекту</a>
-            </div>
-            <div class="project-card">
-                <h3>Общие тесты</h3>
-                <p>Третий сайт из списка.</p>
-                <a href="generaltest/index.html" class="btn">Перейти к проекту</a>
-            </div>
-            <div class="project-card">
-                <h3>Дополнительные тесты</h3>
-                <p>Четвертый сайт из списка.</p>
-                <a href="extest/index.html" class="btn">Перейти к проекту</a>
-            </div>
-            <div class="project-card">
-                <h3>Вопросы наводящие</h3>
-                <p>Список вопросов для самопроверки к каждому билету.</p>
-                <a href="extest/voprosy-biletov.html" class="btn">Перейти к вопросам</a>
-            </div>
-            <div class="project-card">
-                <h3>Тесты по билетам</h3>
-                <p>Проверка знаний по всем 15 билетам с таймером и подсчетом результатов.</p>
-                <a href="extest/testy-po-biletam.html" class="btn">Перейти к тестам</a>
-            </div>
-            <div class="project-card">
-                <h3>Галерея работ</h3>
-                <p>Фотографии столярных изделий учеников школы.</p>
-                <a href="wood-gallery/" class="btn">Перейти в галерею</a>
-            </div>
-            <div class="project-card">
-                <h3>Наши достижения</h3>
-                <p>Дипломы, сертификаты, грамоты учеников и педагога.</p>
-                <a href="achievements.html" class="btn">Перейти к достижениям</a>
-            </div>
-            <!-- НОВАЯ КАРТОЧКА ПРОЕКТА "ЭКЗАМЕНЫ" -->
-            <div class="project-card">
-                <h3>Экзамены</h3>
-                <p>Фотографии с экзаменов по столярному делу.</p>
-                <a href="exams.html" class="btn">Перейти к разделу</a>
-            </div>
-        </div>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; <span id="currentYear"></span> Батышев О.А. Все права защищены.</p>
-            <p>Посещений: <img src="https://visitor-badge.laobi.icu/badge?page_id=batyshevoa-portal" alt="счётчик"></p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <div class
